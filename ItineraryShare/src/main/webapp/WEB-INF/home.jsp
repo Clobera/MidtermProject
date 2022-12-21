@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Itinerary Share</title>
+${SMOKETEST}
 </head>
 <body>
 <h1>Itinerary Share</h1>
