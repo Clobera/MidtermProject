@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `password` VARCHAR(45) NOT NULL,
   `enabled` TINYINT(4) NULL DEFAULT '1',
   `role` VARCHAR(45) NULL DEFAULT NULL,
-  `profile_picture` VARCHAR(2048) NULL DEFAULT NULL,
+  `profile_picture` VARCHAR(2048) NULL DEFAULT 'https://t4.ftcdn.net/jpg/03/46/93/61/360_F_346936114_RaxE6OQogebgAWTalE1myseY1Hbb5qPM.jpg',
   `first_name` VARCHAR(100) NULL,
   `last_name` VARCHAR(100) NULL,
   `biography` TEXT NULL,
@@ -75,7 +75,7 @@ CREATE TABLE IF NOT EXISTS `itinerary_comment` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `user_id` INT(11) NOT NULL,
   `post` TEXT NOT NULL,
-  `reply` INT(11) NULL DEFAULT NULL,
+  `reply` INT(11) NULL,
   `itinerary_id` INT(11) NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_user_id_idx` (`user_id` ASC),
@@ -154,12 +154,12 @@ CREATE TABLE IF NOT EXISTS `review` (
   `comment` TEXT NULL DEFAULT NULL,
   `rating` INT(1) UNSIGNED NOT NULL DEFAULT '0',
   `user_id` INT(11) NOT NULL,
-  `destination_id` INT(11) NOT NULL,
+  `itinerary_item_id` INT(11) NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_review_user1_idx` (`user_id` ASC),
-  INDEX `fk_review_destination1_idx` (`destination_id` ASC),
+  INDEX `fk_review_destination1_idx` (`itinerary_item_id` ASC),
   CONSTRAINT `fk_review_destination1`
-    FOREIGN KEY (`destination_id`)
+    FOREIGN KEY (`itinerary_item_id`)
     REFERENCES `itinerary_item` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
@@ -322,7 +322,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `itinerarysharedb`;
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `profile_picture`, `first_name`, `last_name`, `biography`) VALUES (1, 'admin', 'chaotic_slime', 1, 'ADMIN', NULL, NULL, NULL, NULL);
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `profile_picture`, `first_name`, `last_name`, `biography`) VALUES (1, 'admin', 'chaotic_slime', 1, 'ADMIN', 'https://t4.ftcdn.net/jpg/03/46/93/61/360_F_346936114_RaxE6OQogebgAWTalE1myseY1Hbb5qPM.jpg', 'Chaotic', 'Slime', 'this is the chaotic slime admin account!');
 
 COMMIT;
 
@@ -332,7 +332,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `itinerarysharedb`;
-INSERT INTO `itinerary` (`id`, `active`, `budget`, `start_date`, `end_date`, `image`, `user_id`, `name`, `description`) VALUES (1, 1, 2000.00, '2022-12-25', '2022-12-30', NULL, 1, DEFAULT, NULL);
+INSERT INTO `itinerary` (`id`, `active`, `budget`, `start_date`, `end_date`, `image`, `user_id`, `name`, `description`) VALUES (1, 1, 2000.00, '2022-12-25', '2022-12-30', 'https://t4.ftcdn.net/jpg/03/46/93/61/360_F_346936114_RaxE6OQogebgAWTalE1myseY1Hbb5qPM.jpg', 1, 'Summer Trip 2022', 'blah blah blahhhhh');
 
 COMMIT;
 
@@ -343,6 +343,36 @@ COMMIT;
 START TRANSACTION;
 USE `itinerarysharedb`;
 INSERT INTO `itinerary_comment` (`id`, `user_id`, `post`, `reply`, `itinerary_id`) VALUES (1, 1, 'This trip was great', NULL, 1);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `destination`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `itinerarysharedb`;
+INSERT INTO `destination` (`id`, `name`, `description`, `image`, `country`, `city`) VALUES (1, 'Salt Lakes', 'salty', 'https://cdn.britannica.com/36/193436-050-6054715D/Antelope-Island-Great-Salt-Lake-Utah.jpg', 'United States', 'Utah');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `itinerary_item`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `itinerarysharedb`;
+INSERT INTO `itinerary_item` (`id`, `itinerary_id`, `trip_day`, `destination_id`, `description`) VALUES (1, 1, 1, 1, 'salt lakes utah');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `review`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `itinerarysharedb`;
+INSERT INTO `review` (`id`, `comment`, `rating`, `user_id`, `itinerary_item_id`) VALUES (1, 'so salty my eyes burned', 1, 1, 1);
 
 COMMIT;
 
@@ -367,6 +397,36 @@ INSERT INTO `travel_detail_type` (`id`, `name`) VALUES (2, 'train');
 INSERT INTO `travel_detail_type` (`id`, `name`) VALUES (3, 'rental car');
 INSERT INTO `travel_detail_type` (`id`, `name`) VALUES (4, 'accommodation');
 INSERT INTO `travel_detail_type` (`id`, `name`) VALUES (5, 'dining');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `travel_detail`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `itinerarysharedb`;
+INSERT INTO `travel_detail` (`id`, `description`, `itinerary_item_id`, `travel_detail_type_id`) VALUES (1, 'flying to utah', 1, 1);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `destination_comment`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `itinerarysharedb`;
+INSERT INTO `destination_comment` (`id`, `user_id`, `post`, `reply`, `destination_id`) VALUES (1, 1, 'that lake is super salty!', NULL, 1);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `destination_rating`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `itinerarysharedb`;
+INSERT INTO `destination_rating` (`rating`, `rating_comment`, `destination_id`, `user_id`) VALUES (5, 'a summer ill never forget', 1, 1);
 
 COMMIT;
 
