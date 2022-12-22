@@ -430,3 +430,13 @@ INSERT INTO `destination_rating` (`rating`, `rating_comment`, `destination_id`, 
 
 COMMIT;
 
+
+-- -----------------------------------------------------
+-- Data for table `trip_picture`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `itinerarysharedb`;
+INSERT INTO `trip_picture` (`id`, `image_url`, `itinerary_item_id`) VALUES (1, 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cm9hZCUyMHRyaXB8ZW58MHx8MHx8&w=1000&q=80', 1);
+
+COMMIT;
+
