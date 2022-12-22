@@ -48,7 +48,6 @@ CREATE TABLE IF NOT EXISTS `itinerary` (
   `end_date` DATE NULL,
   `image` VARCHAR(2048) NULL DEFAULT 'https://media.istockphoto.com/photos/couple-relax-on-the-beach-enjoy-beautiful-sea-on-the-tropical-island-picture-id1160947136?b=1&k=20&m=1160947136&s=612x612&w=0&h=AsFmKSBYTtacl0DvI-RanCnAXFU0cmuW8NAo0g-tGzA=',
   `user_id` INT NOT NULL,
-  `rating` INT UNSIGNED NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   INDEX `fk_itinerary_user1_idx` (`user_id` ASC),
   CONSTRAINT `fk_itinerary_user1`
@@ -153,7 +152,6 @@ CREATE TABLE IF NOT EXISTS `destination` (
   INDEX `fk_rental_car_id_idx` (`rental_car_id` ASC),
   INDEX `fk_previous_destination_id_idx` (`previous_destination` ASC),
   INDEX `fk_next_destination_id_idx` (`next_destination` ASC),
-  INDEX `fk_itinerary_id_idx` (`itinerary_id` ASC),
   CONSTRAINT `fk_event_id`
     FOREIGN KEY (`event_id`)
     REFERENCES `event` (`id`)
@@ -187,11 +185,6 @@ CREATE TABLE IF NOT EXISTS `destination` (
   CONSTRAINT `fk_next_destination_id`
     FOREIGN KEY (`next_destination`)
     REFERENCES `destination` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_itinerary_id`
-    FOREIGN KEY (`itinerary_id`)
-    REFERENCES `itinerary` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -232,50 +225,19 @@ CREATE TABLE IF NOT EXISTS `comment` (
   `post` TEXT NOT NULL,
   `reply` INT NULL,
   `itinerary_id` INT NOT NULL,
+  `itinerary_id1` INT NOT NULL,
+  `user_id1` INT NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_user_id_idx` (`user_id` ASC),
-  INDEX `fk_reply_id_idx` (`reply` ASC),
-  INDEX `fk_comment_itinerary1_idx` (`itinerary_id` ASC),
-  CONSTRAINT `fk_user_id`
-    FOREIGN KEY (`user_id`)
-    REFERENCES `user` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_reply_id`
-    FOREIGN KEY (`reply`)
-    REFERENCES `comment` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_comment_itinerary`
-    FOREIGN KEY (`itinerary_id`)
+  INDEX `fk_comment_itinerary1_idx` (`itinerary_id1` ASC),
+  INDEX `fk_comment_user1_idx` (`user_id1` ASC),
+  CONSTRAINT `fk_comment_itinerary1`
+    FOREIGN KEY (`itinerary_id1`)
     REFERENCES `itinerary` (`id`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `review`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `review` ;
-
-CREATE TABLE IF NOT EXISTS `review` (
-  `id` INT NOT NULL,
-  `comment` TEXT NULL,
-  `rating` INT(1) UNSIGNED NOT NULL DEFAULT 0,
-  `user_id` INT NOT NULL,
-  `destination_id` INT NOT NULL,
-  PRIMARY KEY (`id`),
-  INDEX `fk_review_user1_idx` (`user_id` ASC),
-  INDEX `fk_review_destination1_idx` (`destination_id` ASC),
-  CONSTRAINT `fk_review_user1`
-    FOREIGN KEY (`user_id`)
-    REFERENCES `user` (`id`)
-    ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_review_destination1`
-    FOREIGN KEY (`destination_id`)
-    REFERENCES `destination` (`id`)
+  CONSTRAINT `fk_comment_user1`
+    FOREIGN KEY (`user_id1`)
+    REFERENCES `user` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
