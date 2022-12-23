@@ -17,8 +17,8 @@ public class TripPicture {
 	private int id;
 	@Column(name="image_url")
 	private String imageUrl;
-	@JoinColumn(name="itinerary_item")
-	private ItineraryItem itineraryItem;
+//	@JoinColumn(name="itinerary_item")
+//	private ItineraryItem itineraryItem;
 	
 	public TripPicture () {}
 	
@@ -34,12 +34,12 @@ public class TripPicture {
 	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
 	}
-	public ItineraryItem getItineraryItem() {
-		return itineraryItem;
-	}
-	public void setItineraryItem(ItineraryItem itineraryItem) {
-		this.itineraryItem = itineraryItem;
-	}
+//	public ItineraryItem getItineraryItem() {
+//		return itineraryItem;
+//	}
+//	public void setItineraryItem(ItineraryItem itineraryItem) {
+//		this.itineraryItem = itineraryItem;
+//	}
 
 	@Override
 	public int hashCode() {
