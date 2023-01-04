@@ -35,6 +35,8 @@ public class Itinerary {
 	private String description;
 	@OneToMany(mappedBy="itinerary")
 	private List<ItineraryItem> itineraryItems;
+	@OneToMany(mappedBy="itinerary")
+	private List<ItineraryComment> comments;
 
 	public int getId() {
 		return id;
@@ -106,6 +108,22 @@ public class Itinerary {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public List<ItineraryItem> getItineraryItems() {
+		return itineraryItems;
+	}
+
+	public void setItineraryItems(List<ItineraryItem> itineraryItems) {
+		this.itineraryItems = itineraryItems;
+	}
+
+	public List<ItineraryComment> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<ItineraryComment> comments) {
+		this.comments = comments;
 	}
 
 	@Override
