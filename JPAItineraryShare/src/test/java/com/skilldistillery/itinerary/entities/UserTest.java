@@ -46,6 +46,7 @@ class UserTest {
 	void test() {
 		assertNotNull(user);
 		assertEquals("admin", user.getUsername());
+		assertEquals("chaotic_slime", user.getPassword());
 	}
 
 }
