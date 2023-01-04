@@ -1,7 +1,6 @@
 package com.skilldistillery.itinerary.entities;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -13,11 +12,10 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class DestinationTest {
-	
+class TripPictureTest {
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private Destination destination;
+	private TripPicture tripPicture;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -32,21 +30,18 @@ class DestinationTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em= emf.createEntityManager();
-		destination = em.find(Destination.class, 1);
+		tripPicture = em.find(TripPicture.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		destination = null;
+		tripPicture = null;
 	}
 
 	@Test
-	void test() {
-		assertNotNull(destination);
-		assertEquals("Utah", destination.getCity());
-		assertEquals("Salt Lakes", destination.getName());
-		assertEquals("salty", destination.getDescription());
+	void test_trip_picture_entity() {
+		assertNotNull(tripPicture);
+		assertEquals("https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cm9hZCUyMHRyaXB8ZW58MHx8MHx8&w=1000&q=80", tripPicture.getImageUrl());
 	}
-
 }
