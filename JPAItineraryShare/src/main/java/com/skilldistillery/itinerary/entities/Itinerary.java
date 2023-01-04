@@ -37,6 +37,8 @@ public class Itinerary {
 	private List<ItineraryItem> itineraryItems;
 	@OneToMany(mappedBy="itinerary")
 	private List<ItineraryComment> comments;
+	@OneToMany(mappedBy="itinerary")
+	private List<Bookmark> bookmarks;
 
 	public int getId() {
 		return id;
@@ -124,6 +126,14 @@ public class Itinerary {
 
 	public void setComments(List<ItineraryComment> comments) {
 		this.comments = comments;
+	}
+
+	public List<Bookmark> getBookmarks() {
+		return bookmarks;
+	}
+
+	public void setBookmarks(List<Bookmark> bookmarks) {
+		this.bookmarks = bookmarks;
 	}
 
 	@Override

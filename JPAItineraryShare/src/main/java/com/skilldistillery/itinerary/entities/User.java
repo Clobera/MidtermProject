@@ -31,8 +31,10 @@ public class User {
 	@Column(name="last_name")
 	private String lastName;
 	private String biography;
-//	@OneToMany(mappedBy="user_has_bookmarked_itinerary")
-//	private List<Itinerary> bookmarks;
+	@OneToMany(mappedBy="user")
+	private List<Bookmark> bookmarks;
+	@OneToMany(mappedBy="userId")
+	private List<Itinerary> itineraries;
 
 	public User() {
 		super();
@@ -108,6 +110,22 @@ public class User {
 
 	public void setBiography(String biography) {
 		this.biography = biography;
+	}
+
+	public List<Bookmark> getBookmarks() {
+		return bookmarks;
+	}
+
+	public void setBookmarks(List<Bookmark> bookmarks) {
+		this.bookmarks = bookmarks;
+	}
+
+	public List<Itinerary> getItineraries() {
+		return itineraries;
+	}
+
+	public void setItineraries(List<Itinerary> itineraries) {
+		this.itineraries = itineraries;
 	}
 
 	@Override
