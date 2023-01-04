@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Review {
@@ -15,6 +16,7 @@ public class Review {
 	private int id;
 	private String comment;
 	private Integer rating;
+	@ManyToOne
 	@JoinColumn(name="user_id")
 	private User user;
 //	@JoinColumn(name="itinerary_item_id")

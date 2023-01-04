@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -17,8 +18,10 @@ public class TravelDetail {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String description;
-//	@JoinColumn(name="itinerary_item_id")
-//	private ItineraryItem itineraryItem;
+	@ManyToOne
+	@JoinColumn(name="itinerary_item_id")
+	private ItineraryItem itineraryItem;
+	@ManyToOne
 	@JoinColumn(name="travel_detail_type_id")
 	private TravelDetailType travelDetailType;
 	
@@ -40,13 +43,13 @@ public class TravelDetail {
 		this.description = description;
 	}
 
-//	public ItineraryItem getItineraryItem() {
-//		return itineraryItem;
-//	}
-//
-//	public void setItineraryItem(ItineraryItem itineraryItem) {
-//		this.itineraryItem = itineraryItem;
-//	}
+	public ItineraryItem getItineraryItem() {
+		return itineraryItem;
+	}
+
+	public void setItineraryItem(ItineraryItem itineraryItem) {
+		this.itineraryItem = itineraryItem;
+	}
 
 	public TravelDetailType getTravelDetailType() {
 		return travelDetailType;

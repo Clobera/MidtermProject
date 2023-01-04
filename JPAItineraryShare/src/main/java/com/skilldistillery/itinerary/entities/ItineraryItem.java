@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -20,6 +21,7 @@ public class ItineraryItem {
 //	private Itinerary itinerary;
 	@Column(name="trip_day")
 	private Integer tripDay;
+	@ManyToOne
 	@JoinColumn(name="destination_id")
 	private Destination destination;
 	private String description;

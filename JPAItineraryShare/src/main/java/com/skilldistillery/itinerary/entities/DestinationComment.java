@@ -2,12 +2,12 @@ package com.skilldistillery.itinerary.entities;
 
 import java.util.Objects;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -17,15 +17,16 @@ public class DestinationComment {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-
+	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User user;
 
 	private String post;
-	
-	private int reply;
-	
-	@Column(name = "destination_id")
+	@ManyToOne
+	@JoinColumn(name="reply")
+	private DestinationComment reply;
+	@ManyToOne
+	@JoinColumn(name = "destination_id")
 	private Destination destination;
 
 	public int getId() {
@@ -52,15 +53,17 @@ public class DestinationComment {
 		this.post = post;
 	}
 
-	public int getReply() {
+
+
+	
+
+	public DestinationComment getReply() {
 		return reply;
 	}
 
-	public void setReply(int reply) {
+	public void setReply(DestinationComment reply) {
 		this.reply = reply;
 	}
-
-	
 
 	public Destination getDestination() {
 		return destination;
