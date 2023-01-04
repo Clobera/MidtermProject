@@ -6,6 +6,16 @@
     </provider>
     
     <!-- begin entities -->
+    <class>com.skilldistillery.itinerary.entities.Destination</class>
+    <class>com.skilldistillery.itinerary.entities.DestinationComment</class>
+    <class>com.skilldistillery.itinerary.entities.DestinationRating</class>
+    <class>com.skilldistillery.itinerary.entities.Itinerary</class>
+    <class>com.skilldistillery.itinerary.entities.ItineraryComment</class>
+    <class>com.skilldistillery.itinerary.entities.ItineraryItem</class>
+    <class>com.skilldistillery.itinerary.entities.Review</class>
+    <class>com.skilldistillery.itinerary.entities.TravelDetail</class>
+    <class>com.skilldistillery.itinerary.entities.TravelDetailType</class>
+    <class>com.skilldistillery.itinerary.entities.TripPicture</class>
     <class>com.skilldistillery.itinerary.entities.User</class>
     
     <!-- end entities -->

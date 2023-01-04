@@ -9,6 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="destination_rating")
+@Entity
 public class DestinationRating {
 
 	private int rating;
