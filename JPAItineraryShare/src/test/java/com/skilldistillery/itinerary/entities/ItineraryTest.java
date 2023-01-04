@@ -3,15 +3,11 @@ package com.skilldistillery.itinerary.entities;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-import java.sql.Date;
-import java.time.LocalDate;
 import java.time.Month;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.print.attribute.DateTimeSyntax;
-import javax.print.attribute.standard.DateTimeAtCompleted;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -51,6 +47,7 @@ class ItineraryTest {
 	void test_itinerary_entity() {
 		assertNotNull(itinerary);
 		assertEquals(Month.DECEMBER, itinerary.getStartDate().getMonth());
+		assertEquals("Summer Trip 2022", itinerary.getName());
 	}
 
 }
