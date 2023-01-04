@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.sql.Date;
 import java.time.LocalDate;
+import java.time.Month;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -49,7 +50,7 @@ class ItineraryTest {
 	@Test
 	void test_itinerary_entity() {
 		assertNotNull(itinerary);
-//		assertEquals(, itinerary.getStartDate().getMonth());
+		assertEquals(Month.DECEMBER, itinerary.getStartDate().getMonth());
 	}
 
 }
