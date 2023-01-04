@@ -17,8 +17,9 @@ public class ItineraryItem {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-//	@JoinColumn(name="itinerary_id")
-//	private Itinerary itinerary;
+	@ManyToOne
+	@JoinColumn(name="itinerary_id")
+	private Itinerary itinerary;
 	@Column(name="trip_day")
 	private Integer tripDay;
 	@ManyToOne
@@ -36,13 +37,13 @@ public class ItineraryItem {
 		this.id = id;
 	}
 
-//	public Itinerary getItinerary() {
-//		return itinerary;
-//	}
-//
-//	public void setItinerary(Itinerary itinerary) {
-//		this.itinerary = itinerary;
-//	}
+	public Itinerary getItinerary() {
+		return itinerary;
+	}
+
+	public void setItinerary(Itinerary itinerary) {
+		this.itinerary = itinerary;
+	}
 
 	public Integer getTripDay() {
 		return tripDay;

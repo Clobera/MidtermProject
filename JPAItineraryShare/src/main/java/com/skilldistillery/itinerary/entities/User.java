@@ -1,5 +1,6 @@
 package com.skilldistillery.itinerary.entities;
 
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -7,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
 
 @Entity
 public class User {
@@ -28,6 +31,8 @@ public class User {
 	@Column(name="last_name")
 	private String lastName;
 	private String biography;
+//	@OneToMany(mappedBy="user_has_bookmarked_itinerary")
+//	private List<Itinerary> bookmarks;
 
 	public User() {
 		super();

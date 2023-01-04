@@ -19,8 +19,9 @@ public class Review {
 	@ManyToOne
 	@JoinColumn(name="user_id")
 	private User user;
-//	@JoinColumn(name="itinerary_item_id")
-//	private ItineraryItem itineraryItem;
+	@ManyToOne
+	@JoinColumn(name="itinerary_item_id")
+	private ItineraryItem itineraryItem;
 	
 	public Review () {}
 
@@ -56,13 +57,13 @@ public class Review {
 		this.user = user;
 	}
 
-//	public ItineraryItem getItineraryItem() {
-//		return itineraryItem;
-//	}
-//
-//	public void setItineraryItem(ItineraryItem itineraryItem) {
-//		this.itineraryItem = itineraryItem;
-//	}
+	public ItineraryItem getItineraryItem() {
+		return itineraryItem;
+	}
+
+	public void setItineraryItem(ItineraryItem itineraryItem) {
+		this.itineraryItem = itineraryItem;
+	}
 
 	@Override
 	public int hashCode() {

@@ -1,6 +1,7 @@
 package com.skilldistillery.itinerary.entities;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -10,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -19,26 +21,20 @@ public class Itinerary {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
 	private boolean active;
-	
 	private double budget;
-
 	@Column(name="start_date")
 	private LocalDateTime startDate;
-
 	@Column(name="end_date")
 	private LocalDateTime endDate;
-	
 	private String image;
-	
 	@ManyToOne
 	@JoinColumn(name="user_id")
 	private User userId;
-	
 	private String name;
-	
 	private String description;
+	@OneToMany(mappedBy="itinerary")
+	private List<ItineraryItem> itineraryItems;
 
 	public int getId() {
 		return id;
