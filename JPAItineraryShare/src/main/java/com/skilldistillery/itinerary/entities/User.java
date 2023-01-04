@@ -64,6 +64,21 @@ public class User {
 		}
 	}
 
+	public void addBookmarks(Bookmark bookmark) {
+		if (bookmarks == null) {
+			bookmarks = new ArrayList<>();
+		}
+		if (!bookmarks.contains(bookmark)) {
+			bookmarks.add(bookmark);
+		}
+	}
+
+	public void removeBookmarks(Bookmark bookmark) {
+		if (bookmarks != null && bookmarks.contains(bookmark)) {
+			bookmarks.remove(bookmark);
+		}
+	}
+	
 	public int getId() {
 		return id;
 	}

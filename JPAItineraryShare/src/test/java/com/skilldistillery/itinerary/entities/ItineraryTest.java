@@ -2,6 +2,7 @@ package com.skilldistillery.itinerary.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.time.Month;
 
@@ -57,5 +58,16 @@ class ItineraryTest {
 	void test_many_to_one_entity_mappings () {
 		assertNotNull(itinerary);
 		assertEquals("Chaotic", itinerary.getUserId().getFirstName());
+	}
+	
+	@Test
+	void test_itinerary_OneToMany_RM () {
+		assertNotNull(itinerary);
+		assertNotNull(itinerary.getItineraryItems());
+		assertTrue(itinerary.getItineraryItems().size()>0);
+		assertNotNull(itinerary.getComments());
+		assertTrue(itinerary.getComments().size()>0);
+		assertNotNull(itinerary.getBookmarks());
+		assertTrue(itinerary.getBookmarks().size()>0);
 	}
 }

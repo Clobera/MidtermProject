@@ -1,6 +1,7 @@
 package com.skilldistillery.itinerary.entities;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -51,6 +52,59 @@ public class Itinerary {
 	@OneToMany(mappedBy="itinerary")
 	private List<Bookmark> bookmarks;
 
+
+	public void addItineraryItem(ItineraryItem itineraryItem) {
+		if (itineraryItems == null) {
+			itineraryItems = new ArrayList<>();
+		}
+		if (!itineraryItems.contains(itineraryItem)) {
+			itineraryItems.add(itineraryItem);
+			itineraryItem.getItinerary().removeItineraryItem(itineraryItem);
+		}
+	}
+
+	public void removeItineraryItem(ItineraryItem itineraryItem) {
+		if (itineraryItems != null && itineraryItems.contains(itineraryItem)) {
+			itineraryItems.remove(itineraryItem);
+		}
+	}
+	
+
+	public void addComment(ItineraryComment itineraryComment) {
+		if (comments == null) {
+			comments = new ArrayList<>();
+		}
+		if (!comments.contains(itineraryComment)) {
+			comments.add(itineraryComment);
+			itineraryComment.getItinerary().removeComment(itineraryComment);
+		}
+	}
+
+	public void removeComment(ItineraryComment itineraryComment) {
+		if (comments != null && comments.contains(itineraryComment)) {
+			comments.remove(itineraryComment);
+		}
+	}
+	
+
+	public void addBookmark(Bookmark bookmark) {
+		if (bookmarks == null) {
+			bookmarks = new ArrayList<>();
+		}
+		if (!bookmarks.contains(bookmark)) {
+			bookmarks.add(bookmark);
+			bookmark.getItinerary().removeBookmark(bookmark);
+		}
+	}
+
+	public void removeBookmark(Bookmark bookmark) {
+		if (bookmarks != null && bookmarks.contains(bookmark)) {
+			bookmarks.remove(bookmark);
+		}
+	}
+	
+	public Itinerary () {}
+	
 	public int getId() {
 		return id;
 	}

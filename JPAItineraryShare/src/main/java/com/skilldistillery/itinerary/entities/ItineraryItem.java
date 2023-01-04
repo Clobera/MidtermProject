@@ -1,5 +1,6 @@
 package com.skilldistillery.itinerary.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -28,10 +29,28 @@ public class ItineraryItem {
 	@JoinColumn(name="destination_id")
 	private Destination destination;
 	private String description;
-//	@OneToMany(mappedBy="itinerary")
-//	private List<TripPicture> pictures;
+	@OneToMany(mappedBy="itineraryItem")
+	private List<TripPicture> pictures;
 	
 	public ItineraryItem () {}
+	
+	public void addPictures(TripPicture picture) {
+		if (pictures == null) {
+			pictures = new ArrayList<>();
+		}
+		if (!pictures.contains(picture)) {
+			pictures.add(picture);
+			picture.getItineraryItem().removePictures(picture);
+		}
+		
+	}
+
+	public void removePictures(TripPicture picture) {
+		if (pictures != null && pictures.contains(picture)) {
+			pictures.remove(picture);
+			picture.getItineraryItem().removePictures(picture);
+		}
+	}
 
 	public int getId() {
 		return id;
@@ -73,13 +92,13 @@ public class ItineraryItem {
 		this.description = description;
 	}
 
-//	public List<TripPicture> getPictures() {
-//		return pictures;
-//	}
-//
-//	public void setPictures(List<TripPicture> pictures) {
-//		this.pictures = pictures;
-//	}
+	public List<TripPicture> getPictures() {
+		return pictures;
+	}
+
+	public void setPictures(List<TripPicture> pictures) {
+		this.pictures = pictures;
+	}
 
 	@Override
 	public int hashCode() {
