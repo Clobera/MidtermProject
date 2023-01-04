@@ -47,5 +47,12 @@ class UserTest {
 		assertEquals("admin", user.getUsername());
 		assertEquals("chaotic_slime", user.getPassword());
 	}
+	
+	@Test
+	void test_user_itinerary_OneToMany_RM() {
+		assertNotNull(user);
+		assertEquals("admin", user.getUsername());
+		assertEquals("chaotic_slime", user.getPassword());
+	}
 
 }
