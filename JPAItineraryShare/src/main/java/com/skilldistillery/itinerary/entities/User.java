@@ -1,5 +1,6 @@
 package com.skilldistillery.itinerary.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -9,7 +10,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-
 
 @Entity
 public class User {
@@ -24,18 +24,39 @@ public class User {
 	private Boolean enabled;
 
 	private String role;
-	@Column(name="profile_picture")
+	@Column(name = "profile_picture")
 	private String profilePicture;
-	@Column(name="first_name")
+	@Column(name = "first_name")
 	private String firstName;
-	@Column(name="last_name")
+	@Column(name = "last_name")
 	private String lastName;
 	private String biography;
 //	@OneToMany(mappedBy="user_has_bookmarked_itinerary")
 //	private List<Itinerary> bookmarks;
+	
+	@OneToMany(mappedBy = "userId")
+	private List<Itinerary> itineraries;
 
 	public User() {
 		super();
+	}
+
+	public void addItinerary(Itinerary itinerary) {
+		if (itineraries == null ) {
+			itineraries = new ArrayList<>();
+		}
+		if (! itineraries.contains(itinerary)) {
+			itineraries.add(itinerary);
+			itinerary.getUserId().removeItinerary(itinerary);
+		}
+		itinerary.setUserId(this);
+	}
+	
+	public void removeItinerary(Itinerary itinerary) {
+		if (itineraries != null && itineraries.contains(itinerary)) {
+			itineraries.remove(itinerary);
+			itinerary.setUserId(null);
+		}
 	}
 
 	public int getId() {
@@ -108,6 +129,14 @@ public class User {
 
 	public void setBiography(String biography) {
 		this.biography = biography;
+	}
+
+	public List<Itinerary> getItineraries() {
+		return itineraries;
+	}
+
+	public void setItineraries(List<Itinerary> itineraries) {
+		this.itineraries = itineraries;
 	}
 
 	@Override
