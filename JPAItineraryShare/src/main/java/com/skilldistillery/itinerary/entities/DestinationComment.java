@@ -31,6 +31,8 @@ public class DestinationComment {
 	@ManyToOne
 	@JoinColumn(name = "destination_id")
 	private Destination destination;
+	
+	public DestinationComment () {}
 
 	public int getId() {
 		return id;

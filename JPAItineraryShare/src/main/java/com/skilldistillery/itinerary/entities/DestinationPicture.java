@@ -13,36 +13,40 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="trip_picture")
-public class TripPicture {
-
+public class DestinationPicture {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	@Column(name="image_url")
 	private String imageUrl;
 	@ManyToOne
-	@JoinColumn(name="itinerary_item_id")
-	private ItineraryItem itineraryItem;
+	@JoinColumn(name="destination_id")
+	private Destination destination;
 	
-	public TripPicture () {}
-	
+	public DestinationPicture () {}
+
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public String getImageUrl() {
 		return imageUrl;
 	}
+
 	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
 	}
-	public ItineraryItem getItineraryItem() {
-		return itineraryItem;
+
+	public Destination getDestination() {
+		return destination;
 	}
-	public void setItineraryItem(ItineraryItem itineraryItem) {
-		this.itineraryItem = itineraryItem;
+
+	public void setDestination(Destination destination) {
+		this.destination = destination;
 	}
 
 	@Override
@@ -58,12 +62,14 @@ public class TripPicture {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		TripPicture other = (TripPicture) obj;
+		DestinationPicture other = (DestinationPicture) obj;
 		return id == other.id;
 	}
 
 	@Override
 	public String toString() {
-		return "TripPicture [id=" + id + ", imageUrl=" + imageUrl + ", itineraryItem=" + itineraryItem + "]";
+		return "DestinationPicture [id=" + id + ", imageUrl=" + imageUrl + ", destination=" + destination + "]";
 	}
+	
+	
 }

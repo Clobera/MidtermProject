@@ -26,6 +26,8 @@ public class Destination {
 	private List<DestinationRating> ratings;
 	@OneToMany(mappedBy="destination")
 	private List<ItineraryItem> itineraryItems;
+	@OneToMany(mappedBy="destination")
+	private List<DestinationPicture> pictures;
 	
 	
 	public Destination () {}
@@ -100,6 +102,14 @@ public class Destination {
 
 	public void setItineraryItems(List<ItineraryItem> itineraryItems) {
 		this.itineraryItems = itineraryItems;
+	}
+
+	public List<DestinationPicture> getPictures() {
+		return pictures;
+	}
+
+	public void setPictures(List<DestinationPicture> pictures) {
+		this.pictures = pictures;
 	}
 
 	@Override
