@@ -3,10 +3,11 @@ package com.skilldistillery.itinerary.entities;
 import java.util.Objects;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
+@Entity
 @Table(name="destination_rating")
 public class DestinationRating {
 
