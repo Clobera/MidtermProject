@@ -5,10 +5,19 @@
 <head>
 <meta charset="UTF-8">
 <title>Itinerary Share</title>
-${SMOKETEST}
+<%@include file="bootstraphead.jsp"%>
 </head>
 <body>
+<%@include file="navbarGuest.jsp"%>
 <h1>Itinerary Share</h1>
+
+${SMOKETEST}
+
+
+
+
+
+
 
 </body>
 </html>
