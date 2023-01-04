@@ -92,13 +92,13 @@ public class ItineraryItem {
 		this.description = description;
 	}
 
-//	public List<TripPicture> getPictures() {
-//		return pictures;
-//	}
-//
-//	public void setPictures(List<TripPicture> pictures) {
-//		this.pictures = pictures;
-//	}
+	public List<TripPicture> getPictures() {
+		return pictures;
+	}
+
+	public void setPictures(List<TripPicture> pictures) {
+		this.pictures = pictures;
+	}
 
 	@Override
 	public int hashCode() {

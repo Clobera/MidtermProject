@@ -47,4 +47,20 @@ class ReviewTest {
 		assertEquals("so salty my eyes burned", review.getComment());
 	}
 
+	@Test
+	void test_Review_to_User_ManyToOne() {
+		assertNotNull(review);
+		assertNotNull(review.getUser());
+		assertEquals("Chaotic",review.getUser().getFirstName());
+		assertEquals("Slime",review.getUser().getLastName());
+	}
+	
+	@Test
+	void test_Review_to_ItineraryItem_ManyToOne() {
+		assertNotNull(review);
+		assertNotNull(review.getItineraryItem());
+		assertEquals("salt lakes utah",review.getItineraryItem().getDescription());
+		assertEquals(1 ,review.getItineraryItem().getDestination().getId());
+	}
+
 }
