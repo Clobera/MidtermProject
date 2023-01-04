@@ -17,14 +17,17 @@ public class DestinationComment {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User user;
 
 	private String post;
+	
 	@ManyToOne
 	@JoinColumn(name="reply")
 	private DestinationComment reply;
+	
 	@ManyToOne
 	@JoinColumn(name = "destination_id")
 	private Destination destination;

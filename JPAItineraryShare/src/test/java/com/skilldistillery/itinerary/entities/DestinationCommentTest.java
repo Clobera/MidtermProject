@@ -47,10 +47,12 @@ class DestinationCommentTest {
 		assertEquals("that lake is super salty!", destinationComment.getPost());
 	}
 	
-//	@Test
-//	void test_user_to_destinationComment_manyToOne_RM() {
-//		assertNotNull(destinationComment);
-//		assertEquals("", destinationComment.get);
-//	}
+	@Test
+	void test_manyToOne_entity_mappings() {
+		assertNotNull(destinationComment);
+		assertEquals("United States", destinationComment.getDestination().getCountry());
+		assertEquals("Chaotic", destinationComment.getUser().getFirstName());
+		assertEquals(null, destinationComment.getReply());
+	}
 
 }
