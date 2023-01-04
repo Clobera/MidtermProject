@@ -49,9 +49,11 @@ class TravelDetailTest {
 	}
 
 	@Test
-	void test_travelDetail_() {
+	void test_travelDetail_itineraryItem_ManyToOne() {
 		assertNotNull(travelDetail);
-		assertEquals("flying to utah", travelDetail.getDescription());
+		assertNotNull(travelDetail.getItineraryItem());
+		assertEquals("salt lakes utah", travelDetail.getItineraryItem().getDescription());
+		
 		
 	}
 
