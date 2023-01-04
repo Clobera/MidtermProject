@@ -17,10 +17,13 @@ public class TravelDetail {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
 	private String description;
+	
 	@ManyToOne
 	@JoinColumn(name="itinerary_item_id")
 	private ItineraryItem itineraryItem;
+	
 	@ManyToOne
 	@JoinColumn(name="travel_detail_type_id")
 	private TravelDetailType travelDetailType;

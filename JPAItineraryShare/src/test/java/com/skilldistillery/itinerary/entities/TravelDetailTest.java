@@ -48,4 +48,11 @@ class TravelDetailTest {
 		
 	}
 
+	@Test
+	void test_travelDetail_() {
+		assertNotNull(travelDetail);
+		assertEquals("flying to utah", travelDetail.getDescription());
+		
+	}
+
 }
