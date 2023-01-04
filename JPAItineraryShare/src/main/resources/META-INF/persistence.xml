@@ -6,8 +6,10 @@
     </provider>
     
     <!-- begin entities -->
+    <class>com.skilldistillery.itinerary.entities.Bookmark</class>
     <class>com.skilldistillery.itinerary.entities.Destination</class>
     <class>com.skilldistillery.itinerary.entities.DestinationComment</class>
+    <class>com.skilldistillery.itinerary.entities.DestinationPicture</class>
     <class>com.skilldistillery.itinerary.entities.DestinationRating</class>
     <class>com.skilldistillery.itinerary.entities.Itinerary</class>
     <class>com.skilldistillery.itinerary.entities.ItineraryComment</class>
