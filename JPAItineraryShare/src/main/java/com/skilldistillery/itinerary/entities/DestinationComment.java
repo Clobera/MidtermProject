@@ -22,6 +22,11 @@ public class DestinationComment {
 	private User user;
 
 	private String post;
+	
+	private int reply;
+	
+	@Column(name = "destination_id")
+	private Destination destination;
 
 	public int getId() {
 		return id;
@@ -55,18 +60,15 @@ public class DestinationComment {
 		this.reply = reply;
 	}
 
-	public int getDestinationId() {
-		return destinationId;
+	
+
+	public Destination getDestination() {
+		return destination;
 	}
 
-	public void setDestinationId(int destinationId) {
-		this.destinationId = destinationId;
+	public void setDestination(Destination destination) {
+		this.destination = destination;
 	}
-
-	private int reply;
-
-	@Column(name = "destination_id")
-	private int destinationId;
 
 	@Override
 	public int hashCode() {
@@ -88,7 +90,7 @@ public class DestinationComment {
 	@Override
 	public String toString() {
 		return "DestinationComment [id=" + id + ", user=" + user + ", post=" + post + ", reply=" + reply
-				+ ", destinationId=" + destinationId + "]";
+				+ ", destination=" + destination + "]";
 	}
 
 }
