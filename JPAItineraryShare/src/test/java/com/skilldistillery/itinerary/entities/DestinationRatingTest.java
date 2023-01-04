@@ -50,4 +50,11 @@ class DestinationRatingTest {
 		assertTrue(destinationRating.getRating() == 5);
 	}
 
+	@Test
+	void test_many_to_one_entity_mappings() {
+		assertNotNull(destinationRating);
+		assertEquals("Chaotic", destinationRating.getUser().getFirstName());
+		assertEquals("United States", destinationRating.getDestination().getCountry());
+		
+	}
 }

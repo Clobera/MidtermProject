@@ -21,22 +21,33 @@ public class Itinerary {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
 	private boolean active;
+	
 	private double budget;
+	
 	@Column(name="start_date")
 	private LocalDateTime startDate;
+	
 	@Column(name="end_date")
 	private LocalDateTime endDate;
+	
 	private String image;
+	
 	@ManyToOne
 	@JoinColumn(name="user_id")
 	private User userId;
+	
 	private String name;
+	
 	private String description;
+	
 	@OneToMany(mappedBy="itinerary")
 	private List<ItineraryItem> itineraryItems;
+	
 	@OneToMany(mappedBy="itinerary")
 	private List<ItineraryComment> comments;
+	
 	@OneToMany(mappedBy="itinerary")
 	private List<Bookmark> bookmarks;
 

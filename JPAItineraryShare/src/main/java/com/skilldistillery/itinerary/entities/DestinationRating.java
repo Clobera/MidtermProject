@@ -15,14 +15,18 @@ import javax.persistence.Table;
 public class DestinationRating {
 
 	private int rating;
+	
 	@EmbeddedId
 	private DestinationRatingKey id;
+	
 	@Column(name="rating_comment")
 	private String ratingComment;
+	
 	@ManyToOne
 	@JoinColumn(name="user_id")
 	@MapsId(value="user")
 	private User user;
+	
 	@ManyToOne
 	@JoinColumn(name="destination_id")
 	@MapsId(value="destination")

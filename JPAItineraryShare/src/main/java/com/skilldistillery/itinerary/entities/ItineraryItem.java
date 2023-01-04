@@ -28,8 +28,8 @@ public class ItineraryItem {
 	@JoinColumn(name="destination_id")
 	private Destination destination;
 	private String description;
-	@OneToMany(mappedBy="itinerary")
-	private List<TripPicture> pictures;
+//	@OneToMany(mappedBy="itinerary")
+//	private List<TripPicture> pictures;
 	
 	public ItineraryItem () {}
 
@@ -73,13 +73,13 @@ public class ItineraryItem {
 		this.description = description;
 	}
 
-	public List<TripPicture> getPictures() {
-		return pictures;
-	}
-
-	public void setPictures(List<TripPicture> pictures) {
-		this.pictures = pictures;
-	}
+//	public List<TripPicture> getPictures() {
+//		return pictures;
+//	}
+//
+//	public void setPictures(List<TripPicture> pictures) {
+//		this.pictures = pictures;
+//	}
 
 	@Override
 	public int hashCode() {
