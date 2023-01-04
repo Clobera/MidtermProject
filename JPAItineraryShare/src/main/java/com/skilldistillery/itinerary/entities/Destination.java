@@ -1,5 +1,6 @@
 package com.skilldistillery.itinerary.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -29,9 +30,72 @@ public class Destination {
 	@OneToMany(mappedBy="destination")
 	private List<DestinationPicture> pictures;
 	
-	
 	public Destination () {}
 
+	public void addComment(DestinationComment comment) {
+		if (comments == null) {
+			comments = new ArrayList<>();
+		}
+		if (!comments.contains(comment)) {
+			comments.add(comment);
+			comment.getDestination().removeComment(comment);
+		}
+	}
+
+	public void removeComment(DestinationComment comment) {
+		if (comments != null && comments.contains(comment)) {
+			comments.remove(comment);
+		}
+	}
+	
+	public void addRating(DestinationRating rating) {
+		if (ratings == null) {
+			ratings = new ArrayList<>();
+		}
+		if (!ratings.contains(rating)) {
+			ratings.add(rating);
+			rating.getDestination().removeRating(rating);
+		}
+	}
+
+	public void removeRating(DestinationRating rating) {
+		if (ratings != null && ratings.contains(rating)) {
+			ratings.remove(rating);
+		}
+	}
+	
+	public void addDestinationPicture(DestinationPicture destinationPicture) {
+		if (pictures == null) {
+			pictures = new ArrayList<>();
+		}
+		if (!pictures.contains(destinationPicture)) {
+			pictures.add(destinationPicture);
+			destinationPicture.getDestination().removeDestinationPicture(destinationPicture);
+		}
+	}
+	
+	public void removeDestinationPicture(DestinationPicture destinationPicture) {
+		if (pictures != null && pictures.contains(destinationPicture)) {
+			pictures.remove(destinationPicture);
+		}
+	}
+	
+	public void addItineraryItem(ItineraryItem itineraryItem) {
+		if (itineraryItems == null) {
+			itineraryItems = new ArrayList<>();
+		}
+		if (!itineraryItems.contains(itineraryItem)) {
+			itineraryItems.add(itineraryItem);
+			itineraryItem.getDestination().removeItineraryItem(itineraryItem);
+		}
+	}
+	
+	public void removeItineraryItem(ItineraryItem itineraryItem) {
+		if (itineraryItems != null && itineraryItems.contains(itineraryItem)) {
+			itineraryItems.remove(itineraryItem);
+		}
+	}
+	
 	public int getId() {
 		return id;
 	}
