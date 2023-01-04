@@ -8,7 +8,6 @@ import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.Table;
 
-
 @Entity
 @IdClass(DestinationRatingKey.class)
 @Table(name="destination_rating")
