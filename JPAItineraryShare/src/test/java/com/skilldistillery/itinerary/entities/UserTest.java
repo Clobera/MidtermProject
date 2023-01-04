@@ -2,6 +2,7 @@ package com.skilldistillery.itinerary.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -51,8 +52,9 @@ class UserTest {
 	@Test
 	void test_user_itinerary_OneToMany_RM() {
 		assertNotNull(user);
-		assertEquals("admin", user.getUsername());
-		assertEquals("chaotic_slime", user.getPassword());
+		assertNotNull(user.getItineraries());
+		assertTrue(user.getItineraries().size() > 0);
+
 	}
 
 }

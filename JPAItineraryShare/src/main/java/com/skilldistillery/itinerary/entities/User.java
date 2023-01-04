@@ -24,16 +24,21 @@ public class User {
 	private Boolean enabled;
 
 	private String role;
+	
 	@Column(name = "profile_picture")
 	private String profilePicture;
+	
 	@Column(name = "first_name")
 	private String firstName;
+	
 	@Column(name = "last_name")
 	private String lastName;
+	
 	private String biography;
+	
 //	@OneToMany(mappedBy="user_has_bookmarked_itinerary")
 //	private List<Itinerary> bookmarks;
-	
+
 	@OneToMany(mappedBy = "userId")
 	private List<Itinerary> itineraries;
 
@@ -42,16 +47,16 @@ public class User {
 	}
 
 	public void addItinerary(Itinerary itinerary) {
-		if (itineraries == null ) {
+		if (itineraries == null) {
 			itineraries = new ArrayList<>();
 		}
-		if (! itineraries.contains(itinerary)) {
+		if (!itineraries.contains(itinerary)) {
 			itineraries.add(itinerary);
 			itinerary.getUserId().removeItinerary(itinerary);
 		}
 		itinerary.setUserId(this);
 	}
-	
+
 	public void removeItinerary(Itinerary itinerary) {
 		if (itineraries != null && itineraries.contains(itinerary)) {
 			itineraries.remove(itinerary);
