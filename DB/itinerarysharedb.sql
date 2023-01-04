@@ -313,6 +313,25 @@ CREATE TABLE IF NOT EXISTS `trip_picture` (
 ENGINE = InnoDB;
 
 
+-- -----------------------------------------------------
+-- Table `destination_picture`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `destination_picture` ;
+
+CREATE TABLE IF NOT EXISTS `destination_picture` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `image_url` VARCHAR(2048) NULL,
+  `destination_id` INT NOT NULL DEFAULT 1,
+  PRIMARY KEY (`id`),
+  INDEX `fk_destination_picture_destination1_idx` (`destination_id` ASC),
+  CONSTRAINT `fk_destination_picture_destination1`
+    FOREIGN KEY (`destination_id`)
+    REFERENCES `destination` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
@@ -343,6 +362,7 @@ COMMIT;
 START TRANSACTION;
 USE `itinerarysharedb`;
 INSERT INTO `itinerary_comment` (`id`, `user_id`, `post`, `reply`, `itinerary_id`) VALUES (1, 1, 'This trip was great', NULL, 1);
+INSERT INTO `itinerary_comment` (`id`, `user_id`, `post`, `reply`, `itinerary_id`) VALUES (2, 1, 'i wish i stayed longer', 1, 1);
 
 COMMIT;
 
@@ -417,6 +437,7 @@ COMMIT;
 START TRANSACTION;
 USE `itinerarysharedb`;
 INSERT INTO `destination_comment` (`id`, `user_id`, `post`, `reply`, `destination_id`) VALUES (1, 1, 'that lake is super salty!', NULL, 1);
+INSERT INTO `destination_comment` (`id`, `user_id`, `post`, `reply`, `destination_id`) VALUES (2, 1, 'ill buy goggles next time', 1, 1);
 
 COMMIT;
 
@@ -437,6 +458,16 @@ COMMIT;
 START TRANSACTION;
 USE `itinerarysharedb`;
 INSERT INTO `trip_picture` (`id`, `image_url`, `itinerary_item_id`) VALUES (1, 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cm9hZCUyMHRyaXB8ZW58MHx8MHx8&w=1000&q=80', 1);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `destination_picture`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `itinerarysharedb`;
+INSERT INTO `destination_picture` (`id`, `image_url`, `destination_id`) VALUES (1, 'http://t0.gstatic.com/licensed-image?q=tbn:ANd9GcQYxi6zFlTIvKUG6JQX80sTqOpLAtYpNLnajGqWwzhjnjxdSrDj_VOXB7LeIdTly_Af', 1);
 
 COMMIT;
 
