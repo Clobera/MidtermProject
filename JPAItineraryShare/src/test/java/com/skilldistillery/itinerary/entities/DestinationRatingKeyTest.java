@@ -2,8 +2,7 @@ package com.skilldistillery.itinerary.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-
-import java.time.Month;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -15,11 +14,11 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class ItineraryTest {
+class DestinationRatingKeyTest {
 	
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private Itinerary itinerary;
+	private DestinationRating destinationRating;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -34,23 +33,21 @@ class ItineraryTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em= emf.createEntityManager();
-		itinerary = em.find(Itinerary.class, 1);
+		String sql = "SELECT d FROM DestinationRating d WHERE d.destinationId = 1";
+		destinationRating = em.createQuery(sql, DestinationRating.class).getSingleResult();
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		itinerary = null;
+		destinationRating = null;
 	}
 
 	@Test
-	void test_itinerary_entity() {
-		assertNotNull(itinerary);
-		assertEquals(Month.DECEMBER, itinerary.getStartDate().getMonth());
-		assertEquals("Summer Trip 2022", itinerary.getName());
-		assertEquals("blah blah blahhhhh", itinerary.getDescription());
-		assertEquals("https://t4.ftcdn.net/jpg/03/46/93/61/360_F_346936114_RaxE6OQogebgAWTalE1myseY1Hbb5qPM.jpg", itinerary.getImage());
-		assertEquals(2000.00, itinerary.getBudget());
+	void test() {
+		assertNotNull(destinationRating);
+		assertEquals("a summer ill never forget", destinationRating.getRatingComment());
+		assertTrue(destinationRating.getRating() == 5);
 	}
 
 }
