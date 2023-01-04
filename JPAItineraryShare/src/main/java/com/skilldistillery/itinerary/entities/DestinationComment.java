@@ -5,22 +5,24 @@ import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="destination_comment")
+@Table(name = "destination_comment")
 public class DestinationComment {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
-	@Column(name="user_id")
-	private int userId;
-	
+
+	@JoinColumn(name = "user_id")
+	private User user;
+
 	private String post;
-	
+
 	public int getId() {
 		return id;
 	}
@@ -29,12 +31,12 @@ public class DestinationComment {
 		this.id = id;
 	}
 
-	public int getUserId() {
-		return userId;
+	public User getUser() {
+		return user;
 	}
 
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public String getPost() {
@@ -62,19 +64,13 @@ public class DestinationComment {
 	}
 
 	private int reply;
-	
-	@Column(name="destination_id")
+
+	@Column(name = "destination_id")
 	private int destinationId;
 
 	@Override
-	public String toString() {
-		return "DestinationComment [id=" + id + ", userId=" + userId + ", post=" + post + ", reply=" + reply
-				+ ", destinationId=" + destinationId + "]";
-	}
-
-	@Override
 	public int hashCode() {
-		return Objects.hash(destinationId, id, post, reply, userId);
+		return Objects.hash(id);
 	}
 
 	@Override
@@ -86,7 +82,13 @@ public class DestinationComment {
 		if (getClass() != obj.getClass())
 			return false;
 		DestinationComment other = (DestinationComment) obj;
-		return destinationId == other.destinationId && id == other.id && Objects.equals(post, other.post)
-				&& reply == other.reply && userId == other.userId;
+		return id == other.id;
 	}
+
+	@Override
+	public String toString() {
+		return "DestinationComment [id=" + id + ", user=" + user + ", post=" + post + ", reply=" + reply
+				+ ", destinationId=" + destinationId + "]";
+	}
+
 }
