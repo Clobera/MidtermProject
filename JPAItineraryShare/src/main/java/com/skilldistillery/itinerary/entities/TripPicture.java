@@ -21,7 +21,7 @@ public class TripPicture {
 	@Column(name="image_url")
 	private String imageUrl;
 	@ManyToOne
-	@JoinColumn(name="itinerary_item")
+	@JoinColumn(name="itinerary_item_id")
 	private ItineraryItem itineraryItem;
 	
 	public TripPicture () {}
