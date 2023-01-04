@@ -1,13 +1,13 @@
 package com.skilldistillery.itinerary.entities;
 
+import java.util.List;
 import java.util.Objects;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Destination {
@@ -15,16 +15,18 @@ public class Destination {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
-	
 	private String name;
-	
 	private String description;
-	
 	private String image;
-	
 	private String country;
-
 	private String city;
+	@OneToMany(mappedBy="destination")
+	private List<DestinationComment> comments;
+	@OneToMany(mappedBy="destination")
+	private List<DestinationRating> ratings;
+	
+	
+	public Destination () {}
 
 	public int getId() {
 		return id;
@@ -72,6 +74,22 @@ public class Destination {
 
 	public void setCity(String city) {
 		this.city = city;
+	}
+
+	public List<DestinationComment> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<DestinationComment> comments) {
+		this.comments = comments;
+	}
+
+	public List<DestinationRating> getRatings() {
+		return ratings;
+	}
+
+	public void setRatings(List<DestinationRating> ratings) {
+		this.ratings = ratings;
 	}
 
 	@Override
