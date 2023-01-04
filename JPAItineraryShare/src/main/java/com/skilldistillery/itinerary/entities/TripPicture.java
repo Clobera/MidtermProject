@@ -18,8 +18,10 @@ public class TripPicture {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
+	
 	@Column(name="image_url")
 	private String imageUrl;
+	
 	@ManyToOne
 	@JoinColumn(name="itinerary_item_id")
 	private ItineraryItem itineraryItem;

@@ -17,14 +17,18 @@ public class ItineraryItem {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
 	@ManyToOne
 	@JoinColumn(name="itinerary_id")
 	private Itinerary itinerary;
+	
 	@Column(name="trip_day")
 	private Integer tripDay;
+	
 	@ManyToOne
 	@JoinColumn(name="destination_id")
 	private Destination destination;
+	
 	private String description;
 	
 	public ItineraryItem () {}
