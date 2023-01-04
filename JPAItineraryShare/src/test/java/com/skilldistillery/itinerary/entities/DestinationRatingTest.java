@@ -33,8 +33,9 @@ class DestinationRatingTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em= emf.createEntityManager();
-		String sql = "SELECT d FROM DestinationRating d WHERE d.destinationId = 1";
-		destinationRating = em.createQuery(sql, DestinationRating.class).getSingleResult();
+//		String sql = "SELECT d FROM DestinationRating d WHERE d.destination = 1";
+		DestinationRatingKey key = new DestinationRatingKey(1, 1);
+		destinationRating = em.find(DestinationRating.class, key);
 	}
 
 	@AfterEach
