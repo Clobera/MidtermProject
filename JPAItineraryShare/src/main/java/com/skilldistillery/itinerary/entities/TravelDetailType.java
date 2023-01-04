@@ -8,14 +8,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class travelDetailType {
+public class TravelDetailType {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String name;
 	
-	public travelDetailType () {}
+	public TravelDetailType () {}
 
 	public int getId() {
 		return id;
@@ -46,7 +46,7 @@ public class travelDetailType {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		travelDetailType other = (travelDetailType) obj;
+		TravelDetailType other = (TravelDetailType) obj;
 		return id == other.id;
 	}
 
