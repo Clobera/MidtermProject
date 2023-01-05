@@ -19,7 +19,7 @@ public class UserController {
 	@Autowired
 	private UserDAO userDao;
 	
-	@ModelAttribute
+	@ModelAttribute("loggedInUser")
 	public User initSessionState () {
 		return new User();
 	}
