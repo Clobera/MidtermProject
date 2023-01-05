@@ -57,6 +57,4 @@ public class UserDAOImpl implements UserDAO {
 		results = em.createQuery(query, Itinerary.class).getResultList();
 		return results;
 	}
-
-	
 }
