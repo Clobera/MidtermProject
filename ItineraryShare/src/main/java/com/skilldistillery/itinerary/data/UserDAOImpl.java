@@ -1,5 +1,7 @@
 package com.skilldistillery.itinerary.data;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
@@ -22,8 +24,13 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public User findByUsernameAndPassword(String username, String password) {
-		// TODO Auto-generated method stub
-		return null;
+		User loggedInUser = null;
+		String query = "SELECT u FROM User u WHERE u.username = :un AND u.password = :pw";
+		List<User> userQuery = em.createQuery(query, User.class).setParameter("un", username).setParameter("pw", password).getResultList();
+		if (userQuery.size() == 1) {
+			loggedInUser = userQuery.get(0);
+		}
+		return loggedInUser;
 	}
 
 }
