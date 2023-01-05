@@ -1,5 +1,7 @@
 package com.skilldistillery.itinerary.controllers;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 
 import com.skilldistillery.itinerary.data.UserDAO;
 import com.skilldistillery.itinerary.entities.User;
@@ -37,7 +40,6 @@ public class UserController {
 	
 	@PostMapping(path= "login.do")
 	public String login (Model model, @ModelAttribute("loggedInUser") User user) {
-		System.out.println(user.getUsername() + "" + user.getPassword());
 		user = userDao.findByUsernameAndPassword(user.getUsername(), user.getPassword());
 		Boolean success = false;
 		String view = "home";
@@ -48,5 +50,12 @@ public class UserController {
 		}
 		model.addAttribute("loginSuccess", success);
 		return view;
+	}
+	
+	@PostMapping(path="logout.do")
+	public String logout (HttpSession session, SessionStatus sessionStatus) {
+//		session.removeAttribute("loggedInUser");
+		sessionStatus.setComplete();
+		return "home";
 	}
 }
