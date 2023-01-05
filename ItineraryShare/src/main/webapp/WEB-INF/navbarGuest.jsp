@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:choose>
 
-	<c:when test="${empty sessionScope.loggedInUser }">
+	<c:when test="${sessionScope.loggedInUser.username == null}">
 
 		<nav class="navbar navbar-expand-lg bg-body-tertiary">
 			<div class="container-fluid">
