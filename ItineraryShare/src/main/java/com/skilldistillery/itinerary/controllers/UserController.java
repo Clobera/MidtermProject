@@ -40,10 +40,13 @@ public class UserController {
 		System.out.println(user.getUsername() + "" + user.getPassword());
 		user = userDao.findByUsernameAndPassword(user.getUsername(), user.getPassword());
 		Boolean success = false;
+		String view = "home";
 		if (user != null) {
 			success = true;
+		} else {
+			view = "loginFailed";
 		}
 		model.addAttribute("loginSuccess", success);
-		return "home";
+		return view;
 	}
 }
