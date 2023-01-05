@@ -109,7 +109,7 @@
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 						<li class="nav-item"><a class="nav-link active"
-							aria-current="page" href="#">Add Itinerary</a></li>
+							aria-current="page" href="goCreateItinerary.do">Add Itinerary</a></li>
 					</ul>
 					<form class="d-flex" role="search">
 						<input class="form-control me-2" type="search"
