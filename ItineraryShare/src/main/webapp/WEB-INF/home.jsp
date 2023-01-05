@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,10 +8,15 @@
 <%@include file="bootstraphead.jsp"%>
 </head>
 <body>
-<%@include file="navbarGuest.jsp"%>
-<h1>Itinerary Share</h1>
+	<%@include file="navbarGuest.jsp"%>
 
-${SMOKETEST}
+
+
+
+
+	<h1>Itinerary Share</h1>
+
+	${SMOKETEST}
 
 
 
