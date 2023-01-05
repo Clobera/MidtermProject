@@ -50,6 +50,7 @@ public class UserDAOImpl implements UserDAO {
 		return itinerary;
 	}
 	
+
 	@Override
 	public List<Itinerary> findAllActiveItineraries () {
 		List<Itinerary> results = null;
