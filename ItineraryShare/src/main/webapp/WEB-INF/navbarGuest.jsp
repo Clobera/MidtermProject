@@ -3,7 +3,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:choose>
 
-	<c:when test="${sessionScope.loggedInUser.username != 'admin' and (success == false or empty success)}">
+	<c:when
+		test="${sessionScope.loggedInUser.username != 'admin' and (success == false or empty success)}">
 
 		<nav class="navbar navbar-expand-lg bg-body-tertiary">
 			<div class="container-fluid">
@@ -57,10 +58,15 @@
 
 						<li class="nav-item"><a class="nav-link active"
 							aria-current="page" href="#">[CHANGE ME TO USERNAME]</a></li>
+					</ul>
+					<form class="d-flex" role="search">
+						<button class="btn btn-outline-success" type="submit">Log
+							Out</button>
+					</form>
 
-						<!-- FIX ME AS A STRECH GOAL!!! -->
+					<!-- FIX ME AS A STRECH GOAL!!! -->
 
-						<!-- <li class="nav-item dropdown"><a
+					<!-- <li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle" href="#" role="button"
 							data-bs-toggle="dropdown" aria-expanded="true"> [CHANGE ME TO
 								USERNAME] </a>
@@ -74,7 +80,6 @@
 							</ul></li> -->
 
 
-					</ul>
 				</div>
 			</div>
 		</nav>
@@ -113,10 +118,15 @@
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 						<li class="nav-item"><a class="nav-link active"
 							aria-current="page" href="#">[CHANGE ME TO USERNAME]</a></li>
+					</ul>
+					<form class="d-flex" role="search">
+						<button class="btn btn-outline-success" type="submit">Log
+							Out</button>
+					</form>
 
 
-						<!-- FIX ME AS A STRECH GOAL!!! -->
-						<!-- <li class="nav-item dropdown"><a
+					<!-- FIX ME AS A STRECH GOAL!!! -->
+					<!-- <li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle" href="#" role="button"
 							data-bs-toggle="dropdown" aria-expanded="false"> [CHANGE ME
 								TO USERNAME] </a>
@@ -128,7 +138,6 @@
 								<li><hr class="dropdown-divider"></li>
 								<li><a class="dropdown-item" href="#"> LOGOUT</a></li>
 							</ul></li> -->
-					</ul>
 				</div>
 			</div>
 		</nav>
