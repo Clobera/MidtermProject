@@ -33,6 +33,7 @@ public class Itinerary {
 	@Column(name="end_date")
 	private LocalDate endDate;
 	
+	@Column(columnDefinition="varchar(2048) default 'https://media.gettyimages.com/id/1179434234/photo/denver-and-the-flatirons.jpg?s=612x612&w=gi&k=20&c=TCqpLA1sWXtz5y5r91pQciTwH84700biOnL9lmlaP2w='")
 	private String image;
 	
 	@ManyToOne
