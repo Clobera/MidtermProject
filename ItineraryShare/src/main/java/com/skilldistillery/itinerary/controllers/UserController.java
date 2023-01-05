@@ -45,9 +45,10 @@ public class UserController {
 	}
 	
 	@PostMapping(path= "login.do")
-	public String login (Model model, @ModelAttribute("loggedInUser") User user, SessionStatus sessionStatus) {
+	public String login (Model model, @ModelAttribute("loggedInUser") User user, SessionStatus sessionStatus, HttpSession session) {
 		user = userDao.findByUsernameAndPassword(user.getUsername(), user.getPassword());
-		
+		System.out.println(user);
+		model.addAttribute("loggedInUser", user);
 		Boolean success = false;
 		String view = "home";
 		if (user != null) {
@@ -68,7 +69,7 @@ public class UserController {
 	}
 	
 	@PostMapping(path="createAccount.do")
-	public String createAccount(Model model, @ModelAttribute("loggedInUser") User user) {
+	public String createAccount(Model model,@ModelAttribute("loggedInUser") User user) {
 		User createdUser = userDao.addUser(user);
 		Boolean success = false;
 		if (createdUser != null) {
@@ -79,13 +80,14 @@ public class UserController {
 	}
 	
 	@RequestMapping(path = "goCreateItinerary.do" )
-	public String goCreateItinerary() {
+	public String goCreateItinerary(@ModelAttribute("loggedInUser") User user) {
+		System.out.println(user);
 		return "createItinerary";
 	}
 	
 	@RequestMapping(path = "createItinerary.do" )
-	public String createdItinerary(Itinerary itinerary) {
-		dao.createItinerary(itinerary);
+	public String createdItinerary(Itinerary itinerary, @ModelAttribute("loggedInUser") User user) {
+		userDao.createItinerary(user, itinerary);
 		return "home";
 	}
 	

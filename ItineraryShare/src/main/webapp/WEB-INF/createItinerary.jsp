@@ -13,7 +13,6 @@
 	<%@include file="navbarGuest.jsp"%>
 
 	<form action="createItinerary.do" method="POST">
-		<input type="hidden" value="${sessionScope.loggedInUser}" name="user">
 		<input type="hidden" value="true" name="active">
 		<div class="input-group mb-3">
 			<span class="input-group-text" id="basic-addon1">Name</span> <input

@@ -8,5 +8,5 @@ public interface UserDAO {
 		User findById(int userId);
 		User findByUsernameAndPassword(String username, String password);
 		User addUser(User input);
-		Itinerary createItinerary(Itinerary inputs);
+		Itinerary createItinerary(User user, Itinerary inputs);
 }

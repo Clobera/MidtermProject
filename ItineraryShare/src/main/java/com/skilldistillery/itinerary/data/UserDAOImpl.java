@@ -37,12 +37,14 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public User addUser(User input) {
 		em.persist(input);
+		User output = findByUsernameAndPassword(input.getUsername(), input.getPassword());
 		em.flush();
-		return input;
+		return output;
 	}
 
 	@Override
-	public Itinerary createItinerary(Itinerary itinerary) {
+	public Itinerary createItinerary(User user, Itinerary itinerary) {
+		itinerary.setUserId(user);
 		em.persist(itinerary);
 		em.flush();
 		return itinerary;
