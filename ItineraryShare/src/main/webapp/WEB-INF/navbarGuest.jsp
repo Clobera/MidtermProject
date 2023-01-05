@@ -60,6 +60,7 @@
 							aria-current="page" href="#">[CHANGE ME TO USERNAME]</a></li>
 					</ul>
 					<form class="d-flex" role="search" method="POST" action="logout.do" >
+
 						<button class="btn btn-outline-success" type="submit">Log
 							Out</button>
 					</form>
@@ -119,7 +120,7 @@
 						<li class="nav-item"><a class="nav-link active"
 							aria-current="page" href="#">[CHANGE ME TO USERNAME]</a></li>
 					</ul>
-					<form class="d-flex" role="search">
+					<form class="d-flex" role="search" action="logout.do">
 						<button class="btn btn-outline-success" type="submit">Log
 							Out</button>
 					</form>
