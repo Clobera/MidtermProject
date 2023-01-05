@@ -4,7 +4,7 @@
 <c:choose>
 
 	<c:when
-		test="${sessionScope.loggedInUser.username != 'admin' and (LoginSuccess == false or empty success)}">
+		test="${sessionScope.loggedInUser.username == null}">
 
 		<nav class="navbar navbar-expand-lg bg-body-tertiary">
 			<div class="container-fluid">
@@ -120,7 +120,7 @@
 						<li class="nav-item"><a class="nav-link active"
 							aria-current="page" href="#">[CHANGE ME TO USERNAME]</a></li>
 					</ul>
-					<form class="d-flex" role="search" action="logout.do">
+					<form class="d-flex" role="search" action="logout.do" method="POST">
 						<button class="btn btn-outline-success" type="submit">Log
 							Out</button>
 					</form>
