@@ -8,6 +8,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.itinerary.entities.Itinerary;
 import com.skilldistillery.itinerary.entities.User;
 
 @Service
@@ -40,4 +41,12 @@ public class UserDAOImpl implements UserDAO {
 		return input;
 	}
 
+	@Override
+	public Itinerary createItinerary(Itinerary itinerary) {
+		em.persist(itinerary);
+		em.flush();
+		return itinerary;
+	}
+
+	
 }
