@@ -11,7 +11,7 @@
 <%@include file="navbarGuest.jsp"%>
 <h1 align="center">Login</h1>
 <br>
-<a href="createAccount.do">Create Account</a> 
+<a href="createAccountForm.do" method ="POST">Create Account</a> 
 <form action="login.do" method="POST">
   <div class="mb-3" align="center">
     <label for="InputUsername" class="form-label">Username</label>

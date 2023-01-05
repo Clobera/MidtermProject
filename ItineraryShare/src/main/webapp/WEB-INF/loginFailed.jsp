@@ -13,7 +13,7 @@
 <br>
 <h3 align = "center">Login Failed, try again</h3>
 <br>
-<a href="createAccountForm.do">Create Account</a>
+<a href="createAccountForm.do" method ="POST">Create Account</a>
 <form action="login.do" method="POST">
   <div class="mb-3" align="center">
     <label for="InputUsername" class="form-label">Username</label>
