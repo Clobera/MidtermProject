@@ -14,7 +14,7 @@
 <form action="login.do" method="POST">
   <div class="mb-3" align="center">
     <label for="InputUsername" class="form-label">Username</label>
-    <input type="email" required= "required" class="form-control" id="InputUsername" aria-describedby="emailHelp">
+    <input type="username" required= "required" class="form-control" id="InputUsername">
 	<br>
     <label for="InputPassword" class="form-label">Password</label>
     <input type="password" required="required" class="form-control" id="InputPassword">
