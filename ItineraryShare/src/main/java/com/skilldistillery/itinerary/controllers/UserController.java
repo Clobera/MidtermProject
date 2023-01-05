@@ -37,6 +37,7 @@ public class UserController {
 	
 	@PostMapping(path= "login.do")
 	public String login (Model model, @ModelAttribute("loggedInUser") User user) {
+		System.out.println(user.getUsername() + "" + user.getPassword());
 		user = userDao.findByUsernameAndPassword(user.getUsername(), user.getPassword());
 		Boolean success = false;
 		if (user != null) {
