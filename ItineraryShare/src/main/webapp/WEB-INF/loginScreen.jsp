@@ -14,10 +14,10 @@
 <form action="login.do" method="POST">
   <div class="mb-3" align="center">
     <label for="InputUsername" class="form-label">Username</label>
-    <input type="username" required= "required" class="form-control" id="InputUsername">
+    <input type="username" required= "required" class="form-control" id="InputUsername" name="username">
 	<br>
     <label for="InputPassword" class="form-label">Password</label>
-    <input type="password" required="required" class="form-control" id="InputPassword">
+    <input type="password" required="required" class="form-control" id="InputPassword" name="password">
   </div>
   
   <button type="submit" class="btn btn-primary">Login</button>
