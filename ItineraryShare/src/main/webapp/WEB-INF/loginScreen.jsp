@@ -9,7 +9,7 @@
 </head>
 <body>
 <%@include file="navbarGuest.jsp"%>
-<h1>Login</h1>
+<h1 align="center">Login</h1>
 <br>
 <form action="login.do" method="POST">
   <div class="mb-3" align="center">

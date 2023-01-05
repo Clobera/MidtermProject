@@ -9,9 +9,10 @@
 </head>
 <body>
 <%@include file="navbarGuest.jsp"%>
-<h1>Login</h1>
+<h1 align="center">Login</h1>
 <br>
-<h3>Login Failed, try again</h3>
+<h3 align = "center">Login Failed, try again</h3>
+<br>
 <form action="login.do" method="POST">
   <div class="mb-3" align="center">
     <label for="InputUsername" class="form-label">Username</label>
