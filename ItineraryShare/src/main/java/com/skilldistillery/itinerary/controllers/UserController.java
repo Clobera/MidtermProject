@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import com.skilldistillery.itinerary.data.UserDAO;
+import com.skilldistillery.itinerary.entities.Itinerary;
 import com.skilldistillery.itinerary.entities.User;
 
 @Controller
@@ -76,4 +77,17 @@ public class UserController {
 		model.addAttribute("creationSuccess", success);
 		return "home";
 	}
+	
+	@RequestMapping(path = "goCreateItinerary.do" )
+	public String goCreateItinerary() {
+		return "createItinerary";
+	}
+	
+	@RequestMapping(path = "createItinerary.do" )
+	public String createdItinerary(Itinerary itinerary) {
+		dao.createItinerary(itinerary);
+		return "home";
+	}
+	
+	
 }
