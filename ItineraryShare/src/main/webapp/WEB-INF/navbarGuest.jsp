@@ -54,10 +54,16 @@
 						<button class="btn btn-outline-success" type="submit">Search</button>
 					</form>
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-						<li class="nav-item dropdown"><a
+
+						<li class="nav-item"><a class="nav-link active"
+							aria-current="page" href="#">[CHANGE ME TO USERNAME]</a></li>
+
+						<!-- FIX ME AS A STRECH GOAL!!! -->
+
+						<!-- <li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle" href="#" role="button"
-							data-bs-toggle="dropdown" aria-expanded="false"> [CHANGE ME
-								TO USERNAME] </a>
+							data-bs-toggle="dropdown" aria-expanded="true"> [CHANGE ME TO
+								USERNAME] </a>
 							<ul class="dropdown-menu">
 								<li><a class="dropdown-item" href="#">PROFILE INFO</a></li>
 								<li><a class="dropdown-item" href="#">VIEW BOOKMARKS</a></li>
@@ -65,7 +71,9 @@
 										ITINERARIES</a></li>
 								<li><hr class="dropdown-divider"></li>
 								<li><a class="dropdown-item" href="#"> LOGOUT</a></li>
-							</ul></li>
+							</ul></li> -->
+
+
 					</ul>
 				</div>
 			</div>
@@ -103,7 +111,12 @@
 						<button class="btn btn-outline-success" type="submit">Search</button>
 					</form>
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-						<li class="nav-item dropdown"><a
+						<li class="nav-item"><a class="nav-link active"
+							aria-current="page" href="#">[CHANGE ME TO USERNAME]</a></li>
+
+
+						<!-- FIX ME AS A STRECH GOAL!!! -->
+						<!-- <li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle" href="#" role="button"
 							data-bs-toggle="dropdown" aria-expanded="false"> [CHANGE ME
 								TO USERNAME] </a>
@@ -114,7 +127,7 @@
 										ITINERARIES</a></li>
 								<li><hr class="dropdown-divider"></li>
 								<li><a class="dropdown-item" href="#"> LOGOUT</a></li>
-							</ul></li>
+							</ul></li> -->
 					</ul>
 				</div>
 			</div>
