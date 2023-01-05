@@ -32,5 +32,12 @@ public class UserDAOImpl implements UserDAO {
 		}
 		return loggedInUser;
 	}
+	
+	@Override
+	public User addUser(User input) {
+		em.persist(input);
+		em.flush();
+		return input;
+	}
 
 }

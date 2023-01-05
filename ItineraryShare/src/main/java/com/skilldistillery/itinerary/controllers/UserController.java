@@ -58,4 +58,15 @@ public class UserController {
 		sessionStatus.setComplete();
 		return "home";
 	}
+	
+	@PostMapping(path="createAccount.do")
+	public String createAccount(Model model, @ModelAttribute("loggedInUser") User user) {
+		User createdUser = userDao.addUser(user);
+		Boolean success = false;
+		if (createdUser != null) {
+			success = true;
+		}
+		model.addAttribute("creationSuccess", success);
+		return "home";
+	}
 }
