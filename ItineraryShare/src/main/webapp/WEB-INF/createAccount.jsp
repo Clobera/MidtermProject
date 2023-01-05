@@ -16,25 +16,31 @@
 		<div class="input-group mb-3">
 			<span class="input-group-text" id="basic-addon1">First Name</span> <input
 				type="text" class="form-control" placeholder="First Name"
-				aria-label="Username" aria-describedby="basic-addon1">
+				aria-label="Username" aria-describedby="basic-addon1" name="firstName">
 		</div>
 
 		<div class="input-group mb-3">
 			<span class="input-group-text" id="basic-addon1">Last Name</span> <input
 				type="text" class="form-control" placeholder="Last Name"
-				aria-label="Username" aria-describedby="basic-addon1">
+				aria-label="Username" aria-describedby="basic-addon1" name="lastName">
 		</div>
 
 		<div class="input-group mb-3">
 			<span class="input-group-text" id="basic-addon1">Username</span> <input
 				type="text" class="form-control" placeholder="Username"
-				aria-label="Username" aria-describedby="basic-addon1" REQUIRED>
+				aria-label="Username" aria-describedby="basic-addon1" name="username" REQUIRED>
 		</div>
 
 		<div class="input-group mb-3">
 			<span class="input-group-text" id="basic-addon1">Password</span> <input
 				type="password" class="form-control" placeholder="Password"
-				aria-label="Username" aria-describedby="basic-addon1" REQUIRED>
+				aria-label="Username" aria-describedby="basic-addon1" name="password" REQUIRED>
+		</div>
+		
+		<div class="input-group mb-3">
+			<span class="input-group-text" id="basic-addon1">Biography</span> <input
+				type="text" class="form-control" placeholder="Write something about yourself!"
+				aria-label="Username" aria-describedby="basic-addon1" name="biography">
 		</div>
 
 		<div class="input-group mb-3">
