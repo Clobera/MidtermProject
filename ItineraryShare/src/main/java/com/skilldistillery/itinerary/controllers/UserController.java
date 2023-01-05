@@ -85,7 +85,7 @@ public class UserController {
 	
 	@RequestMapping(path = "createItinerary.do" )
 	public String createdItinerary(Itinerary itinerary) {
-		dao.createItinerary(itinerary);
+		userDao.createItinerary(itinerary);
 		return "home";
 	}
 	
