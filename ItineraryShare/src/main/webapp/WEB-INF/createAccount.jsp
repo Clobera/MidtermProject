@@ -12,7 +12,7 @@
 
 	<%@include file="navbarGuest.jsp"%>
 
-	<form action="createAccount.do" method="POST" >
+	<form action="createAccountForm.do" method="POST" >
 		<div class="input-group mb-3">
 			<span class="input-group-text" id="basic-addon1">First Name</span> <input
 				type="text" class="form-control" placeholder="First Name"
@@ -45,7 +45,7 @@
 
 		<div class="input-group mb-3">
 			<span class="input-group-text" id="basic-addon1">Profile
-				Picture</span> <input type="password" class="form-control"
+				Picture</span> <input type="text" class="form-control"
 				placeholder="ENTER URL" aria-label="Username"
 				aria-describedby="basic-addon1">
 		</div>
