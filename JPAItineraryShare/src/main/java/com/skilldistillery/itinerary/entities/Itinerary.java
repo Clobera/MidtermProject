@@ -1,6 +1,6 @@
 package com.skilldistillery.itinerary.entities;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -28,10 +28,10 @@ public class Itinerary {
 	private double budget;
 	
 	@Column(name="start_date")
-	private LocalDateTime startDate;
+	private LocalDate startDate;
 	
 	@Column(name="end_date")
-	private LocalDateTime endDate;
+	private LocalDate endDate;
 	
 	private String image;
 	
@@ -129,19 +129,19 @@ public class Itinerary {
 		this.budget = budget;
 	}
 
-	public LocalDateTime getStartDate() {
+	public LocalDate getStartDate() {
 		return startDate;
 	}
 
-	public void setStartDate(LocalDateTime startDate) {
+	public void setStartDate(LocalDate startDate) {
 		this.startDate = startDate;
 	}
 
-	public LocalDateTime getEndDate() {
+	public LocalDate getEndDate() {
 		return endDate;
 	}
 
-	public void setEndDate(LocalDateTime endDate) {
+	public void setEndDate(LocalDate endDate) {
 		this.endDate = endDate;
 	}
 
