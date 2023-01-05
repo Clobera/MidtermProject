@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `password` VARCHAR(45) NOT NULL,
   `enabled` TINYINT(4) NULL DEFAULT '1',
   `role` VARCHAR(45) NULL DEFAULT NULL,
-  `profile_picture` VARCHAR(2048) NOT NULL DEFAULT 'https://t4.ftcdn.net/jpg/03/46/93/61/360_F_346936114_RaxE6OQogebgAWTalE1myseY1Hbb5qPM.jpg',
+  `profile_picture` VARCHAR(2048) NULL DEFAULT 'https://t4.ftcdn.net/jpg/03/46/93/61/360_F_346936114_RaxE6OQogebgAWTalE1myseY1Hbb5qPM.jpg',
   `first_name` VARCHAR(100) NULL,
   `last_name` VARCHAR(100) NULL,
   `biography` TEXT NULL,
@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS `itinerary` (
   `budget` DECIMAL(8,2) NULL DEFAULT NULL,
   `start_date` DATE NULL DEFAULT NULL,
   `end_date` DATE NULL DEFAULT NULL,
-  `image` VARCHAR(2048) NOT NULL DEFAULT 'https://media.istockphoto.com/photos/couple-relax-on-the-beach-enjoy-beautiful-sea-on-the-tropical-island-picture-id1160947136?b=1&k=20&m=1160947136&s=612x612&w=0&h=AsFmKSBYTtacl0DvI-RanCnAXFU0cmuW8NAo0g-tGzA=',
+  `image` VARCHAR(2048) NULL DEFAULT 'https://media.istockphoto.com/photos/couple-relax-on-the-beach-enjoy-beautiful-sea-on-the-tropical-island-picture-id1160947136?b=1&k=20&m=1160947136&s=612x612&w=0&h=AsFmKSBYTtacl0DvI-RanCnAXFU0cmuW8NAo0g-tGzA=',
   `user_id` INT(11) NOT NULL,
   `name` VARCHAR(100) NOT NULL DEFAULT 'My Itinerary',
   `description` TEXT NULL,
@@ -349,7 +349,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 START TRANSACTION;
 USE `itinerarysharedb`;
 INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `profile_picture`, `first_name`, `last_name`, `biography`) VALUES (1, 'admin', 'chaotic_slime', 1, 'ADMIN', 'https://t4.ftcdn.net/jpg/03/46/93/61/360_F_346936114_RaxE6OQogebgAWTalE1myseY1Hbb5qPM.jpg', 'Chaotic', 'Slime', 'this is the chaotic slime admin account!');
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `profile_picture`, `first_name`, `last_name`, `biography`) VALUES (2, 'user2', 'password123', 1, 'USER', DEFAULT, 'Carlos', 'Lobera', 'hello! im carlos.');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `profile_picture`, `first_name`, `last_name`, `biography`) VALUES (2, 'user2', 'password123', 1, 'USER', NULL, 'Carlos', 'Lobera', 'hello! im carlos.');
 
 COMMIT;
 
