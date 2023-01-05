@@ -13,7 +13,7 @@
 <br>
 <form action="login.do" method="POST">
   <div class="mb-3" align="center">
-    <label for="exampleInputEmail1" class="form-label">Username</label>
+    <label for="InputUsername" class="form-label">Username</label>
     <input type="email" required= "required" class="form-control" id="InputUsername" aria-describedby="emailHelp">
 	<br>
     <label for="InputPassword" class="form-label">Password</label>
