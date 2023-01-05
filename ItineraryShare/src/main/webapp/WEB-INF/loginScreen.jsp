@@ -20,7 +20,6 @@
     <label for="InputPassword" class="form-label">Password</label>
     <input type="password" class="form-control" id="InputPassword" name="password" REQUIRED>
   </div>
-  <a href="createAccountForm.do">Create Account</a>
   <button type="submit" class="btn btn-primary">Login</button>
 </form>
 
