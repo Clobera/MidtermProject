@@ -49,6 +49,14 @@ public class UserDAOImpl implements UserDAO {
 		em.flush();
 		return itinerary;
 	}
+	
+	@Override
+	public List<Itinerary> findAllActiveItineraries () {
+		List<Itinerary> results = null;
+		String query = "SELECT i FROM Itinerary i WHERE i.active = true";
+		results = em.createQuery(query, Itinerary.class).getResultList();
+		return results;
+	}
 
 	
 }

@@ -1,5 +1,7 @@
 package com.skilldistillery.itinerary.controllers;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +32,8 @@ public class UserController {
 	
 	@RequestMapping(path= {"/", "home.do"})
 	public String home(Model model, @ModelAttribute("loggedInUser") User user) {
-		model.addAttribute("SMOKETEST", userDao.findById(1)); //FIXME: DELETE LATER!
+		List<Itinerary> itineraries = userDao.findAllActiveItineraries();
+		model.addAttribute("itineraries", itineraries);
 		return "home";
 	}
 	
