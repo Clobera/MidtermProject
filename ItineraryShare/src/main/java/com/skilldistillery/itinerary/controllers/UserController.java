@@ -38,6 +38,11 @@ public class UserController {
 		return "loginScreen";
 	}
 	
+	@GetMapping(path="createAccountForm.do")
+	public String createAccountForm () {
+		return "createAccount";
+	}
+	
 	@PostMapping(path= "login.do")
 	public String login (Model model, @ModelAttribute("loggedInUser") User user) {
 		user = userDao.findByUsernameAndPassword(user.getUsername(), user.getPassword());
