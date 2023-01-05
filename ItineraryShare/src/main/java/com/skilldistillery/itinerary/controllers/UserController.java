@@ -3,6 +3,7 @@ package com.skilldistillery.itinerary.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,6 +28,11 @@ public class UserController {
 	public String home(Model model, @ModelAttribute("loggedInUser") User user) {
 		model.addAttribute("SMOKETEST", userDao.findById(1)); //FIXME: DELETE LATER!
 		return "home";
+	}
+	
+	@GetMapping(path="loginForm.do")
+	public String loginForm () {
+		return "loginScreen";
 	}
 	
 	@PostMapping(path= "login.do")
