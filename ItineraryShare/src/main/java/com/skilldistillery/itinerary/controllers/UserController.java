@@ -46,6 +46,7 @@ public class UserController {
 	@PostMapping(path= "login.do")
 	public String login (Model model, @ModelAttribute("loggedInUser") User user) {
 		user = userDao.findByUsernameAndPassword(user.getUsername(), user.getPassword());
+		
 		Boolean success = false;
 		String view = "home";
 		if (user != null) {

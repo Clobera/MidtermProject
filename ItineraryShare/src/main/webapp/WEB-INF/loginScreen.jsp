@@ -15,11 +15,12 @@
 <form action="login.do" method="POST">
   <div class="mb-3" align="center">
     <label for="InputUsername" class="form-label">Username</label>
-    <input type="username" class="form-control" id="InputUsername" name="username" REQUIRED>
+    <input type="text" class="form-control" id="InputUsername" name="username" REQUIRED>
 	<br>
     <label for="InputPassword" class="form-label">Password</label>
     <input type="password" class="form-control" id="InputPassword" name="password" REQUIRED>
   </div>
+  <a href="createAccountForm.do">Create Account</a>
   <button type="submit" class="btn btn-primary">Login</button>
 </form>
 
