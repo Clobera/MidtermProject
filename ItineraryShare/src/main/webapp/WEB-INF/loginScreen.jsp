@@ -19,7 +19,6 @@
     <label for="InputPassword" class="form-label">Password</label>
     <input type="password" required="required" class="form-control" id="InputPassword" name="password">
   </div>
-  
   <button type="submit" class="btn btn-primary">Login</button>
 </form>
 
