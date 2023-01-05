@@ -13,13 +13,14 @@
 <br>
 <h3 align = "center">Login Failed, try again</h3>
 <br>
+<a href="createAccount.do">Create Account</a>
 <form action="login.do" method="POST">
   <div class="mb-3" align="center">
     <label for="InputUsername" class="form-label">Username</label>
-    <input type="username" required= "required" class="form-control" id="InputUsername" name="username">
+    <input type="username" class="form-control" id="InputUsername" name="username" REQUIRED>
 	<br>
     <label for="InputPassword" class="form-label">Password</label>
-    <input type="password" required="required" class="form-control" id="InputPassword" name="password">
+    <input type="password" class="form-control" id="InputPassword" name="password" REQUIRED>
   </div>
   
   <button type="submit" class="btn btn-primary">Login</button>
