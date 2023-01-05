@@ -4,7 +4,7 @@
 <c:choose>
 
 	<c:when
-		test="${sessionScope.loggedInUser.username == null}">
+		test="${sessionScope.loggedInUser.username == null or loginSuccess == false}">
 
 		<nav class="navbar navbar-expand-lg bg-body-tertiary">
 			<div class="container-fluid">

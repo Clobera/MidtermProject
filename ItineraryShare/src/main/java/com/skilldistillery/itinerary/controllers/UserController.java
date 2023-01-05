@@ -44,7 +44,7 @@ public class UserController {
 	}
 	
 	@PostMapping(path= "login.do")
-	public String login (Model model, @ModelAttribute("loggedInUser") User user) {
+	public String login (Model model, @ModelAttribute("loggedInUser") User user, SessionStatus sessionStatus) {
 		user = userDao.findByUsernameAndPassword(user.getUsername(), user.getPassword());
 		
 		Boolean success = false;
@@ -53,6 +53,7 @@ public class UserController {
 			success = true;
 		} else {
 			view = "loginFailed";
+			sessionStatus.setComplete();
 		}
 		model.addAttribute("loginSuccess", success);
 		return view;
