@@ -47,4 +47,11 @@ public class ItineraryDAOImpl implements ItineraryDAO{
 		results = em.createQuery(query, Itinerary.class).getResultList();
 		return results;
 	}
+
+	@Override
+	public Itinerary showItinerary(Itinerary id) {
+		String query = "SELECT * From Itinerary i where i.id = :id";
+		Itinerary byId = em.createQuery(query, Itinerary.class).setParameter("id", id).getSingleResult();
+		return byId;
+	}
 }
