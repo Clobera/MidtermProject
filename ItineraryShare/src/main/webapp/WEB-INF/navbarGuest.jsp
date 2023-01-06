@@ -6,7 +6,7 @@
 	<c:when
 		test="${sessionScope.loggedInUser.username == null or loginSuccess == false}">
 
-		<nav class="navbar navbar-expand-lg bg-body-tertiary">
+		<nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top" style="background:white;">
 			<div class="container-fluid">
 				<a class="navbar-brand" href="home.do">iS</a>
 				<button class="navbar-toggler" type="button"
@@ -31,7 +31,7 @@
 	</c:when>
 	<c:when test="${ sessionScope.loggedInUser.username == 'admin' }">
 		<!-- FOR ADMIN USER -->
-		<nav class="navbar navbar-expand-lg bg-body-tertiary">
+		<nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top" style="background:white;">
 			<div class="container-fluid">
 				<a class="navbar-brand" href="home.do">iS</a>
 				<button class="navbar-toggler" type="button"
@@ -87,7 +87,7 @@
 
 	</c:when>
 	<c:otherwise>
-		<nav class="navbar navbar-expand-lg bg-body-tertiary">
+		<nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top" style="background:white;">
 			<div class="container-fluid">
 				<a class="navbar-brand" href="home.do">iS</a>
 				<button class="navbar-toggler" type="button"
@@ -108,7 +108,7 @@
 					</form>
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 						<li class="nav-item"><a class="nav-link active"
-							aria-current="page" href="#">${sessionScope.loggedInUser.username}</a></li>
+							aria-current="page" href="profilePage.do">${sessionScope.loggedInUser.username}</a></li>
 					</ul>
 					<form class="d-flex" role="search" action="logout.do" method="POST">
 						<button class="btn btn-outline-success" type="submit">Log

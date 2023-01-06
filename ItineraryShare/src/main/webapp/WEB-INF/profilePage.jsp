@@ -8,8 +8,176 @@
 <title>${sessionScope.loggedInUser.username}</title>
 <%@include file="bootstraphead.jsp"%>
 </head>
+
 <body>
 <%@include file="navbarGuest.jsp"%>
+<div class="row">
+<div class="col-3">
+<div class="affix" style="position:fixed;">
+<!--   fixed position -->
+<!-- Insert profile image link -->
+Profile picture here
+
+Profile details
+
+Profile Description
+
+        </div>
+</div>
+<div class="col-1">
+</div>
+<div class="col-7">
+Profile submissions here
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+<br/>
+Lorem Ipsum
+</div>
+</div>
+
+
+
+
 
 
 

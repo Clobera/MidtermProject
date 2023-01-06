@@ -50,6 +50,11 @@ public class UserController {
 		return "createAccount";
 	}
 	
+	@GetMapping(path="profilePage.do")
+	public String profilePage () {
+		return "profilePage";
+	}
+	
 	@PostMapping(path= "login.do")
 	public String login (Model model, @ModelAttribute("loggedInUser") User user, SessionStatus sessionStatus, HttpSession session) {
 		user = userDao.findByUsernameAndPassword(user.getUsername(), user.getPassword());
