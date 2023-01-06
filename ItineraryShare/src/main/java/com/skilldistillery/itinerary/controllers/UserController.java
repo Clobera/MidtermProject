@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
+import com.skilldistillery.itinerary.data.ItineraryDAO;
 import com.skilldistillery.itinerary.data.UserDAO;
 import com.skilldistillery.itinerary.entities.Itinerary;
 import com.skilldistillery.itinerary.entities.User;
@@ -24,6 +25,8 @@ public class UserController {
 
 	@Autowired
 	private UserDAO userDao;
+	@Autowired
+	private ItineraryDAO itineraryDao;
 	
 	@ModelAttribute("loggedInUser")
 	public User initSessionState () {
@@ -32,7 +35,7 @@ public class UserController {
 	
 	@RequestMapping(path= {"/", "home.do"})
 	public String home(Model model, @ModelAttribute("loggedInUser") User user) {
-		List<Itinerary> itineraries = userDao.findAllActiveItineraries();
+		List<Itinerary> itineraries = itineraryDao.findAllActiveItineraries();
 		model.addAttribute("itineraries", itineraries);
 		return "home";
 	}
@@ -81,18 +84,4 @@ public class UserController {
 		model.addAttribute("creationSuccess", success);
 		return "home";
 	}
-	
-	@RequestMapping(path = "goCreateItinerary.do" )
-	public String goCreateItinerary(@ModelAttribute("loggedInUser") User user) {
-		System.out.println(user);
-		return "createItinerary";
-	}
-	
-	@RequestMapping(path = "createItinerary.do" )
-	public String createdItinerary(Itinerary itinerary, @ModelAttribute("loggedInUser") User user) {
-		userDao.createItinerary(user, itinerary);
-		return "home";
-	}
-	
-	
 }
