@@ -73,12 +73,5 @@
 		</div>
 		<!-- Itineraries END -->
 	</div>
-
-
-
-
-
-
-
 </body>
 </html>

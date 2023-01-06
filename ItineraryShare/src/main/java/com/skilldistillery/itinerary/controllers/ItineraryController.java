@@ -2,8 +2,9 @@ package com.skilldistillery.itinerary.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.skilldistillery.itinerary.data.ItineraryDAO;
@@ -22,13 +23,16 @@ public class ItineraryController {
 		return new User();
 	}
 	
-	@RequestMapping(path = "goCreateItinerary.do" )
+	@GetMapping(path = "goCreateItinerary.do" )
 	public String goCreateItinerary(@ModelAttribute("loggedInUser") User user) {
-		System.out.println(user);
-		return "createItinerary";
+		String destination = "createItinerary";
+		if (user.getId() == 0) {
+			destination = "home";
+		}
+		return destination;
 	}
 	
-	@RequestMapping(path = "createItinerary.do" )
+	@PostMapping(path = "createItinerary.do" )
 	public String createdItinerary(Itinerary itinerary, @ModelAttribute("loggedInUser") User user) {
 		itineraryDao.createItinerary(user, itinerary);
 		return "home";
