@@ -57,33 +57,20 @@
 					<!-- User Itineraries START -->
 					<c:choose>
 						<c:when test="${ ! empty itineraries }">
-<<<<<<< HEAD
 							<div class="cards">
 								<c:forEach var="itinerary" items="${ itineraries }">
 									<div class="card">
-											<a href="[FIX ME]">
-										<img alt="" src="${ itinerary.image}"
+										<a href="[FIX ME]"> <img alt="" src="${ itinerary.image}"
 											onerror="this.onerror=null; this.src='https://media.istockphoto.com/photos/couple-relax-on-the-beach-enjoy-beautiful-sea-on-the-tropical-island-picture-id1160947136?b=1&k=20&m=1160947136&s=612x612&w=0&h=AsFmKSBYTtacl0DvI-RanCnAXFU0cmuW8NAo0g-tGzA="
 											class="card__image">
-											</a>
+										</a>
 										<div class="card__content">
-											<a href="[FIX ME]" class="card__link">
-											${itinerary.name }
+											<a href="[FIX ME]" class="card__link"> ${itinerary.name }
 											</a>
 										</div>
-=======
-							<c:forEach var="itinerary" items="${ itineraries }">
-								<div class="card">
-									<img alt="" src="${ itinerary.image}"
-										onerror="this.onerror=null; this.src='https://media.istockphoto.com/photos/couple-relax-on-the-beach-enjoy-beautiful-sea-on-the-tropical-island-picture-id1160947136?b=1&k=20&m=1160947136&s=612x612&w=0&h=AsFmKSBYTtacl0DvI-RanCnAXFU0cmuW8NAo0g-tGzA="
-										class="card__image">
-									<div class="card__content">
-										<a href="[FIX ME]" class="card__link">${itinerary.name }</a>
->>>>>>> 330189a90396f746dd4d400eb0a9369ba28dfffc
 									</div>
-								</div>
-
-							</c:forEach>
+								</c:forEach>
+							</div>
 						</c:when>
 					</c:choose>
 					<!-- User Itineraries END -->
