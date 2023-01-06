@@ -15,7 +15,8 @@
 		<!-- Itinerary Info START -->
 		<div class="col-3">
 			<div class="affix" style="position: fixed;">
-				<div class="container">
+			<div class="container-fluid">
+				<div class="container" >
 					<!--   fixed position -->
 					<img class="img-fluid"
 						src="${itinerary.image}">
@@ -35,10 +36,12 @@
 				</div>
 			</div>
 		</div>
+					</div>
+		
 		<!-- Itinerary Info END -->
 		<div class="col-1"></div>
 	<!-- Itineraries START -->
-		<div class="col-7">
+		<div class="col-7" style="background:white;">
 			<div class="container">
 				<h4>Itinerary Days</h4>
 				<c:forEach var="days" items="${itineraryDays}">
