@@ -23,11 +23,10 @@
 				</div>
 				<div class="container">
 					<h5>Itinerary Info</h5>
-					Name: ${itinerary.name} ${itinerary.budget} 
-					<br/>
-					Start Date: ${itinerary.startDate}
-					<br/>
-					End Date: ${itinerary.endDate}
+					<br>Name: ${itinerary.name} 
+					<br>Budget: ${itinerary.budget} 
+					<br>Start Date: ${itinerary.startDate}
+					<br>End Date: ${itinerary.endDate}
 				</div>
 
 				<div class="container">

@@ -11,7 +11,44 @@
 	box-shadow: 0 0 3px rgba(0,0,0,0.1);
 	
 }
+.container{
+	max-width: inherit;
+	position: relative;
+	size: contain;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	padding:10px;
+	margin-top: 5%;
+}
+.container .card{
+	max-width: inherit;
+	position:relative;
+	background: #f0bcea;
+	margin: 10px 10px;
+	padding: 10px 10px;
+	display: flex;
+	flex-direction: column;
+	box-shadow: 0.5px 10px #e6e6e6;
+	transition: 0.3s ease-in-out;
+	margin-top: 5%;
+	
+}
+.container .card .imgBx{
+	position: relative;
+	max-width: inherit;
 
+}
+.container .card .imgBx img{
+	max-width: inherit;
+	border-radius: 10px;
+	
+}
+.imgBx:hover{
+	transform: scale(1.1);
+
+}
 .card__image{
 	width: 100%;
 	display:block;
