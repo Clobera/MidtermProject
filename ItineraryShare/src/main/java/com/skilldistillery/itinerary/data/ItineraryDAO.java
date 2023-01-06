@@ -10,4 +10,5 @@ public interface ItineraryDAO {
 	List<Itinerary> findAllActiveItineraries();
 	List<Itinerary> findUserItineraries(User user);
 	Itinerary findItinerary(int id);
+	boolean deleteItinerary(int id);
 }

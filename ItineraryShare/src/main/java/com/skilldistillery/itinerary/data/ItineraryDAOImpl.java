@@ -54,4 +54,15 @@ public class ItineraryDAOImpl implements ItineraryDAO{
 		Itinerary byId = em.createQuery(query, Itinerary.class).setParameter("id", id).getSingleResult();
 		return byId;
 	}
+
+	@Override
+	public boolean deleteItinerary(int id) {
+		boolean deletedItinerary = false;
+		Itinerary itinerary = em.find(Itinerary.class, id);
+		if (itinerary != null ) {
+			em.remove(itinerary);
+			deletedItinerary= true;
+		}
+		return deletedItinerary;
+	}
 }
