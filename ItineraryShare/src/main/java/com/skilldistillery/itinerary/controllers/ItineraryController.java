@@ -37,6 +37,15 @@ public class ItineraryController {
 		return destination;
 	}
 	
+	@GetMapping(path = "viewItinerary.do" )
+	public String viewItinerary(Model model, Itinerary itinerary) {
+		Itinerary showItinerary = itineraryDao.showItinerary(itinerary.getId());
+		model.addAttribute("itinerary", showItinerary);
+		return itinerary;
+	}
+	
+	
+	
 	@PostMapping(path = "createItinerary.do" )
 	public String createdItinerary(Itinerary itinerary, @ModelAttribute("loggedInUser") User user) {
 		itineraryDao.createItinerary(user, itinerary);
