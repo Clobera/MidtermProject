@@ -75,4 +75,10 @@ public class ItineraryController {
 		itineraryDao.createItinerary(user, itinerary);
 		return "home";
 	}
+	
+	@PostMapping(path = "deleteItinerary.do")
+	public String deleteItinerary(Integer deleteId, @ModelAttribute("loggedInUser") User user) {
+		itineraryDao.deleteItinerary(id);
+		return "profilePage";
+	}
 }
