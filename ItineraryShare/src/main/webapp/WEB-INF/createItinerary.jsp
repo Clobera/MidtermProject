@@ -55,5 +55,6 @@
 		<button type="submit" class="btn btn-primary">Create
 			Itinerary</button>
 	</form>
+	<%@include file="bootstrapFooter.jsp"%>
 </body>
 </html>

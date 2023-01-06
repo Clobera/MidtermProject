@@ -9,5 +9,5 @@ public interface ItineraryDAO {
 	Itinerary createItinerary(User user, Itinerary inputs);
 	List<Itinerary> findAllActiveItineraries();
 	List<Itinerary> findUserItineraries(User user);
-	Itinerary showItinerary(int id);
+	Itinerary findItinerary(int id);
 }

@@ -79,5 +79,7 @@
 		</div>
 		<!-- Itineraries END -->
 	</div>
+	<%@include file="bootstrapFooter.jsp"%>
+	
 </body>
 </html>

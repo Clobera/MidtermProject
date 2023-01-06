@@ -10,6 +10,7 @@
 <body>
 	<%@include file="navbarGuest.jsp"%>
 	<h1>Itinerary Share</h1>
+	<a href="goCreateDestination.do">create destination</a>
 	<c:choose>
 		<c:when test="${ ! empty itineraries }">
 			<div class="cards">
@@ -38,6 +39,6 @@
 
 
 
-
+<%@include file="bootstrapFooter.jsp"%>
 </body>
 </html>
