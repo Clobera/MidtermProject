@@ -50,7 +50,7 @@ public class ItineraryDAOImpl implements ItineraryDAO{
 
 	@Override
 	public Itinerary showItinerary(int id) {
-		String query = "SELECT * From Itinerary i where i.id = :id";
+		String query = "SELECT i From Itinerary i where i.id = :id";
 		Itinerary byId = em.createQuery(query, Itinerary.class).setParameter("id", id).getSingleResult();
 		return byId;
 	}
