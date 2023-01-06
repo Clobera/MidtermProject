@@ -1,13 +1,22 @@
 package com.skilldistillery.itinerary.controllers;
 
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.skilldistillery.itinerary.data.DestinationDAO;
+import com.skilldistillery.itinerary.data.ItineraryDAO;
 import com.skilldistillery.itinerary.data.ItineraryItemDAO;
+import com.skilldistillery.itinerary.entities.Destination;
+import com.skilldistillery.itinerary.entities.Itinerary;
 import com.skilldistillery.itinerary.entities.ItineraryItem;
 import com.skilldistillery.itinerary.entities.User;
 
@@ -18,19 +27,35 @@ public class ItineraryItemController {
 	@Autowired
 	private ItineraryItemDAO itineraryItemDao;
 	
+	@Autowired
+	private ItineraryDAO itineraryDao;
+	
+	@Autowired
+	private DestinationDAO destinationDao;
+	
 	@ModelAttribute("loggedInUser")
 	public User initSessionState() {
 		return new User();
 	}
 	
-	@PostMapping(path = "goCreateItineraryItem.do")
-	public String goCreateItinerary(Model model, @ModelAttribute("loggedInUser") User user) {
+	@GetMapping(path = "goCreateItineraryItem.do")
+	public String goCreateItinerary(Model model, @ModelAttribute("loggedInUser") User user, Integer id) {
 		String destination = "createItineraryItem";
 		if (user.getId() == 0) {
 			destination = "home";
-			ItineraryItem itineraryItem = itineraryItemDao.createItineraryItem();
-			model.addAttribute("itineraryItem", itineraryItem);
 		}
+		List<Destination> destinations = destinationDao.findAllDestinations();
+		model.addAttribute("destinations", destinations);
+		model.addAttribute("itineraryId", id);
 		return destination;
+	}
+	
+	@PostMapping(path = "createItineraryItem.do")
+	public String createItineraryItem(ItineraryItem itineraryItem, Integer itineraryId, Integer destinationId, RedirectAttributes redir) {
+		Itinerary iteneraryCreated = itineraryDao.findItinerary(itineraryId);
+		Destination destinationCreated = destinationDao.findDestinationById(destinationId);
+		ItineraryItem newItineraryItem = itineraryItemDao.createItineraryItem(iteneraryCreated, destinationCreated, itineraryItem);
+		redir.addFlashAttribute("id", itineraryId);
+		return "redirect:viewItinerary.do";
 	}
 }

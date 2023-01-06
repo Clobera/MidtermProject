@@ -21,6 +21,9 @@ public class ItineraryItemDAOImpl implements ItineraryItemDAO {
 	public ItineraryItem createItineraryItem(Itinerary itinerary, Destination destination, ItineraryItem itineraryItem) {
 		itineraryItem.setItinerary(itinerary);
 		itineraryItem.setDestination(destination);
+		System.out.println(itineraryItem);
+		System.out.println(itinerary.getId());
+		System.out.println(destination.getId());
 		em.persist(itineraryItem);
 		em.flush();
 		ItineraryItem newItineraryItem = findItineraryItemById(itineraryItem.getId());

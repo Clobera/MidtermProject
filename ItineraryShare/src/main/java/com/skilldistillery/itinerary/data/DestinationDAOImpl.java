@@ -1,5 +1,7 @@
 package com.skilldistillery.itinerary.data;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
@@ -27,6 +29,13 @@ public class DestinationDAOImpl implements DestinationDAO {
 	public Destination findDestinationById (int id) {
 		Destination result = em.find(Destination.class, id);
 		return result;
+	}
+
+	@Override
+	public List<Destination> findAllDestinations() {
+		String query = "Select d from Destination d";
+		List<Destination> destinations = em.createQuery(query, Destination.class).getResultList();
+		return destinations;
 	}
 
 }
