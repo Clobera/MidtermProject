@@ -60,7 +60,7 @@ public class ItineraryDAOImpl implements ItineraryDAO{
 		boolean deletedItinerary = false;
 		Itinerary itinerary = em.find(Itinerary.class, id);
 		if (itinerary != null ) {
-			em.remove(itinerary);
+			itinerary.setActive(false);
 			deletedItinerary= true;
 		}
 		return deletedItinerary;
