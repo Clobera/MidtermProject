@@ -38,10 +38,10 @@ public class ItineraryController {
 	}
 	
 	@GetMapping(path = "viewItinerary.do" )
-	public String viewItinerary(Model model, Itinerary itinerary) {
-		Itinerary showItinerary = itineraryDao.showItinerary(itinerary.getId());
+	public String viewItinerary(Model model, int id) {
+		Itinerary showItinerary = itineraryDao.showItinerary(id);
 		model.addAttribute("itinerary", showItinerary);
-		return itinerary;
+		return "itinerary";
 	}
 	
 	
