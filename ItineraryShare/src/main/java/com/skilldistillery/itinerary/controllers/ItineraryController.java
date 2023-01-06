@@ -45,14 +45,18 @@ public class ItineraryController {
 	}
 
 	@PostMapping(path = "createItinerary.do")
-	public String createdItinerary(Itinerary itinerary, @ModelAttribute("loggedInUser") User user) {
+	public String createdItinerary(Model model, Itinerary itinerary, @ModelAttribute("loggedInUser") User user) {
 		itineraryDao.createItinerary(user, itinerary);
+		List<Itinerary> itineraries = itineraryDao.findAllActiveItineraries();
+		model.addAttribute("itineraries", itineraries);
 		return "home";
 	}
 	
 	@PostMapping(path = "deleteItinerary.do")
-	public String deleteItinerary(Integer deleteId, @ModelAttribute("loggedInUser") User user) {
-		itineraryDao.deleteItinerary(id);
+	public String deleteItinerary(Model model, Integer deleteId, @ModelAttribute("loggedInUser") User user) {
+		itineraryDao.deleteItinerary(deleteId);
+		List<Itinerary> itineraries = itineraryDao.findUserItineraries(user);
+		model.addAttribute("itineraries", itineraries);
 		return "profilePage";
 	}
 }
