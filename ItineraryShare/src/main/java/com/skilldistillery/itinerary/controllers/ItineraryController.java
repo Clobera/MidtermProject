@@ -1,7 +1,10 @@
 package com.skilldistillery.itinerary.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,10 +27,12 @@ public class ItineraryController {
 	}
 	
 	@GetMapping(path = "goCreateItinerary.do" )
-	public String goCreateItinerary(@ModelAttribute("loggedInUser") User user) {
+	public String goCreateItinerary(Model model, @ModelAttribute("loggedInUser") User user) {
 		String destination = "createItinerary";
 		if (user.getId() == 0) {
 			destination = "home";
+			List<Itinerary> itineraries = itineraryDao.findAllActiveItineraries();
+			model.addAttribute("itineraries", itineraries);
 		}
 		return destination;
 	}

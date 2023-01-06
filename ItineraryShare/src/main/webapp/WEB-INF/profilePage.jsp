@@ -69,7 +69,11 @@
 											</a>
 										</div>
 									</div>
+<<<<<<< HEAD
 								</c:forEach>
+=======
+							</c:forEach>
+>>>>>>> refs/remotes/origin/main
 							</div>
 						</c:when>
 					</c:choose>
