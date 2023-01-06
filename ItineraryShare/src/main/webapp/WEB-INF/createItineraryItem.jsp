@@ -21,11 +21,11 @@
 		</div>
 
 		<div class="input-group mb-3">
-			<c:forEach var="destination" items="${destinations}">
 				<select name="destinationId">
+			<c:forEach var="destination" items="${destinations}">
 					<option value="${destination.id}">${destination.name}</option>
-				</select>
 			</c:forEach>
+				</select>
 		</div>
 
 		<div class="input-group mb-3">

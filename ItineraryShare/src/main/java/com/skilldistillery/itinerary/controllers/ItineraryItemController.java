@@ -1,6 +1,8 @@
 package com.skilldistillery.itinerary.controllers;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -42,6 +44,8 @@ public class ItineraryItemController {
 		if (user.getId() == 0) {
 			destination = "home";
 		}
+		List<Destination> destinations = destinationDao.findAllDestinations();
+		model.addAttribute("destinations", destinations);
 		model.addAttribute("itineraryId", id);
 		return destination;
 	}
