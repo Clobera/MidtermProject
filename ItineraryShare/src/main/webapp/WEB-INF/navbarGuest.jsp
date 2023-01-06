@@ -6,7 +6,8 @@
 	<c:when
 		test="${sessionScope.loggedInUser.username == null or loginSuccess == false}">
 
-		<nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top" style="background:white;">
+		<nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top"
+			style="background: white;">
 			<div class="container-fluid">
 				<a class="navbar-brand" href="home.do">iS</a>
 				<button class="navbar-toggler" type="button"
@@ -31,7 +32,8 @@
 	</c:when>
 	<c:when test="${ sessionScope.loggedInUser.username == 'admin' }">
 		<!-- FOR ADMIN USER -->
-		<nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top" style="background:white;">
+		<nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top"
+			style="background: white;">
 			<div class="container-fluid">
 				<a class="navbar-brand" href="home.do">iS</a>
 				<button class="navbar-toggler" type="button"
@@ -59,7 +61,7 @@
 						<li class="nav-item"><a class="nav-link active"
 							aria-current="page" href="profilePage.do">${sessionScope.loggedInUser.username}</a></li>
 					</ul>
-					<form class="d-flex" role="search" method="POST" action="logout.do" >
+					<form class="d-flex" role="search" method="POST" action="logout.do">
 
 						<button class="btn btn-outline-success" type="submit">Log
 							Out</button>
@@ -87,7 +89,8 @@
 
 	</c:when>
 	<c:otherwise>
-		<nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top" style="background:white;">
+		<nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top"
+			style="background: white;">
 			<div class="container-fluid">
 				<a class="navbar-brand" href="home.do">iS</a>
 				<button class="navbar-toggler" type="button"
@@ -117,18 +120,19 @@
 
 
 					<!-- FIX ME AS A STRECH GOAL!!! -->
-					<!-- <li class="nav-item dropdown"><a
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle" href="#" role="button"
-							data-bs-toggle="dropdown" aria-expanded="false"> [CHANGE ME
-								TO USERNAME] </a>
+							data-bs-toggle="dropdown" aria-expanded="false"> ${sessionScope.loggedInUser.username} </a>
 							<ul class="dropdown-menu">
-								<li><a class="dropdown-item" href="#">PROFILE INFO</a></li>
+								<li><a class="dropdown-item" href="profilePage.do">PROFILE INFO</a></li>
 								<li><a class="dropdown-item" href="#">VIEW BOOKMARKS</a></li>
 								<li><a class="dropdown-item" href="#">VIEW MY
 										ITINERARIES</a></li>
 								<li><hr class="dropdown-divider"></li>
 								<li><a class="dropdown-item" href="#"> LOGOUT</a></li>
-							</ul></li> -->
+							</ul></li>
+					</ul>
 				</div>
 			</div>
 		</nav>

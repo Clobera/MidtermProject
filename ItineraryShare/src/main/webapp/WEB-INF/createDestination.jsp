@@ -47,6 +47,6 @@
 	</form>
 
 
-
+<%@include file="bootstrapFooter.jsp"%>
 </body>
 </html>
