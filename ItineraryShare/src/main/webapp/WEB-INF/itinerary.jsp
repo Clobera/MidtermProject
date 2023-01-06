@@ -10,44 +10,47 @@
 </head>
 <body>
 	<%@include file="navbarGuest.jsp"%>
-	
-		<div class="row">
+
+	<div class="row">
 		<!-- Itinerary Info START -->
 		<div class="col-3">
 			<div class="affix" style="position: fixed;">
-			<div class="container-fluid">
-				<div class="container" >
-					<!--   fixed position -->
-					<img class="img-fluid"
-						src="${itinerary.image}">
-				</div>
-				<div class="container">
-					<h5>Itinerary Info</h5>
-					<br>Name: ${itinerary.name} 
-					<br>Budget: ${itinerary.budget} 
-					<br>Start Date: ${itinerary.startDate}
-					<br>End Date: ${itinerary.endDate}
-				</div>
+				<div class="container-fluid">
+					<div class="container">
+						<!--   fixed position -->
+						<img class="img-fluid" src="${itinerary.image}">
+					</div>
+					<div class="container">
+						<h5>Itinerary Info</h5>
+						<br>Name: ${itinerary.name} <br>Budget:
+						${itinerary.budget} <br>Start Date: ${itinerary.startDate} <br>End
+						Date: ${itinerary.endDate}
+					</div>
 
-				<div class="container">
-					<h5>Description</h5>
-					<strong>${itinerary.description}</strong>
+					<div class="container">
+						<h5>Description</h5>
+						<strong>${itinerary.description}</strong>
+					</div>
+					<c:if
+						test="${(sessionScope.loggedInUser.id == itinerary.userId.id) or sessionScope.loggedInUser.username == 'admin' }">
+						<form action="deleteItinerary.do" method="post">
+							<button type="submit" value="${itinerary.id}" name="deleteId">Delete</button>
+						</form>
+					</c:if>
 				</div>
 			</div>
 		</div>
-					</div>
-		
+
 		<!-- Itinerary Info END -->
 		<div class="col-1"></div>
-	<!-- Itineraries START -->
-		<div class="col-7" style="background:white;">
+		<!-- Itineraries START -->
+		<div class="col-7" style="background: white;">
 			<div class="container">
 				<h4>Itinerary Days</h4>
 				<c:forEach var="days" items="${itineraryDays}">
 					<div class="container">
-					${days.day}
-					<br/>
-					<c:forEach var="item" items="${day}">
+						${days.day} <br />
+						<c:forEach var="item" items="${day}">
 					${item.name} ${item.description}
 					</c:forEach>
 					</div>
@@ -56,5 +59,7 @@
 		</div>
 		<!-- ItineraryItems END -->
 	</div>
-	</body>
+	<%@include file="bootstrapFooter.jsp"%>
+
+</body>
 </html>

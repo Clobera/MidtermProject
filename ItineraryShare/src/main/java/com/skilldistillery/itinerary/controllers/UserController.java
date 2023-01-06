@@ -66,6 +66,8 @@ public class UserController {
 		String view = "home";
 		if (user != null) {
 			success = true;
+			List<Itinerary> itineraries = itineraryDao.findAllActiveItineraries();
+			model.addAttribute("itineraries", itineraries);
 		} else {
 			view = "loginFailed";
 			sessionStatus.setComplete();
@@ -75,9 +77,11 @@ public class UserController {
 	}
 	
 	@PostMapping(path="logout.do")
-	public String logout (HttpSession session, SessionStatus sessionStatus) {
+	public String logout (Model model, HttpSession session, SessionStatus sessionStatus) {
 //		session.removeAttribute("loggedInUser");
 		sessionStatus.setComplete();
+		List<Itinerary> itineraries = itineraryDao.findAllActiveItineraries();
+		model.addAttribute("itineraries", itineraries);
 		return "home";
 	}
 	
@@ -87,6 +91,8 @@ public class UserController {
 		Boolean success = false;
 		if (createdUser != null) {
 			success = true;
+			List<Itinerary> itineraries = itineraryDao.findAllActiveItineraries();
+			model.addAttribute("itineraries", itineraries);
 		}
 		model.addAttribute("creationSuccess", success);
 		return "home";
