@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>${sessionScope.loggedInUser.username}</title>
 <%@include file="bootstraphead.jsp"%>
+<link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
