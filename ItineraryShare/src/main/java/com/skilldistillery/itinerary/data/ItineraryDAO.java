@@ -8,4 +8,5 @@ import com.skilldistillery.itinerary.entities.User;
 public interface ItineraryDAO {
 	Itinerary createItinerary(User user, Itinerary inputs);
 	List<Itinerary> findAllActiveItineraries();
+	List<Itinerary> findUserItineraries(User user);
 }

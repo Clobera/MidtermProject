@@ -51,7 +51,9 @@ public class UserController {
 	}
 	
 	@GetMapping(path="profilePage.do")
-	public String profilePage () {
+	public String profilePage (Model model,@ModelAttribute("loggedInUser") User user ) {
+		List<Itinerary> userItineraries = itineraryDao.findUserItineraries(user);
+		model.addAttribute("itineraries", userItineraries);
 		return "profilePage";
 	}
 	

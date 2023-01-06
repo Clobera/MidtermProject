@@ -19,6 +19,16 @@ public class ItineraryDAOImpl implements ItineraryDAO{
 	private EntityManager em;
 	
 	@Override
+	public List<Itinerary> findUserItineraries(User user) {
+		String query = "SELECT i FROM Itinerary i WHERE i.userId = :user AND i.active = true";
+		List<Itinerary> userQuery = em.createQuery(query, Itinerary.class).setParameter("user", user).getResultList();
+		if (userQuery.size() == 0) {
+			userQuery =null;
+		}
+		return userQuery;
+	}
+	
+	@Override
 	public Itinerary createItinerary(User user, Itinerary itinerary) {
 		itinerary.setUserId(user);
 		if(itinerary.getImage() == null || itinerary.getImage().equals("")) {
