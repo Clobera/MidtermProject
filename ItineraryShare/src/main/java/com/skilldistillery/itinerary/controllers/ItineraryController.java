@@ -39,11 +39,17 @@ public class ItineraryController {
 	
 	@GetMapping(path = "viewItinerary.do" )
 	public String viewItinerary(Model model, int id) {
-		Itinerary showItinerary = itineraryDao.showItinerary(id);
+		Itinerary showItinerary = itineraryDao.findItinerary(id);
 		model.addAttribute("itinerary", showItinerary);
 		return "itinerary";
 	}
 	
+	@GetMapping(path = "goCreateDestination.do" )
+	public String goCreateDestination(Model model, int id, @ModelAttribute("loggedInUser") User user) {
+		Itinerary itinerary = itineraryDao.findItinerary(id);
+		model.addAttribute("itinerary", itinerary);
+		return "createDestination";
+	}
 	
 	
 	@PostMapping(path = "createItinerary.do" )
