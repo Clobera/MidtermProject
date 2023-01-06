@@ -2,9 +2,14 @@ package com.skilldistillery.itinerary.data;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
+
+import org.springframework.stereotype.Service;
 
 import com.skilldistillery.itinerary.entities.Destination;
 
+@Service
+@Transactional
 public class DestinationDAOImpl implements DestinationDAO {
 
 	@PersistenceContext
