@@ -63,7 +63,7 @@
 											class="card__image">
 										</a>
 										<div class="card__content">
-											<a href="[FIX ME]" class="card__link"> ${itinerary.name }
+											<a href="viewItinerary.do?id=${ itinerary.id }" class="card__link"> ${itinerary.name }
 											</a>
 										</div>
 									</div>
