@@ -78,7 +78,6 @@ public class UserController {
 	
 	@PostMapping(path="logout.do")
 	public String logout (Model model, HttpSession session, SessionStatus sessionStatus) {
-//		session.removeAttribute("loggedInUser");
 		sessionStatus.setComplete();
 		List<Itinerary> itineraries = itineraryDao.findAllActiveItineraries();
 		model.addAttribute("itineraries", itineraries);
