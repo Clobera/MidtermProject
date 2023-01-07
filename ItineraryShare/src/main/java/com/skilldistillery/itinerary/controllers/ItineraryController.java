@@ -26,13 +26,23 @@ public class ItineraryController {
 		return new User();
 	}
 
-	@GetMapping(path = "viewItinerary.do")
+	@GetMapping(path = "viewItinerary.do", params = {"id"})
 	public String viewItinerary(Model model, Integer id) {
+//		Integer id= (Integer) model.getAttribute("id");
+		System.out.println("***********************************************************"+ id);
 		Itinerary showItinerary = itineraryDao.findItinerary(id);
 		model.addAttribute("itinerary", showItinerary);
 		return "itinerary";
 	}
 
+	@GetMapping(path = "viewItinerary.do")
+	public String viewItineraryAgain(Model model) {
+		Integer id= (Integer) model.getAttribute("id");
+		System.out.println("***********************************************************"+ id);
+		Itinerary showItinerary = itineraryDao.findItinerary(id);
+		model.addAttribute("itinerary", showItinerary);
+		return "itinerary";
+	}
 	@GetMapping(path = "goCreateItinerary.do")
 	public String goCreateItinerary(Model model, @ModelAttribute("loggedInUser") User user) {
 		String destination = "createItinerary";
