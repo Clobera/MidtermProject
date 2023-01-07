@@ -12,8 +12,8 @@
 
 	<%@include file="navbarGuest.jsp"%>
 
-	<form action="createItinerary.do" method="POST">
-		<input type="hidden" value="${itinerary.id}" name="itineraryId">
+	<form action="createItineraryItem.do" method="POST">
+		<input type="hidden" value="${itinerary}" name="itineraryId">
 		<div class="input-group mb-3">
 			<span class="input-group-text" id="basic-addon1">Name</span> <input
 				type="text" class="form-control" placeholder="Name"
@@ -31,7 +31,7 @@
 		<div class="input-group mb-3">
 			<span class="input-group-text" id="basic-addon1">Day</span> <input
 				type="number" class="form-control" aria-label="Trip day"
-				aria-describedby="basic-addon1" name="trip_day" REQUIRED>
+				aria-describedby="basic-addon1" name="tripDay" REQUIRED>
 		</div>
 
 		<div class="input-group mb-3">

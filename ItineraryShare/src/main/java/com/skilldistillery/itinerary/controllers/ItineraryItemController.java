@@ -46,7 +46,7 @@ public class ItineraryItemController {
 		}
 		List<Destination> destinations = destinationDao.findAllDestinations();
 		model.addAttribute("destinations", destinations);
-		model.addAttribute("itineraryId", id);
+		model.addAttribute("itinerary", id);
 		return destination;
 	}
 	
@@ -55,7 +55,7 @@ public class ItineraryItemController {
 		Itinerary iteneraryCreated = itineraryDao.findItinerary(itineraryId);
 		Destination destinationCreated = destinationDao.findDestinationById(destinationId);
 		ItineraryItem newItineraryItem = itineraryItemDao.createItineraryItem(iteneraryCreated, destinationCreated, itineraryItem);
-		redir.addFlashAttribute("id", itineraryId);
+		redir.addFlashAttribute("id", iteneraryCreated.getId());
 		return "redirect:viewItinerary.do";
 	}
 }
