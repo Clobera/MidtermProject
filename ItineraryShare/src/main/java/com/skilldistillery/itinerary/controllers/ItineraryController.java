@@ -1,5 +1,7 @@
 package com.skilldistillery.itinerary.controllers;
 
+import java.time.Period;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +13,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.skilldistillery.itinerary.data.ItineraryDAO;
+import com.skilldistillery.itinerary.data.ItineraryItemDAO;
 import com.skilldistillery.itinerary.entities.Itinerary;
+import com.skilldistillery.itinerary.entities.ItineraryItem;
 import com.skilldistillery.itinerary.entities.User;
 
 @Controller
@@ -20,19 +24,35 @@ public class ItineraryController {
 
 	@Autowired
 	private ItineraryDAO itineraryDao;
+
+	@Autowired
+	private ItineraryItemDAO itineraryItemDao;
 	
 	@ModelAttribute("loggedInUser")
 	public User initSessionState() {
 		return new User();
 	}
 
-	@GetMapping(path = "viewItinerary.do")
+	@GetMapping(path = "viewItinerary.do", params = {"id"})
 	public String viewItinerary(Model model, Integer id) {
+//		Integer id= (Integer) model.getAttribute("id");
 		Itinerary showItinerary = itineraryDao.findItinerary(id);
+		List<ItineraryItem> items= itineraryItemDao.findOrderedItineraryItemByItinerary(showItinerary);
 		model.addAttribute("itinerary", showItinerary);
+		model.addAttribute("itineraryDays", items);
 		return "itinerary";
 	}
 
+	@GetMapping(path = "viewItinerary.do")
+	public String viewItineraryAgain(Model model) {
+		Integer id= (Integer) model.getAttribute("id");
+		Itinerary showItinerary = itineraryDao.findItinerary(id);
+		List<ItineraryItem> items= itineraryItemDao.findOrderedItineraryItemByItinerary(showItinerary);
+		model.addAttribute("itinerary", showItinerary);
+		model.addAttribute("itineraryDays", items);
+		return "itinerary";
+	}
+	
 	@GetMapping(path = "goCreateItinerary.do")
 	public String goCreateItinerary(Model model, @ModelAttribute("loggedInUser") User user) {
 		String destination = "createItinerary";

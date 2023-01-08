@@ -1,6 +1,8 @@
 package com.skilldistillery.itinerary.controllers;
 
 
+import java.time.Period;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,8 +47,14 @@ public class ItineraryItemController {
 			destination = "home";
 		}
 		List<Destination> destinations = destinationDao.findAllDestinations();
+		Itinerary itinerary = itineraryDao.findItinerary(id);
+		List<Integer> days = new ArrayList<>();
+		for (int i = 1; i <= Period.between(itinerary.getStartDate(), itinerary.getEndDate()).getDays(); i++) {
+			days.add(i);
+		}
 		model.addAttribute("destinations", destinations);
-		model.addAttribute("itineraryId", id);
+		model.addAttribute("itinerary", id);
+		model.addAttribute("days", days);
 		return destination;
 	}
 	
@@ -55,7 +63,7 @@ public class ItineraryItemController {
 		Itinerary iteneraryCreated = itineraryDao.findItinerary(itineraryId);
 		Destination destinationCreated = destinationDao.findDestinationById(destinationId);
 		ItineraryItem newItineraryItem = itineraryItemDao.createItineraryItem(iteneraryCreated, destinationCreated, itineraryItem);
-		redir.addFlashAttribute("id", itineraryId);
+		redir.addFlashAttribute("id", iteneraryCreated.getId());
 		return "redirect:viewItinerary.do";
 	}
 }

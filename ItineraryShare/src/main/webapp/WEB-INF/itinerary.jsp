@@ -49,13 +49,11 @@
 		<div class="col-7" style="background: white;">
 			<div class="container">
 				<h4>Itinerary Days</h4>
-				<a href="goCreateItineraryItem.do">Create Itinerary Item</a>
+				<a href="goCreateItineraryItem.do?id=${itinerary.id }">Create Itinerary Item</a>
 				<c:forEach var="days" items="${itineraryDays}">
 					<div class="container">
-						${days.day} <br />
-						<c:forEach var="item" items="${day}">
-					${item.name} ${item.description}
-					</c:forEach>
+					<pre>${days.tripDay}	${days.description } <br /></pre>
+				
 					</div>
 				</c:forEach>
 			</div>
