@@ -1,5 +1,6 @@
 package com.skilldistillery.itinerary.controllers;
 
+import java.lang.ProcessBuilder.Redirect;
 import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.itinerary.data.ItineraryDAO;
 import com.skilldistillery.itinerary.data.ItineraryItemDAO;
@@ -70,6 +72,21 @@ public class ItineraryController {
 		List<Itinerary> itineraries = itineraryDao.findAllActiveItineraries();
 		model.addAttribute("itineraries", itineraries);
 		return "home";
+	}
+	
+	@PostMapping(path = "goUpdateItinerary.do")
+	public String goUpdateItinerary(Model model, int updateId) {
+		String destination = "updateItinerary";
+		Itinerary itineraryToUpdate = itineraryDao.findItinerary(updateId);
+		model.addAttribute("itinerary", itineraryToUpdate);
+		return destination;
+	}
+
+	@PostMapping(path = "updateItinerary.do")
+	public String updateItinerary(Itinerary update, int itineraryId, RedirectAttributes redir) {
+		Itinerary itineraryToUpdate = itineraryDao.updateItinerary(update, itineraryId);
+		redir.addFlashAttribute("id", itineraryToUpdate.getId());
+		return "redirect:viewItinerary.do";
 	}
 	
 	@PostMapping(path = "deleteItinerary.do")

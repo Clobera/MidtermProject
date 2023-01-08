@@ -11,5 +11,5 @@ public interface ItineraryDAO {
 	List<Itinerary> findUserItineraries(User user);
 	Itinerary findItinerary(int id);
 	boolean deleteItinerary(int id);
-	Itinerary updateItinerary(Itinerary input);
+	Itinerary updateItinerary(Itinerary input, int id);
 }

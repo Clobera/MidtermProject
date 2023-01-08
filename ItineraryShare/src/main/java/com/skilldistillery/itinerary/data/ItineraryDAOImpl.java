@@ -66,8 +66,8 @@ public class ItineraryDAOImpl implements ItineraryDAO{
 	}
 	
 	@Override
-	public Itinerary updateItinerary (Itinerary input) {
-		Itinerary output = em.find(Itinerary.class, input.getId());
+	public Itinerary updateItinerary (Itinerary input, int id) {
+		Itinerary output = em.find(Itinerary.class, id);
 		output.setName(input.getName());
 		output.setDescription(input.getDescription());
 		output.setBudget(input.getBudget());
@@ -76,4 +76,6 @@ public class ItineraryDAOImpl implements ItineraryDAO{
 		output.setImage(input.getImage());
 		return output;
 	}
+
+	
 }

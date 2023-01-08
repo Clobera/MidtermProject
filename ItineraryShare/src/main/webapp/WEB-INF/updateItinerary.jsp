@@ -46,8 +46,9 @@
 		<!-- Itineraries START -->
 		<div class="col-7" style="background: white;">
 			<div class="container">
-				<form action="createItinerary.do" method="POST">
+				<form action="updateItinerary.do" method="POST">
 		<input type="hidden" value="true" name="active">
+		<input type="hidden" value="${itinerary.id }" name="itineraryId">
 		<div class="input-group mb-3">
 			<span class="input-group-text" id="basic-addon1">Name</span> <input
 				type="text" value="${itinerary.name }" class="form-control" placeholder="Name"
@@ -83,7 +84,7 @@
 		<div class="input-group mb-3">
 			<span class="input-group-text" id="basic-addon1">Image URL</span> <input
 				type="text" class="form-control" value="${itinerary.image }" placeholder="ENTER URL"
-				aria-label="Image" aria-describedby="basic-addon1">
+				aria-label="Image" aria-describedby="basic-addon1" name="image">
 		</div>
 
 		<button type="submit" class="btn btn-primary">Update
