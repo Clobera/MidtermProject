@@ -18,10 +18,11 @@
 				<div class="container-fluid">
 					<div class="container">
 						<!--   fixed position -->
-						<img class="img-fluid" src="${itinerary.image}">
+						<img  src="${itinerary.image}">
 					</div>
 					<div class="container">
 						<h5>Itinerary Info</h5>
+						<br/>
 						<br>Name: ${itinerary.name} <br>Budget:
 						${itinerary.budget} <br>Start Date: ${itinerary.startDate} <br>End
 						Date: ${itinerary.endDate}
@@ -29,6 +30,7 @@
 
 					<div class="container">
 						<h5>Description</h5>
+						<br/>
 						<strong>${itinerary.description}</strong>
 					</div>
 					<c:if
