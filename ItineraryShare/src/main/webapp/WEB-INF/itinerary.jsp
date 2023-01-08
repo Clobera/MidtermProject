@@ -10,57 +10,53 @@
 </head>
 <body>
 	<%@include file="navbarGuest.jsp"%>
+	<div class="itinerary__content">
+		<div class="row">
+			<!-- Itinerary Info START -->
+			<div class="col-lg-4 addBorder itinerary__info" data-spy="affix">
 
-	<div class="row">
-		<!-- Itinerary Info START -->
-		<div class="col-3">
-			<div class="affix" style="position: fixed;">
-				<div class="container-fluid">
-					<div class="container">
-						<!--   fixed position -->
-						<img  src="${itinerary.image}">
-					</div>
+					<!--   fixed position -->
+					<img class="itineraryPicture" src="${itinerary.image}">
+
 					<div class="container">
 						<h5>Itinerary Info</h5>
-						<br/>
-						<br>Name: ${itinerary.name} <br>Budget:
+						<br /> <br>Name: ${itinerary.name} <br>Budget:
 						${itinerary.budget} <br>Start Date: ${itinerary.startDate} <br>End
 						Date: ${itinerary.endDate}
 					</div>
 
 					<div class="container">
 						<h5>Description</h5>
-						<br/>
-						<strong>${itinerary.description}</strong>
+						<br /> <strong>${itinerary.description}</strong>
 					</div>
 					<c:if
 						test="${(sessionScope.loggedInUser.id == itinerary.userId.id) or sessionScope.loggedInUser.username == 'admin' }">
 						<form action="deleteItinerary.do" method="post">
 							<button type="submit" value="${itinerary.id}" name="deleteId">Delete</button>
 						</form>
-						
+
 						<form action="goUpdateItinerary.do" method="post">
 							<button type="submit" value="${itinerary.id}" name="updateId">Update</button>
 						</form>
-						
-					</c:if>
-				</div>
-			</div>
-		</div>
 
-		<!-- Itinerary Info END -->
-		<div class="col-1"></div>
-		<!-- Itineraries START -->
-		<div class="col-7" style="background: white;">
-			<div class="container">
-				<h4>Itinerary Days</h4>
-				<a href="goCreateItineraryItem.do?id=${itinerary.id }">Create Itinerary Item</a>
-				<c:forEach var="days" items="${itineraryDays}">
-					<div class="container">
-					<pre>${days.tripDay}	${days.description } <br /></pre>
-				
-					</div>
-				</c:forEach>
+					</c:if>
+			</div>
+
+			<!-- Itinerary Info END -->
+			<!-- Itineraries START -->
+			<div class="col-lg-8 addBorder" style="background: white;">
+				<div class="container">
+					<h4>Itinerary Days</h4>
+					<a href="goCreateItineraryItem.do?id=${itinerary.id }">Create
+						Itinerary Item</a>
+					<c:forEach var="days" items="${itineraryDays}">
+						<div class="container">
+							<pre>${days.tripDay}	${days.description } <br />
+							</pre>
+
+						</div>
+					</c:forEach>
+				</div>
 			</div>
 		</div>
 		<!-- ItineraryItems END -->
