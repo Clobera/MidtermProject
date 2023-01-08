@@ -38,6 +38,11 @@
 						<form action="deleteItinerary.do" method="post">
 							<button type="submit" value="${itinerary.id}" name="deleteId">Delete</button>
 						</form>
+						
+						<form action="goUpdateItinerary.do" method="post">
+							<button type="submit" value="${itinerary.id}" name="updateId">Update</button>
+						</form>
+						
 					</c:if>
 				</div>
 			</div>
