@@ -38,7 +38,6 @@ public class ItineraryDAOImpl implements ItineraryDAO{
 		em.flush();
 		return itinerary;
 	}
-	
 
 	@Override
 	public List<Itinerary> findAllActiveItineraries () {
@@ -64,5 +63,17 @@ public class ItineraryDAOImpl implements ItineraryDAO{
 			deletedItinerary= true;
 		}
 		return deletedItinerary;
+	}
+	
+	@Override
+	public Itinerary updateItinerary (Itinerary input) {
+		Itinerary output = em.find(Itinerary.class, input.getId());
+		output.setName(input.getName());
+		output.setDescription(input.getDescription());
+		output.setBudget(input.getBudget());
+		output.setStartDate(input.getStartDate());
+		output.setEndDate(input.getEndDate());
+		output.setImage(input.getImage());
+		return output;
 	}
 }

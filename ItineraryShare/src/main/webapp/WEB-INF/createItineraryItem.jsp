@@ -28,6 +28,7 @@
 				</select>
 		</div>
 
+
 				<div class="input-group mb-3">
 			<select name="tripDay">
 			<c:forEach var="day" items="${days}">
