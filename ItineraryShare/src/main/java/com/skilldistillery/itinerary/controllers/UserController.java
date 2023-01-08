@@ -16,6 +16,7 @@ import org.springframework.web.bind.support.SessionStatus;
 
 import com.skilldistillery.itinerary.data.ItineraryDAO;
 import com.skilldistillery.itinerary.data.UserDAO;
+import com.skilldistillery.itinerary.data.UserDAOImpl;
 import com.skilldistillery.itinerary.entities.Itinerary;
 import com.skilldistillery.itinerary.entities.User;
 
@@ -95,5 +96,16 @@ public class UserController {
 		}
 		model.addAttribute("creationSuccess", success);
 		return "home";
+	}
+	
+	@RequestMapping(path="goUpdateAccount.do")
+	public String goUpdateAccount() {
+		return "updateAccount";
+	}
+	
+	@PostMapping(path="updateAccount.do") 
+	public String updateAccount (Model model, User formInput, int accountId){
+		model.addAttribute("loggedInUser", userDao.updateUser(formInput, accountId));
+		return "redirect:profilePage.do";
 	}
 }

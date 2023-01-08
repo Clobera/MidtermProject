@@ -33,13 +33,25 @@ public class UserDAOImpl implements UserDAO {
 		return loggedInUser;
 	}
 	
-
-	
 	@Override
 	public User addUser(User input) {
 		em.persist(input);
 		User output = findByUsernameAndPassword(input.getUsername(), input.getPassword());
 		em.flush();
+		return output;
+	}
+	
+	@Override
+	public User updateUser (User user, int id) {
+		User output = em.find(User.class, id);
+		if (output != null) {
+			output.setFirstName(user.getFirstName());
+			output.setLastName(user.getLastName());
+			output.setPassword(user.getPassword());
+			output.setBiography(user.getBiography());
+			output.setProfilePicture(user.getProfilePicture());
+		}
+		
 		return output;
 	}
 }

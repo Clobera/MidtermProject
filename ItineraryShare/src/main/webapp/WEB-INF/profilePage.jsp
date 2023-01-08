@@ -32,6 +32,9 @@
 					<h5>Biography</h5>
 					<strong>${sessionScope.loggedInUser.biography}</strong>
 				</div>
+				<form action="goUpdateAccount.do" method="post">
+							<button type="submit" value="${sessionScope.loggedInUser.id}" name="updateId">Update</button>
+						</form>
 			</div>
 		</div>
 		<!-- User Profile END -->

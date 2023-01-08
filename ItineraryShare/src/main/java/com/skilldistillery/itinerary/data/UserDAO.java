@@ -7,4 +7,5 @@ public interface UserDAO {
 		User findById(int userId);
 		User findByUsernameAndPassword(String username, String password);
 		User addUser(User input);
+		User updateUser(User user, int id);
 }
