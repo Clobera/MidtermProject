@@ -28,10 +28,12 @@
 				</select>
 		</div>
 
-		<div class="input-group mb-3">
-			<span class="input-group-text" id="basic-addon1">Day</span> <input
-				type="number" class="form-control" aria-label="Trip day"
-				aria-describedby="basic-addon1" name="tripDay" REQUIRED>
+				<div class="input-group mb-3">
+			<select name="tripDay">
+			<c:forEach var="day" items="${days}">
+					<option value="${day}">${day}</option>
+			</c:forEach>
+				</select>
 		</div>
 
 		<div class="input-group mb-3">

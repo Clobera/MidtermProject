@@ -1,5 +1,7 @@
 package com.skilldistillery.itinerary.data;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
@@ -36,4 +38,27 @@ public class ItineraryItemDAOImpl implements ItineraryItemDAO {
 		return result;
 	}
 
+	@Override
+	public List<ItineraryItem> findItineraryItemByItinerary (Itinerary itinerary) {
+		List<ItineraryItem> items = null;
+		String query = "Select i FROM ItineraryItem i WHERE i.itinerary.id = :id";
+		items = em.createQuery(query, ItineraryItem.class).setParameter("id", itinerary.getId()).getResultList();
+		return items;
+	}
+
+	@Override
+	public List<ItineraryItem> findOrderedItineraryItemByItinerary (Itinerary itinerary) {
+		List<ItineraryItem> items = null;
+		String query = "Select i FROM ItineraryItem i WHERE i.itinerary.id = :id ORDER BY i.tripDay asc";
+		items = em.createQuery(query, ItineraryItem.class).setParameter("id", itinerary.getId()).getResultList();
+		return items;
+	}
+	
+	@Override
+	public List<ItineraryItem> findItineraryItemByDay (int day, Itinerary itinerary) {
+		List<ItineraryItem> items = null;
+		String query = "Select i FROM ItineraryItem i WHERE i.tripDay = :day AND i.itinerary.id = :id";
+		items = em.createQuery(query, ItineraryItem.class).setParameter("day", day).setParameter("id", itinerary.getId()).getResultList();
+		return items;
+	}
 }

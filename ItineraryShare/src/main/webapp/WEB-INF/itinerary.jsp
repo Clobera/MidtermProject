@@ -50,10 +50,8 @@
 				<a href="goCreateItineraryItem.do?id=${itinerary.id }">Create Itinerary Item</a>
 				<c:forEach var="days" items="${itineraryDays}">
 					<div class="container">
-						${days.day} <br />
-						<c:forEach var="item" items="${day}">
-					${item.name} ${item.description}
-					</c:forEach>
+					<pre>${days.tripDay}	${days.description } <br /></pre>
+				
 					</div>
 				</c:forEach>
 			</div>
