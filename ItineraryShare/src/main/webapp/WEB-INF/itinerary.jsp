@@ -13,7 +13,7 @@
 	<div class="itinerary__content">
 		<div class="row">
 			<!-- Itinerary Info START -->
-			<div class="col-lg-4 addBorder itinerary__info" data-spy="affix">
+			<div class="col-lg-4 addBorder sepLine itinerary__info" data-spy="affix">
 
 					<!--   fixed position -->
 					<img class="itineraryPicture" src="${itinerary.image}">
@@ -32,11 +32,11 @@
 					<c:if
 						test="${(sessionScope.loggedInUser.id == itinerary.userId.id) or sessionScope.loggedInUser.username == 'admin' }">
 						<form action="deleteItinerary.do" method="post">
-							<button type="submit" value="${itinerary.id}" name="deleteId">Delete</button>
+							<button type="submit" class="btn btn-primary" value="${itinerary.id}" name="deleteId">Delete</button>
 						</form>
-
+						<br>
 						<form action="goUpdateItinerary.do" method="post">
-							<button type="submit" value="${itinerary.id}" name="updateId">Update</button>
+							<button type="submit" class="btn btn-primary" value="${itinerary.id}" name="updateId">Update</button>
 						</form>
 
 					</c:if>
@@ -58,8 +58,8 @@
 					</c:forEach>
 				</div>
 			</div>
-		</div>
 		<!-- ItineraryItems END -->
+		</div>
 	</div>
 	<%@include file="bootstrapFooter.jsp"%>
 
