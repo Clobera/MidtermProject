@@ -18,6 +18,8 @@ public interface ItineraryCommentDAO {
 	ItineraryComment findCommentById(int id);
 
 	List<ItineraryComment> findCommentsByReplyId(int id);
+
+	List<ItineraryComment> findCommentsById(int itineraryId);
 	
 	
 }

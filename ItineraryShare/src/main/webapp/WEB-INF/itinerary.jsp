@@ -47,6 +47,7 @@
 				<c:if test="${sessionScope.loggedInUser.id != 0}">
 					<div class="panel">
 						<div class="panel-body">
+<<<<<<< HEAD
 							<form action="createItineraryComment.do" method="post">
 								<input type="hidden" value="${itinerary.id}" name="itineraryId">
 								<textarea class="form-control" rows="2"
@@ -57,6 +58,18 @@
 										<i class="fa fa-pencil fa-fw"></i> Comment
 									</button>
 								</div>
+=======
+						<form action="createItineraryComment.do" method="post">
+						<input type="hidden" value="${itinerary.id}" name="itineraryId">
+							<textarea class="form-control" rows="2"
+								placeholder="What are you thinking?" name="itineraryComment"></textarea>
+							<div class="mar-top clearfix">
+								<button class="btn btn-sm btn-primary pull-right" type="submit"
+									>
+									<i class="fa fa-pencil fa-fw"></i> Comment
+								</button>
+							</div>
+>>>>>>> e97b7c6d87c238b3ceb345dcdd6d64bd1a432d8e
 							</form>
 						</div>
 					</div>
@@ -67,8 +80,12 @@
 							<!-- Newsfeed Content -->
 							<!--===================================================-->
 							<div class="media-block">
+<<<<<<< HEAD
 								<a class="media-left"
 									href="iewAccount.do?userId=${comment.user.id}"><img
+=======
+								<a class="media-left" href="viewAccount.do?userId=${comment.user.id}"><img
+>>>>>>> e97b7c6d87c238b3ceb345dcdd6d64bd1a432d8e
 									class="img-circle img-sm" alt="Profile Picture"
 									src="${comment.user.profilePicture}"></a>
 								<div class="media-body">
@@ -77,20 +94,30 @@
 											class="btn-link text-semibold media-heading box-inline">${comment.user.username}</a>
 									</div>
 									<p>${comment.post }</p>
+									<c:if test="${sessionScope.loggedInUser.id != 0}">
 									<div class="pad-ver">
-										<a class="btn btn-sm btn-default btn-hover-primary" href="#">Comment</a>
+										<form action="goCreateItineraryCommentReply.do" method="post">
+										<input type="hidden" value="${itinerary.id}" name="itineraryId">
+										<input type="hidden" value="${comment.id}" name="itineraryCommentId">
+										<button class="btn btn-sm btn-primary pull-right" type="submit"><i class="fa fa-pencil fa-fw"></i> Reply</button>
+										</form>
 									</div>
+									</c:if>
 									<hr>
 								</div>
 								<c:forEach var="reply" items="${replies}">
 									<div class="media-block pad-all">
+<<<<<<< HEAD
 										<a class="media-left"
 											href="iewAccount.do?userId=${reply.user.id}"><img
+=======
+										<a class="media-left" href="viewAccount.do?userId=${reply.user.id}"><img
+>>>>>>> e97b7c6d87c238b3ceb345dcdd6d64bd1a432d8e
 											class="img-circle img-sm" alt="Profile Picture"
 											src="${reply.user.profilePicture}"></a>
 										<div class="media-body">
 											<div class="mar-btm">
-												<a href="iewAccount.do?userId=${reply.user.id}"
+												<a href="viewAccount.do?userId=${reply.user.id}"
 													class="btn-link text-semibold media-heading box-inline">${reply.user.username}</a>
 											</div>
 											<p>${reply.post }</p>
@@ -152,8 +179,6 @@
 		</div>
 	</div>
 	<!-- ItineraryItems END -->
-	</div>
-	</div>
 	<%@include file="bootstrapFooter.jsp"%>
 </body>
 </html>

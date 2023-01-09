@@ -11,9 +11,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.skilldistillery.itinerary.data.ItineraryCommentDAO;
 import com.skilldistillery.itinerary.data.ItineraryDAO;
 import com.skilldistillery.itinerary.data.ItineraryItemDAO;
 import com.skilldistillery.itinerary.entities.Itinerary;
+import com.skilldistillery.itinerary.entities.ItineraryComment;
 import com.skilldistillery.itinerary.entities.ItineraryItem;
 import com.skilldistillery.itinerary.entities.User;
 
@@ -27,6 +29,9 @@ public class ItineraryController {
 	@Autowired
 	private ItineraryItemDAO itineraryItemDao;
 	
+	@Autowired
+	private ItineraryCommentDAO itineraryCommentDao;
+	
 	@ModelAttribute("loggedInUser")
 	public User initSessionState() {
 		return new User();
@@ -37,6 +42,8 @@ public class ItineraryController {
 //		Integer id= (Integer) model.getAttribute("id");
 		Itinerary showItinerary = itineraryDao.findItinerary(id);
 		List<ItineraryItem> items= itineraryItemDao.findOrderedItineraryItemByItinerary(showItinerary);
+		List<ItineraryComment> comments = itineraryCommentDao.findCommentsById(id);
+		model.addAttribute("comments", comments);
 		model.addAttribute("itinerary", showItinerary);
 		model.addAttribute("itineraryDays", items);
 		return "itinerary";
@@ -47,6 +54,8 @@ public class ItineraryController {
 		Integer id= (Integer) model.getAttribute("id");
 		Itinerary showItinerary = itineraryDao.findItinerary(id);
 		List<ItineraryItem> items= itineraryItemDao.findOrderedItineraryItemByItinerary(showItinerary);
+		List<ItineraryComment> comments = itineraryCommentDao.findCommentsById(id);
+		model.addAttribute("comments", comments);
 		model.addAttribute("itinerary", showItinerary);
 		model.addAttribute("itineraryDays", items);
 		return "itinerary";
