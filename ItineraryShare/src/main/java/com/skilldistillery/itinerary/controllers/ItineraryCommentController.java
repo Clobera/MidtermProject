@@ -49,9 +49,9 @@ public class ItineraryCommentController {
 		return "createItineraryCommentReply";
 	}
 
-	@PostMapping(path = "CreateItineraryCommentReply.do")
-	public String createReply(@ModelAttribute("loggedInUser") User user, String reply, int itineraryId, Integer itineraryCommentId, RedirectAttributes redir) {
-		itineraryCommentDao.addCommentReply(user.getId(), reply, itineraryCommentId, itineraryId);
+	@PostMapping(path = "createItineraryCommentReply.do")
+	public String createReply(@ModelAttribute("loggedInUser") User user, String itineraryComment, int itineraryId, Integer itineraryCommentId, RedirectAttributes redir) {
+		itineraryCommentDao.addCommentReply(user.getId(), itineraryComment, itineraryCommentId, itineraryId);
 		
 		redir.addFlashAttribute("id", itineraryId);
 		return "redirect:viewItinerary.do";

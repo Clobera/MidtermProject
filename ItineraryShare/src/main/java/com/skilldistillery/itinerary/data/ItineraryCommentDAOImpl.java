@@ -34,7 +34,7 @@ public class ItineraryCommentDAOImpl implements ItineraryCommentDAO {
 	public ItineraryComment addCommentReply(int user, String post, int reply, int itinerary) {
 		Itinerary originalItinerary = em.find(Itinerary.class, itinerary);
 		User userCommenting = em.find(User.class, user);
-		ItineraryComment comment = em.find(ItineraryComment.class, post);
+		ItineraryComment comment = em.find(ItineraryComment.class, reply);
 		ItineraryComment response = new ItineraryComment(userCommenting, post, comment, originalItinerary);
 		em.persist(response);
 		originalItinerary.addComment(response);
@@ -66,8 +66,17 @@ public class ItineraryCommentDAOImpl implements ItineraryCommentDAO {
 	@Override
 	public List<ItineraryComment> findCommentsByReplyId (int id) {
 		List<ItineraryComment> output = null;
-		String query = "SELECT ic FROM ItineraryComment r WHERE ic.reply.id = :id";
+		String query = "SELECT ic FROM ItineraryComment ic WHERE ic.reply.id = :id";
 		output = em.createQuery(query, ItineraryComment.class).setParameter("id", id).getResultList();
+		return output;
+	}
+	
+	@Override
+	public List<ItineraryComment> findCommentsById (int itineraryId) {
+		List<ItineraryComment> output = null;
+		String query = "SELECT ic FROM ItineraryComment ic WHERE ic.itinerary.id = :id";
+		
+		output = em.createQuery(query, ItineraryComment.class).setParameter("id", itineraryId).getResultList();
 		return output;
 	}
 }

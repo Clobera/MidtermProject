@@ -76,9 +76,15 @@
 											class="btn-link text-semibold media-heading box-inline">${comment.user.username}</a>
 									</div>
 									<p>${comment.post }</p>
+									<c:if test="${sessionScope.loggedInUser.id != 0}">
 									<div class="pad-ver">
-										<a class="btn btn-sm btn-default btn-hover-primary" href="#">Comment</a>
+										<form action="goCreateItineraryCommentReply.do" method="post">
+										<input type="hidden" value="${itinerary.id}" name="itineraryId">
+										<input type="hidden" value="${comment.id}" name="itineraryCommentId">
+										<button class="btn btn-sm btn-primary pull-right" type="submit"><i class="fa fa-pencil fa-fw"></i> Reply</button>
+										</form>
 									</div>
+									</c:if>
 									<hr>
 								</div>
 								<c:forEach var="reply" items="${replies}">
