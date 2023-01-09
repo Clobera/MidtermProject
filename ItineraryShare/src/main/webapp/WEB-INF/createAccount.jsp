@@ -13,6 +13,7 @@
 	<%@include file="navbarGuest.jsp"%>
 
 	<form action="createAccount.do" method="POST" >
+	<input type= "hidden" name="enabled" value="true">
 		<div class="input-group mb-3">
 			<span class="input-group-text" id="basic-addon1">First Name</span> <input
 				type="text" class="form-control" placeholder="First Name"
