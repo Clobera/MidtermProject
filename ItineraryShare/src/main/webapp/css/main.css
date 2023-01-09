@@ -10,7 +10,27 @@
 .card {
 	box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
 }
+table {
+    caption-side: bottom;
+    border-collapse: collapse;
+    border: tomato;
+    align-content: space-between;
+}
 
+tbody, td, tfoot, th, thead, tr {
+    border-color: lightblue;
+    border-style: solid;
+    border-width: 4px;
+    align-content: center;
+    text-align: center;
+    /* align-content: space-between; */
+    /* align-content: center; */
+}
+th {
+    text-align: inherit;
+    font-family: revert;
+    text-align: -webkit-match-parent;
+}
 .container {
 	max-width: inherit;
 	position: relative;
