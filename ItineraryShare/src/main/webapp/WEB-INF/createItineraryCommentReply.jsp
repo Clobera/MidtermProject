@@ -52,7 +52,7 @@
 							<div class="mar-top clearfix">
 								<button class="btn btn-sm btn-primary pull-right" type="submit"
 									name="itineraryComment">
-									<i class="fa fa-pencil fa-fw"></i> Reply
+									<i class="fa fa-pencil fa-fw"></i>Reply
 								</button>
 							</div>
 							</form>
