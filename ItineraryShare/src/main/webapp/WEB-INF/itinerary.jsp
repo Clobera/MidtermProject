@@ -47,18 +47,6 @@
 				<c:if test="${sessionScope.loggedInUser.id != 0}">
 					<div class="panel">
 						<div class="panel-body">
-<<<<<<< HEAD
-							<form action="createItineraryComment.do" method="post">
-								<input type="hidden" value="${itinerary.id}" name="itineraryId">
-								<textarea class="form-control" rows="2"
-									placeholder="What are you thinking?"></textarea>
-								<div class="mar-top clearfix">
-									<button class="btn btn-sm btn-primary pull-right" type="submit"
-										name="itineraryComment">
-										<i class="fa fa-pencil fa-fw"></i> Comment
-									</button>
-								</div>
-=======
 						<form action="createItineraryComment.do" method="post">
 						<input type="hidden" value="${itinerary.id}" name="itineraryId">
 							<textarea class="form-control" rows="2"
@@ -69,7 +57,6 @@
 									<i class="fa fa-pencil fa-fw"></i> Comment
 								</button>
 							</div>
->>>>>>> e97b7c6d87c238b3ceb345dcdd6d64bd1a432d8e
 							</form>
 						</div>
 					</div>
@@ -80,12 +67,7 @@
 							<!-- Newsfeed Content -->
 							<!--===================================================-->
 							<div class="media-block">
-<<<<<<< HEAD
-								<a class="media-left"
-									href="iewAccount.do?userId=${comment.user.id}"><img
-=======
 								<a class="media-left" href="viewAccount.do?userId=${comment.user.id}"><img
->>>>>>> e97b7c6d87c238b3ceb345dcdd6d64bd1a432d8e
 									class="img-circle img-sm" alt="Profile Picture"
 									src="${comment.user.profilePicture}"></a>
 								<div class="media-body">
@@ -107,12 +89,7 @@
 								</div>
 								<c:forEach var="reply" items="${replies}">
 									<div class="media-block pad-all">
-<<<<<<< HEAD
-										<a class="media-left"
-											href="iewAccount.do?userId=${reply.user.id}"><img
-=======
 										<a class="media-left" href="viewAccount.do?userId=${reply.user.id}"><img
->>>>>>> e97b7c6d87c238b3ceb345dcdd6d64bd1a432d8e
 											class="img-circle img-sm" alt="Profile Picture"
 											src="${reply.user.profilePicture}"></a>
 										<div class="media-body">
