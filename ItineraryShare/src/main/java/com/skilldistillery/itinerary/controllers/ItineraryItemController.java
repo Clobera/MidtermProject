@@ -66,4 +66,13 @@ public class ItineraryItemController {
 		redir.addFlashAttribute("id", iteneraryCreated.getId());
 		return "redirect:viewItinerary.do";
 	}
+	
+	@PostMapping(path = "deleteItineraryItem.do")
+	public String deleteItineraryItem(Integer itineraryId, Integer itineraryItemId, RedirectAttributes redir) {
+		itineraryItemDao.removeItineraryItem(itineraryItemId);
+		redir.addFlashAttribute("id", itineraryId);
+		return "redirect:viewItinerary.do";
+	}
+	
+	
 }
