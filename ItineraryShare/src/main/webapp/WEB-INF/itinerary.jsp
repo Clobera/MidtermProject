@@ -50,10 +50,10 @@
 						<form action="createItineraryComment.do" method="post">
 						<input type="hidden" value="${itinerary.id}" name="itineraryId">
 							<textarea class="form-control" rows="2"
-								placeholder="What are you thinking?"></textarea>
+								placeholder="What are you thinking?" name="itineraryComment"></textarea>
 							<div class="mar-top clearfix">
 								<button class="btn btn-sm btn-primary pull-right" type="submit"
-									name="itineraryComment">
+									>
 									<i class="fa fa-pencil fa-fw"></i> Comment
 								</button>
 							</div>
@@ -67,7 +67,7 @@
 							<!-- Newsfeed Content -->
 							<!--===================================================-->
 							<div class="media-block">
-								<a class="media-left" href="iewAccount.do?userId=${comment.user.id}"><img
+								<a class="media-left" href="viewAccount.do?userId=${comment.user.id}"><img
 									class="img-circle img-sm" alt="Profile Picture"
 									src="${comment.user.profilePicture}"></a>
 								<div class="media-body">
@@ -83,12 +83,12 @@
 								</div>
 								<c:forEach var="reply" items="${replies}">
 									<div class="media-block pad-all">
-										<a class="media-left" href="iewAccount.do?userId=${reply.user.id}"><img
+										<a class="media-left" href="viewAccount.do?userId=${reply.user.id}"><img
 											class="img-circle img-sm" alt="Profile Picture"
 											src="${reply.user.profilePicture}"></a>
 										<div class="media-body">
 											<div class="mar-btm">
-												<a href="iewAccount.do?userId=${reply.user.id}"
+												<a href="viewAccount.do?userId=${reply.user.id}"
 													class="btn-link text-semibold media-heading box-inline">${reply.user.username}</a>
 											</div>
 											<p>${reply.post }</p>
