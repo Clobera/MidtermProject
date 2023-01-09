@@ -54,4 +54,11 @@ public class UserDAOImpl implements UserDAO {
 		
 		return output;
 	}
+	
+	@Override
+	public User deleteAccount(User id) {
+		User toDelete = em.find(User.class, id);
+		return toDelete;
+	}
+	
 }
