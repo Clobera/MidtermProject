@@ -33,7 +33,7 @@
 					<strong>${sessionScope.loggedInUser.biography}</strong>
 				</div>
 				<form action="goUpdateAccount.do" method="post">
-							<button type="submit" value="${sessionScope.loggedInUser.id}" name="updateId">Update</button>
+							<button type="submit" value="${sessionScope.loggedInUser.id}" name="updateId" class="btn btn-primary">Update</button>
 						</form>
 			</div>
 		</div>
