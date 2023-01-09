@@ -12,4 +12,5 @@ public interface ItineraryDAO {
 	Itinerary findItinerary(int id);
 	boolean deleteItinerary(int id);
 	Itinerary updateItinerary(Itinerary input, int id);
+	List<Itinerary> findItinerariesByKeyword(String search);
 }

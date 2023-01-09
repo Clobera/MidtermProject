@@ -77,5 +77,13 @@ public class ItineraryDAOImpl implements ItineraryDAO{
 		return output;
 	}
 
+	@Override
+	public List<Itinerary> findItinerariesByKeyword(String search) {
+		String query = "SELECT DISTINCT ii.itinerary FROM ItineraryItem ii WHERE ii.itinerary.active = true AND (ii.itinerary.description LIKE :search OR ii.destination.city LIKE :search OR ii.destination.country LIKE :search OR ii.destination.name LIKE :search OR ii.destination.description LIKE :search)";
+		List<Itinerary> resultList = em.createQuery(query, Itinerary.class).setParameter("search", "%" + search + "%").getResultList();
+		
+		return resultList;
+	}
+
 	
 }

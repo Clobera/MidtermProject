@@ -93,4 +93,13 @@ public class ItineraryController {
 		model.addAttribute("itineraries", itineraries);
 		return "profilePage";
 	}
+	
+	@GetMapping(path = "searchItinerary.do")
+	public String searchItinerary(Model model, String search) {
+		List<Itinerary> searchResults = itineraryDao.findItinerariesByKeyword(search);
+		model.addAttribute("results", searchResults);
+		
+		return "searchResult";
+	}
+	
 }
