@@ -25,7 +25,7 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public User findByUsernameAndPassword(String username, String password) {
 		User loggedInUser = null;
-		String query = "SELECT u FROM User u WHERE u.username = :un AND u.password = :pw";
+		String query = "SELECT u FROM User u WHERE u.username = :un AND u.password = :pw AND u.enabled = true";
 		List<User> userQuery = em.createQuery(query, User.class).setParameter("un", username).setParameter("pw", password).getResultList();
 		if (userQuery.size() == 1) {
 			loggedInUser = userQuery.get(0);
@@ -58,6 +58,9 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public User deleteAccount(int id) {
 		User toDelete = em.find(User.class, id);
+		if (toDelete != null) {
+			toDelete.setEnabled(false);
+		}
 		return toDelete;
 	}
 	
