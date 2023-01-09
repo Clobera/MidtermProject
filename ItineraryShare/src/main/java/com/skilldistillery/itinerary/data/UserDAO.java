@@ -8,5 +8,5 @@ public interface UserDAO {
 		User findByUsernameAndPassword(String username, String password);
 		User addUser(User input);
 		User updateUser(User user, int id);
-		User deleteAccount(User id);
+		User deleteAccount(int id);
 }
