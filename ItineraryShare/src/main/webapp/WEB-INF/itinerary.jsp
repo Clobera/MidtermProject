@@ -150,8 +150,6 @@
 		</div>
 	</div>
 	<!-- ItineraryItems END -->
-	</div>
-	</div>
 	<%@include file="bootstrapFooter.jsp"%>
 </body>
 </html>
