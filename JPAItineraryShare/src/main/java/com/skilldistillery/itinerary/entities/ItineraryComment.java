@@ -30,7 +30,12 @@ public class ItineraryComment {
 	private Itinerary itinerary;
 	
 	public ItineraryComment () {}
-
+	public ItineraryComment(User user, String post, Itinerary itinerary) {
+		super();
+		this.user = user;
+		this.post = post;
+		this.itinerary = itinerary;
+	}
 	public int getId() {
 		return id;
 	}
