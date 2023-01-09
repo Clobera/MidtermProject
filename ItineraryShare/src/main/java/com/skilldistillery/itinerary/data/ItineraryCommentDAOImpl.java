@@ -1,5 +1,7 @@
 package com.skilldistillery.itinerary.data;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
@@ -26,5 +28,23 @@ public class ItineraryCommentDAOImpl implements ItineraryCommentDAO {
 		itinerary.addComment(comment);
 		em.flush();
 		return comment;
+	}
+	
+	@Override
+	public List<ItineraryComment> findCommentsWithNullReply () {
+		List<ItineraryComment> output = null;
+		String query = "SELECT ic FROM ItineraryComment ic WHERE ic.reply = null";
+		
+		output = em.createQuery(query, ItineraryComment.class).getResultList();
+		return output;
+	}
+	
+	@Override
+	public List<ItineraryComment> findCommentsWithReply () {
+		List<ItineraryComment> output = null;
+		String query = "SELECT ic FROM ItineraryComment ic WHERE ic.reply != null ORDER BY ic.reply.id ASC";
+		
+		output = em.createQuery(query, ItineraryComment.class).getResultList();
+		return output;
 	}
 }
