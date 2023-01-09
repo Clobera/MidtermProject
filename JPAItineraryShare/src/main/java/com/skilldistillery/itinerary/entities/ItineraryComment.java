@@ -37,6 +37,14 @@ public class ItineraryComment {
 		this.post = post;
 		this.itinerary = itinerary;
 	}
+	public ItineraryComment(User user, String post, ItineraryComment reply, Itinerary itinerary) {
+		super();
+		this.user = user;
+		this.post = post;
+		this.reply = reply;
+		this.itinerary = itinerary;
+	}
+
 	public int getId() {
 		return id;
 	}
