@@ -64,7 +64,7 @@
 							<!-- Newsfeed Content -->
 							<!--===================================================-->
 							<div class="media-block">
-								<a class="media-left" href="iewAccount.do?userId=${comment.user.id}"><img
+								<a class="media-left" href="viewAccount.do?userId=${comment.user.id}"><img
 									class="img-circle img-sm" alt="Profile Picture"
 									src="${comment.user.profilePicture}"></a>
 								<div class="media-body">

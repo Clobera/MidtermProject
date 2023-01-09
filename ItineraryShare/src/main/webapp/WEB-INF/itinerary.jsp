@@ -50,10 +50,10 @@
 						<form action="createItineraryComment.do" method="post">
 						<input type="hidden" value="${itinerary.id}" name="itineraryId">
 							<textarea class="form-control" rows="2"
-								placeholder="What are you thinking?"></textarea>
+								placeholder="What are you thinking?" name="itineraryComment"></textarea>
 							<div class="mar-top clearfix">
 								<button class="btn btn-sm btn-primary pull-right" type="submit"
-									name="itineraryComment">
+									>
 									<i class="fa fa-pencil fa-fw"></i> Comment
 								</button>
 							</div>
