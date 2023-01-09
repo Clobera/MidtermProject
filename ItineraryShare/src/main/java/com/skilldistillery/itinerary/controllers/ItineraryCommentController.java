@@ -40,14 +40,18 @@ public class ItineraryCommentController {
 	
 	@PostMapping(path = "goCreateItineraryCommentReply.do")
 	public String goCreateReply(Model model, Integer itineraryCommentId, Integer itineraryId) {
-
+		List<ItineraryComment> replies = itineraryCommentDao.findCommentsByReplyId(itineraryCommentId);
+		ItineraryComment comment = itineraryCommentDao.findCommentById(itineraryCommentId);
+		model.addAttribute("replies", replies);
+		model.addAttribute("comment", comment);
 		model.addAttribute("commentId", itineraryCommentId);
 		model.addAttribute("itineraryId", itineraryId);
 		return "createItineraryCommentReply";
 	}
 
 	@PostMapping(path = "CreateItineraryCommentReply.do")
-	public String createReply(ItineraryComment reply, int itineraryId, Integer itineraryCommentId, RedirectAttributes redir) {
+	public String createReply(@ModelAttribute("loggedInUser") User user, String reply, int itineraryId, Integer itineraryCommentId, RedirectAttributes redir) {
+		itineraryCommentDao.addCommentReply(user.getId(), reply, itineraryCommentId, itineraryId);
 		
 		redir.addFlashAttribute("id", itineraryId);
 		return "redirect:viewItinerary.do";
