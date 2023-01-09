@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
-  `enabled` TINYINT(4) NULL DEFAULT '1',
+  `enabled` TINYINT(4) NOT NULL DEFAULT '1',
   `role` VARCHAR(45) NULL DEFAULT NULL,
   `profile_picture` VARCHAR(2048) NULL DEFAULT 'https://t4.ftcdn.net/jpg/03/46/93/61/360_F_346936114_RaxE6OQogebgAWTalE1myseY1Hbb5qPM.jpg',
   `first_name` VARCHAR(100) NULL,

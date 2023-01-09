@@ -13,8 +13,8 @@
 
 <img alt="" src="images/youSure.png">
 
-<form action="deleteAccount.do">
-<button type="submit" value="deleteMe.id" name="deleteId" class="btn btn-primary">Yes, I'm sure. DELETE ME
+<form action="deleteAccount.do" method="post">
+<button type="submit" value="${ deleteMe.id }" name="deleteId" class="btn btn-primary">Yes, I'm sure. DELETE ME
 </button>
 </form>
 
