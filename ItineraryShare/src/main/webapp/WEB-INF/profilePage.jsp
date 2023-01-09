@@ -35,6 +35,9 @@
 				<form action="goUpdateAccount.do" method="post">
 							<button type="submit" value="${sessionScope.loggedInUser.id}" name="updateId" class="btn btn-primary">Update</button>
 						</form>
+						<form action="goDeleteAccount.do" method="post">
+						<button type="submit" value="${sessionScope.loggedInUser.id}" name="deleteId">Delete Profile</button>
+						</form>
 			</div>
 		</div>
 		<!-- User Profile END -->

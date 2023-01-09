@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.itinerary.data.ItineraryDAO;
 import com.skilldistillery.itinerary.data.UserDAO;
-import com.skilldistillery.itinerary.data.UserDAOImpl;
 import com.skilldistillery.itinerary.entities.Itinerary;
 import com.skilldistillery.itinerary.entities.User;
 
@@ -78,7 +78,7 @@ public class UserController {
 	}
 	
 	@PostMapping(path="logout.do")
-	public String logout (Model model, HttpSession session, SessionStatus sessionStatus) {
+	public String logout (Model model, SessionStatus sessionStatus) {
 		sessionStatus.setComplete();
 		List<Itinerary> itineraries = itineraryDao.findAllActiveItineraries();
 		model.addAttribute("itineraries", itineraries);
@@ -107,5 +107,21 @@ public class UserController {
 	public String updateAccount (Model model, User formInput, int accountId){
 		model.addAttribute("loggedInUser", userDao.updateUser(formInput, accountId));
 		return "redirect:profilePage.do";
+	}
+	
+	@PostMapping(path="goDeleteAccount.do")
+	public String goDeleteAccount (Model model, int deleteId) {
+		User deleteMe = userDao.findById(deleteId);
+		model.addAttribute("deleteMe", deleteMe);
+		return "deleteAccount";
+	}
+	
+	@PostMapping(path="deleteAccount.do")
+	public String deleteAccount (@ModelAttribute("loggedInUser") User user, int deleteId, RedirectAttributes redir, SessionStatus sessionStatus) {
+		if (!user.getUsername().equals("admin")) {
+			sessionStatus.setComplete();
+		}
+		userDao.deleteAccount(deleteId);
+		return "redirect:home.do";
 	}
 }
