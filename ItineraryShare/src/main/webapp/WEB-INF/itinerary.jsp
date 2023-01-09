@@ -67,7 +67,7 @@
 							<!-- Newsfeed Content -->
 							<!--===================================================-->
 							<div class="media-block">
-								<a class="media-left" href="iewAccount.do?userId=${comment.user.id}"><img
+								<a class="media-left" href="viewAccount.do?userId=${comment.user.id}"><img
 									class="img-circle img-sm" alt="Profile Picture"
 									src="${comment.user.profilePicture}"></a>
 								<div class="media-body">
@@ -83,12 +83,12 @@
 								</div>
 								<c:forEach var="reply" items="${replies}">
 									<div class="media-block pad-all">
-										<a class="media-left" href="iewAccount.do?userId=${reply.user.id}"><img
+										<a class="media-left" href="viewAccount.do?userId=${reply.user.id}"><img
 											class="img-circle img-sm" alt="Profile Picture"
 											src="${reply.user.profilePicture}"></a>
 										<div class="media-body">
 											<div class="mar-btm">
-												<a href="iewAccount.do?userId=${reply.user.id}"
+												<a href="viewAccount.do?userId=${reply.user.id}"
 													class="btn-link text-semibold media-heading box-inline">${reply.user.username}</a>
 											</div>
 											<p>${reply.post }</p>
@@ -144,8 +144,6 @@
 		</div>
 	</div>
 	<!-- ItineraryItems END -->
-	</div>
-	</div>
 	<%@include file="bootstrapFooter.jsp"%>
 </body>
 </html>
