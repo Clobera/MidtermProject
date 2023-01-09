@@ -67,7 +67,10 @@
 							<!-- Newsfeed Content -->
 							<!--===================================================-->
 							<div class="media-block">
+<<<<<<< HEAD
 
+=======
+>>>>>>> ceb740733c49bc3b14d4c5b6b98b3944722de03c
 								<a class="media-left" href="viewAccount.do?userId=${comment.user.id}"><img
 									class="img-circle img-sm" alt="Profile Picture"
 									src="${comment.user.profilePicture}"></a>
