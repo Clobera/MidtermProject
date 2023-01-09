@@ -12,4 +12,5 @@ public interface ItineraryItemDAO {
 	List<ItineraryItem> findItineraryItemByItinerary(Itinerary itinerary);
 	List<ItineraryItem> findItineraryItemByDay(int day, Itinerary itinerary);
 	List<ItineraryItem> findOrderedItineraryItemByItinerary(Itinerary itinerary);
+	ItineraryItem removeItineraryItem(int itemId);
 }

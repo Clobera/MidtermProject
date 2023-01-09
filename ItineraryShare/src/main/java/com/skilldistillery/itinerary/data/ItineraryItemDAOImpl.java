@@ -61,4 +61,11 @@ public class ItineraryItemDAOImpl implements ItineraryItemDAO {
 		items = em.createQuery(query, ItineraryItem.class).setParameter("day", day).setParameter("id", itinerary.getId()).getResultList();
 		return items;
 	}
+	
+	@Override
+	public ItineraryItem removeItineraryItem (int itemId) {
+		ItineraryItem removal = em.find(ItineraryItem.class, itemId);
+		em.remove(removal);
+		return removal;
+	}
 }
