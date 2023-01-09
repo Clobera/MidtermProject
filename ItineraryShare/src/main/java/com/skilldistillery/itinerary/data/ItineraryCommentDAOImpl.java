@@ -28,13 +28,23 @@ public class ItineraryCommentDAOImpl implements ItineraryCommentDAO {
 		itinerary.addComment(comment);
 		em.flush();
 		return comment;
+	}	
+
+	@Override
+	public ItineraryComment addCommentReply(int user, String post, int reply, int itinerary) {
+		Itinerary originalItinerary = em.find(Itinerary.class, itinerary);
+		User userCommenting = em.find(User.class, user);
+		ItineraryComment comment = em.find(ItineraryComment.class, post);
+		ItineraryComment response = new ItineraryComment(userCommenting, post, comment, originalItinerary);
+		em.persist(response);
+		originalItinerary.addComment(response);
+		return response;
 	}
 	
 	@Override
 	public List<ItineraryComment> findCommentsWithNullReply () {
 		List<ItineraryComment> output = null;
 		String query = "SELECT ic FROM ItineraryComment ic WHERE ic.reply = null";
-		
 		output = em.createQuery(query, ItineraryComment.class).getResultList();
 		return output;
 	}
@@ -43,8 +53,21 @@ public class ItineraryCommentDAOImpl implements ItineraryCommentDAO {
 	public List<ItineraryComment> findCommentsWithReply () {
 		List<ItineraryComment> output = null;
 		String query = "SELECT ic FROM ItineraryComment ic WHERE ic.reply != null ORDER BY ic.reply.id ASC";
-		
 		output = em.createQuery(query, ItineraryComment.class).getResultList();
+		return output;
+	}
+	@Override
+	public ItineraryComment findCommentById (int id) {
+		ItineraryComment output = null;
+		output = em.find(ItineraryComment.class, id);
+		return output;
+	}
+	
+	@Override
+	public List<ItineraryComment> findCommentsByReplyId (int id) {
+		List<ItineraryComment> output = null;
+		String query = "SELECT ic FROM ItineraryComment r WHERE ic.reply.id = :id";
+		output = em.createQuery(query, ItineraryComment.class).setParameter("id", id).getResultList();
 		return output;
 	}
 }
