@@ -46,14 +46,19 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<form class="d-flex" action="goCreateDestination.do" method="post">
-						<button class="btn btn-link" id="destinationButton" type="submit">Add
+						<button class="btn btn-link navBarButton" id="navBarButton" type="submit" style="text-decoration: none; color: black;">Add
 							Destination</button>
 					</form>
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 						<li class="nav-item"><a class="nav-link active"
 							aria-current="page" href="goCreateItinerary.do">Add Itinerary</a></li>
-						<li class="nav-item"><a class="nav-link active"
-							aria-current="page" href="#">View All Itineraries</a></li>
+						<li class="nav-item">
+							<form class="d-flex" role="search" action="adminViewAll.do"
+								method="get">
+								<button class="btn btn-link navBarButton" type="submit">View
+									All Itineraries</button>
+							</form>
+						</li>
 						<li class="nav-item"><a class="nav-link active"
 							aria-current="page" href="#">View All Users</a></li>
 					</ul>
@@ -127,7 +132,7 @@
 					</form>
 
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-						
+
 						<li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle" href="#" role="button"
 							data-bs-toggle="dropdown" aria-expanded="false">

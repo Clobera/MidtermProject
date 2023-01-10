@@ -41,6 +41,15 @@ public class UserController {
 		return "home";
 	}
 	
+	@GetMapping(path= "adminViewAll.do")
+	public String adminViewAllItineraries(Model model, @ModelAttribute("loggedInUser") User user) {
+		List<Itinerary> activeItineraries = itineraryDao.findAllActiveItineraries();
+		List<Itinerary> disabledItineraries = itineraryDao.findAllInactiveItineraries();
+		model.addAttribute("active", activeItineraries);
+		model.addAttribute("disabled", disabledItineraries);
+		return "adminViewAll";
+	}
+	
 	@GetMapping(path="loginForm.do")
 	public String loginForm () {
 		return "loginScreen";

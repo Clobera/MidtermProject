@@ -13,4 +13,5 @@ public interface ItineraryDAO {
 	boolean deleteItinerary(int id);
 	Itinerary updateItinerary(Itinerary input, int id);
 	List<Itinerary> findItinerariesByKeyword(String search);
+	List<Itinerary> findAllInactiveItineraries();
 }

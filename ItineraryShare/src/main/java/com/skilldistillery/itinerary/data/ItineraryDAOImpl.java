@@ -46,7 +46,15 @@ public class ItineraryDAOImpl implements ItineraryDAO{
 		results = em.createQuery(query, Itinerary.class).getResultList();
 		return results;
 	}
-
+	
+	@Override
+	public List<Itinerary> findAllInactiveItineraries () {
+		List<Itinerary> results = null;
+		String query = "SELECT i FROM Itinerary i WHERE i.active = false";
+		results = em.createQuery(query, Itinerary.class).getResultList();
+		return results;
+	}
+	
 	@Override
 	public Itinerary findItinerary(int id) {
 		String query = "SELECT i From Itinerary i where i.id = :id";

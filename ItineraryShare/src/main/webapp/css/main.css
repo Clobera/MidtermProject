@@ -1,6 +1,5 @@
-#destinationButton {
-	text-decoration: none;
-	color: black;
+.navBarButton {
+	text-decoration: none; color: black;
 }
 
 .cards {
