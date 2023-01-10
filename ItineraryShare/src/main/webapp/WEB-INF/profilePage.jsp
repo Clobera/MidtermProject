@@ -14,7 +14,7 @@
 	<%@include file="navbarGuest.jsp"%>
 	<div class="row profile__content">
 		<!-- User Profile START -->
-		<div class="col-lg-3">
+		<div class="col-lg-3 userInfo">
 			<div class="affix">
 				<div class="container">
 					<!--   fixed position -->

@@ -7,7 +7,7 @@
 		test="${sessionScope.loggedInUser.username == null or loginSuccess == false}">
 
 		<nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top"
-			style="background: white;">
+			style="background: transparent;">
 			<div class="container-fluid">
 				<a class="navbar-brand" href="home.do">iS</a>
 				<button class="navbar-toggler" type="button"
@@ -33,7 +33,7 @@
 	<c:when test="${ sessionScope.loggedInUser.username == 'admin' }">
 		<!-- FOR ADMIN USER -->
 		<nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top"
-			style="background: white;">
+			style="background: transparent;">
 			<div class="container-fluid">
 				<a class="navbar-brand" href="home.do">iS</a>
 				<button class="navbar-toggler" type="button"
@@ -88,7 +88,7 @@
 	</c:when>
 	<c:otherwise>
 		<nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top"
-			style="background: white;">
+			style="background: transparent;">
 			<div class="container-fluid">
 				<a class="navbar-brand" href="home.do">iS</a>
 				<button class="navbar-toggler" type="button"
