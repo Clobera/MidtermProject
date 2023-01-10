@@ -1,5 +1,6 @@
 package com.skilldistillery.itinerary.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,10 +41,18 @@ public class ItineraryCommentController {
 	
 	@PostMapping(path = "goCreateItineraryCommentReply.do")
 	public String goCreateReply(Model model, Integer itineraryCommentId, Integer itineraryId) {
-		List<ItineraryComment> replies = itineraryCommentDao.findCommentsByReplyId(itineraryCommentId);
-		ItineraryComment comment = itineraryCommentDao.findCommentById(itineraryCommentId);
+		ItineraryComment baseComment = null;
+		List<ItineraryComment> replies = new ArrayList<>();
+		List<ItineraryComment> allComments = itineraryCommentDao.findCommentsById(itineraryId);
+		for (ItineraryComment comment : allComments) {
+			if (comment.getId() == itineraryCommentId) {
+				baseComment = comment;
+			} else if (comment.getReply() != null && comment.getReply().getId() == itineraryCommentId){
+				replies.add(comment);
+			}
+		}
+		model.addAttribute("comment", baseComment);
 		model.addAttribute("replies", replies);
-		model.addAttribute("comment", comment);
 		model.addAttribute("commentId", itineraryCommentId);
 		model.addAttribute("itinerary", itineraryDao.findItinerary(itineraryId));
 		return "createItineraryCommentReply";
