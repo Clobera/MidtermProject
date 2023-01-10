@@ -9,6 +9,15 @@
 </head>
 <body>
 	<%@include file="navbarGuest.jsp"%>
+	
+	<div>
+	<h3 class="text-center" >SEARCH RESULTS FOR " ${ search } "</h3>
+	
+	</div>
+	<br>
+	<br>
+	<br>
+	
 	<c:choose>
 		<c:when test="${ ! empty results }">
 			<div class="cards">
