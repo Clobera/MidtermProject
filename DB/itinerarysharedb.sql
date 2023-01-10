@@ -359,7 +359,9 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `itinerarysharedb`;
-INSERT INTO `itinerary` (`id`, `active`, `budget`, `start_date`, `end_date`, `image`, `user_id`, `name`, `description`) VALUES (1, 1, 2000.00, '2022-12-25', '2022-12-30', 'https://t4.ftcdn.net/jpg/03/46/93/61/360_F_346936114_RaxE6OQogebgAWTalE1myseY1Hbb5qPM.jpg', 1, 'Summer Trip 2022', 'blah blah blahhhhh');
+INSERT INTO `itinerary` (`id`, `active`, `budget`, `start_date`, `end_date`, `image`, `user_id`, `name`, `description`) VALUES (1, 1, 2000.00, '2022-12-25', '2022-12-30', 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/roadtrip-1583526313.jpg', 1, 'Summer Trip 2022', 'Roadtrip with my boyfriend to Utah');
+INSERT INTO `itinerary` (`id`, `active`, `budget`, `start_date`, `end_date`, `image`, `user_id`, `name`, `description`) VALUES (2, 1, 1500, '2023-05-10', '2023-05-20', 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/14/10/2e/65/florida-keys.jpg?w=700&h=-1&s=1', 1, '10 day RoadTrip to Florida Keys', 'Roadtrip to the florida keys!');
+INSERT INTO `itinerary` (`id`, `active`, `budget`, `start_date`, `end_date`, `image`, `user_id`, `name`, `description`) VALUES (3, 1, 3000, '2022-06-22', '2022-07-20', 'https://img-www.tf-cdn.com/movie/2/the-lizzie-mcguire-movie-2003.jpeg', 1, 'Trip to Italy', 'i went on a trip to Italy with some friend and there were some suprises!');
 
 COMMIT;
 
