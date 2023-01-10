@@ -11,9 +11,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.skilldistillery.itinerary.data.BookmarkDAO;
 import com.skilldistillery.itinerary.data.ItineraryCommentDAO;
 import com.skilldistillery.itinerary.data.ItineraryDAO;
 import com.skilldistillery.itinerary.data.ItineraryItemDAO;
+import com.skilldistillery.itinerary.entities.Bookmark;
 import com.skilldistillery.itinerary.entities.Itinerary;
 import com.skilldistillery.itinerary.entities.ItineraryComment;
 import com.skilldistillery.itinerary.entities.ItineraryItem;
@@ -32,32 +34,49 @@ public class ItineraryController {
 	@Autowired
 	private ItineraryCommentDAO itineraryCommentDao;
 	
+	@Autowired
+	private BookmarkDAO bookmarkDao;
+	
 	@ModelAttribute("loggedInUser")
 	public User initSessionState() {
 		return new User();
 	}
 
-	@GetMapping(path = "viewItinerary.do", params = {"id"})
-	public String viewItinerary(Model model, Integer id) {
-//		Integer id= (Integer) model.getAttribute("id");
-		Itinerary showItinerary = itineraryDao.findItinerary(id);
+	@GetMapping(path = "viewItinerary.do", params = {"itineraryId"})
+	public String viewItinerary(Model model, @ModelAttribute("loggedInUser") User user, Integer itineraryId) {
+		Bookmark bookmark = bookmarkDao.findBookmarkByUserIdAndItineraryId(user.getId(), itineraryId);
+		Boolean bookmarked = false;
+		if (bookmark != null) {
+			bookmarked = true;
+		}
+		Itinerary showItinerary = itineraryDao.findItinerary(itineraryId);
 		List<ItineraryItem> items= itineraryItemDao.findOrderedItineraryItemByItinerary(showItinerary);
-		List<ItineraryComment> comments = itineraryCommentDao.findCommentsById(id);
+		List<ItineraryComment> comments = itineraryCommentDao.findCommentsById(itineraryId);
 		model.addAttribute("comments", comments);
 		model.addAttribute("itinerary", showItinerary);
 		model.addAttribute("itineraryDays", items);
+		model.addAttribute("bookmarked", bookmarked);
+		System.out.println(user.getId());
+		System.out.println("******************************************************************************************");
+		System.out.println(showItinerary.getUserId().getId());
 		return "itinerary";
 	}
 
 	@GetMapping(path = "viewItinerary.do")
-	public String viewItineraryAgain(Model model) {
-		Integer id= (Integer) model.getAttribute("id");
+	public String viewItineraryAgain(Model model, @ModelAttribute("loggedInUser") User user) {
+		Integer id= (Integer) model.getAttribute("itineraryId");
+		Bookmark bookmark = bookmarkDao.findBookmarkByUserIdAndItineraryId(user.getId(), id);
+		Boolean bookmarked = false;
+		if (bookmark != null) {
+			bookmarked = true;
+		}
 		Itinerary showItinerary = itineraryDao.findItinerary(id);
 		List<ItineraryItem> items= itineraryItemDao.findOrderedItineraryItemByItinerary(showItinerary);
 		List<ItineraryComment> comments = itineraryCommentDao.findCommentsById(id);
 		model.addAttribute("comments", comments);
 		model.addAttribute("itinerary", showItinerary);
 		model.addAttribute("itineraryDays", items);
+		model.addAttribute("bookmarked", bookmarked);
 		return "itinerary";
 	}
 	

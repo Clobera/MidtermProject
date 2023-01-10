@@ -67,7 +67,7 @@
 							<ul class="dropdown-menu">
 								<li><a class="dropdown-item" href="profilePage.do">PROFILE
 										INFO</a></li>
-								<li><a class="dropdown-item" href="#">VIEW BOOKMARKS</a></li>
+								<li><a class="dropdown-item" href="viewBookmarks.do">VIEW BOOKMARKS</a></li>
 								<li><hr class="dropdown-divider"></li>
 								<li>
 									<form class="d-flex dropdown-item" role="search" action="logout.do"

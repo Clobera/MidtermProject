@@ -33,7 +33,7 @@ public class ItineraryCommentController {
 	@PostMapping(path = "createItineraryComment.do")
 	public String createdItinerary(String itineraryComment, int itineraryId, @ModelAttribute("loggedInUser") User user, RedirectAttributes redir) {
 		itineraryCommentDao.addComment(itineraryId, user.getId(), itineraryComment);
-		redir.addFlashAttribute("id", itineraryId);
+		redir.addFlashAttribute("itineraryId", itineraryId);
 		
 		return "redirect:viewItinerary.do";
 	}
@@ -45,7 +45,7 @@ public class ItineraryCommentController {
 		model.addAttribute("replies", replies);
 		model.addAttribute("comment", comment);
 		model.addAttribute("commentId", itineraryCommentId);
-		model.addAttribute("itineraryId", itineraryId);
+		model.addAttribute("itinerary", itineraryDao.findItinerary(itineraryId));
 		return "createItineraryCommentReply";
 	}
 
@@ -53,7 +53,7 @@ public class ItineraryCommentController {
 	public String createReply(@ModelAttribute("loggedInUser") User user, String itineraryComment, int itineraryId, Integer itineraryCommentId, RedirectAttributes redir) {
 		itineraryCommentDao.addCommentReply(user.getId(), itineraryComment, itineraryCommentId, itineraryId);
 		
-		redir.addFlashAttribute("id", itineraryId);
+		redir.addFlashAttribute("itineraryId", itineraryId);
 		return "redirect:viewItinerary.do";
 	}
 	
