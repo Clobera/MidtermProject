@@ -19,14 +19,14 @@
 				<!--   fixed position -->
 				<img class="itineraryPicture" src="${itinerary.image}">
 
-				<div class="container">
+				<div class="flex">
 					<h5>Itinerary Info</h5>
 					<br /> <br>Name: ${itinerary.name} <br>Budget:
 					${itinerary.budget} <br>Start Date: ${itinerary.startDate} <br>End
 					Date: ${itinerary.endDate}
 				</div>
 
-				<div class="container">
+				<div class="flex">
 					<h5>Description</h5>
 					<br /> <strong>${itinerary.description}</strong>
 				</div>
@@ -49,7 +49,7 @@
 						<div class="panel-body">
 						<form action="createItineraryComment.do" method="post">
 						<input type="hidden" value="${itinerary.id}" name="itineraryId">
-							<textarea class="form-control" rows="2"
+							<textarea class="col-4" rows="3"
 								placeholder="What are you thinking?" name="itineraryComment"></textarea>
 							<div class="mar-top clearfix">
 								<button class="btn btn-sm btn-primary pull-right" type="submit"
@@ -67,6 +67,10 @@
 							<!-- Newsfeed Content -->
 							<!--===================================================-->
 							<div class="media-block">
+<<<<<<< HEAD
+
+=======
+>>>>>>> ceb740733c49bc3b14d4c5b6b98b3944722de03c
 								<a class="media-left" href="viewAccount.do?userId=${comment.user.id}"><img
 									class="img-circle img-sm" alt="Profile Picture"
 									src="${comment.user.profilePicture}"></a>
@@ -106,13 +110,13 @@
 					</div>
 				</div>
 			</div>
-		</div>
-	</div>
+		
+	
 
 	<!-- Itinerary Info END -->
 	<!-- Itineraries START -->
 	<div class="col-lg-8 addBorder" style="background: white;">
-		<div class="container">
+		<div class="flex">
 			<h4>Itinerary Days</h4>
 			<c:if
 				test="${(sessionScope.loggedInUser.id == itinerary.userId.id) or sessionScope.loggedInUser.username == 'admin' }">
@@ -154,6 +158,8 @@
 				</tbody>
 			</table>
 		</div>
+	</div>
+	</div>
 	</div>
 	<!-- ItineraryItems END -->
 	<%@include file="bootstrapFooter.jsp"%>

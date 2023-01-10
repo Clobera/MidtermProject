@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -32,20 +31,20 @@ public class DestinationController {
 		return new User();
 	}
 
-	@GetMapping(path = "goCreateDestination.do")
-	public String goCreateDestination(Model model, Integer itineraryId, @ModelAttribute("loggedInUser") User user) {
+	@PostMapping(path = "goCreateDestination.do", params= {"itineraryId"})
+	public String goCreateDestination(Model model, Integer itineraryId) {
 		String view = "createDestination";
-		if (user.getId() == 0) {
-			view = "home";
-			List<Itinerary> itineraries = itineraryDao.findAllActiveItineraries();
-			model.addAttribute("itineraries", itineraries);
-		} else {
-			model.addAttribute("itineraryId", itineraryId);
-		}
+		model.addAttribute("itineraryId", itineraryId);
+		return view;
+	}
+	
+	@PostMapping(path = "goCreateDestination.do")
+	public String goCreateDestinationNoItinerary() {
+		String view = "createDestination";
 		return view;
 	}
 
-	@PostMapping(path = "createDestination.do")
+	@PostMapping(path = "createDestination.do", params= {"itineraryId", "destination"})
 	public String createdDestination(Model model, Integer itineraryId, Destination destination, RedirectAttributes redir) {
 		destinationDao.createDestination(destination);
 		String view = "redirect:viewItinerary.do";
@@ -57,6 +56,14 @@ public class DestinationController {
 			redir.addFlashAttribute("id", itineraryId);
 		}
 		return view;
+	}
+	
+	@PostMapping(path = "createDestination.do")
+	public String createdDestinationNoItinerary(Model model, Destination destination) {
+		destinationDao.createDestination(destination);
+		List<Itinerary> itineraries = itineraryDao.findAllActiveItineraries();
+		model.addAttribute("itineraries", itineraries);
+		return "home";
 	}
 
 }
