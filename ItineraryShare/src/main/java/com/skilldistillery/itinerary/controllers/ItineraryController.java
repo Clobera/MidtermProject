@@ -106,6 +106,7 @@ public class ItineraryController {
 	@GetMapping(path = "searchItinerary.do")
 	public String searchItinerary(Model model, String search) {
 		List<Itinerary> searchResults = itineraryDao.findItinerariesByKeyword(search);
+		model.addAttribute("search", search);
 		model.addAttribute("results", searchResults);
 		
 		return "searchResult";

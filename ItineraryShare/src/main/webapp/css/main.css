@@ -1,3 +1,8 @@
+#destinationButton{
+	text-decoration: none;
+	color: var(--bs-navbar-active-color);
+}
+
 .cards {
 	margin: 0 auto;
 	max-width: 1000px;
@@ -85,3 +90,4 @@ img {
 	max-width: 100%;
 	max-height: 100%;
 }
+
