@@ -43,6 +43,9 @@
 					<span class="navbar-toggler-icon"></span>
 				</button>
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<form class="d-flex" action="goCreateDestination.do" method="post">
+						<button class="btn btn-link" id="destinationButton" type="submit">Add Destination</button>
+					</form>
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 						<li class="nav-item"><a class="nav-link active"
 							aria-current="page" href="goCreateItinerary.do">Add Itinerary</a></li>
@@ -95,15 +98,21 @@
 					<span class="navbar-toggler-icon"></span>
 				</button>
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<form class="d-flex" action="goCreateDestination.do" method="post">
+						<button class="btn btn-link" id="destinationButton" type="submit">Add Destination</button>
+					</form>
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 						<li class="nav-item"><a class="nav-link active"
 							aria-current="page" href="goCreateItinerary.do">Add Itinerary</a></li>
 					</ul>
+					
+					
 					<form class="d-flex" role="search" action="searchItinerary.do" method="get">
 						<input class="form-control me-2" type="search"
 							placeholder="Search" aria-label="Search" name="search">
 						<button class="btn btn-outline-success" type="submit">Search</button>
 					</form>
+					
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 						<li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle" href="#" role="button"
