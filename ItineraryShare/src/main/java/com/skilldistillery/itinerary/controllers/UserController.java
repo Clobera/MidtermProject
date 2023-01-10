@@ -58,6 +58,13 @@ public class UserController {
 		return "profilePage";
 	}
 	
+	@GetMapping(path="viewAccount.do", params= {"userId"})
+	public String viewSomeonesProfile (int userId, Model model) {
+		User userPageToView = userDao.findById(userId);
+		model.addAttribute("userId", userPageToView);
+		return "profilePage";
+	}
+	
 	@PostMapping(path= "login.do")
 	public String login (Model model, @ModelAttribute("loggedInUser") User user, SessionStatus sessionStatus, HttpSession session) {
 		user = userDao.findByUsernameAndPassword(user.getUsername(), user.getPassword());
@@ -124,4 +131,5 @@ public class UserController {
 		userDao.deleteAccount(deleteId);
 		return "redirect:home.do";
 	}
+	
 }

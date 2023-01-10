@@ -147,7 +147,7 @@
 								<!--===================================================-->
 								<div class="media-block">
 
-									<a class="media-left"
+									<a class="media-left" method="POST"
 										href="viewAccount.do?userId=${comment.user.id}"><img
 										class="img-circle img-sm" alt="Profile Picture"
 										src="${comment.user.profilePicture}"
