@@ -42,10 +42,22 @@
 							value="${itinerary.id}" name="updateId">Update</button>
 					</form>
 					<br>
+					<c:choose>
+					<c:when test="${sessionScope.loggedInUser.id != 0 and bookmarked == true}">
 					<form action="addBookmark.do" method="post">
 						<button type="submit" class="btn btn-primary"
 							value="${itinerary.id}" name="bookmarkId">Bookmark</button>
 					</form>
+					</c:when>
+					<c:when test="${sessionScope.loggedInUser.id != 0 and bookmarked == false}">
+					<form action="deleteBookmark.do" method="post">
+						<button type="button" class="btn btn-secondary" name="deleteId" value="${itinerary.id }">
+               				 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
+							</svg>
+             			 </button>
+					</form>
+					</c:when>
+					</c:choose>
 
 				</c:if>
 				<!-- Comments Section Start -->
