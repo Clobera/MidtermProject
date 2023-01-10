@@ -41,6 +41,11 @@
 						<button type="submit" class="btn btn-primary"
 							value="${itinerary.id}" name="updateId">Update</button>
 					</form>
+					<br>
+					<form action="addBookmark.do" method="post">
+						<button type="submit" class="btn btn-primary"
+							value="${itinerary.id}" name="bookmarkId">Bookmark</button>
+					</form>
 
 				</c:if>
 				<!-- Comments Section Start -->
