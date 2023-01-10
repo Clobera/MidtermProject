@@ -7,32 +7,42 @@
 <meta charset="UTF-8">
 <title>${sessionScope.loggedInUser.username}</title>
 <%@include file="bootstraphead.jsp"%>
+<link rel="stylesheet" href="css/main.css">
+
 </head>
 <body>
 	<%@include file="navbarGuest.jsp"%>
 
-	<div class="row">
-		<!-- Itinerary Info START -->
-		<div class="col-3">
-			<div class="affix" style="position: fixed;">
+	<div class="row profile__content">
+		<!-- User Profile START -->
+		<div class="col-lg-3 userInfo">
+			<div class="affix">
 				<div class="container">
 					<!--   fixed position -->
 					<img class="img-fluid"
 						src="${sessionScope.loggedInUser.profilePicture}">
 				</div>
 				<div class="container">
-					<h5>User Info</h5>
-					Name: ${sessionScope.loggedInUser.firstName}
-					${sessionScope.loggedInUser.lastName} <br> Active:
-					${sessionScope.loggedInUser.enabled}
+					<div class="row">
+						<h5 class="col profile__heading">User Info</h5>
+
+						<div class="col profile__info">
+							Name: ${sessionScope.loggedInUser.firstName}
+							${sessionScope.loggedInUser.lastName} <br> Active:
+							${sessionScope.loggedInUser.enabled}
+						</div>
+					</div>
 				</div>
 
 				<div class="container">
-					<h5>Biography</h5>
-					<strong>${sessionScope.loggedInUser.biography}</strong>
+					<div class="row">
+						<h5 class="col profile__heading">Biography</h5>
+						<div class="col profile__info">
+							${sessionScope.loggedInUser.biography}</div>
+					</div>
 				</div>
-			</div>
-		</div>
+				</div>
+				</div>
 
 		<!-- Itinerary Info END -->
 		<div class="col-1"></div>
