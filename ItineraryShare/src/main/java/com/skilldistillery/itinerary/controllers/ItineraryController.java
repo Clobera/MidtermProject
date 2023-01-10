@@ -1,5 +1,6 @@
 package com.skilldistillery.itinerary.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,8 +52,19 @@ public class ItineraryController {
 		}
 		Itinerary showItinerary = itineraryDao.findItinerary(itineraryId);
 		List<ItineraryItem> items= itineraryItemDao.findOrderedItineraryItemByItinerary(showItinerary);
-		List<ItineraryComment> comments = itineraryCommentDao.findCommentsById(itineraryId);
-		model.addAttribute("comments", comments);
+		
+		List<ItineraryComment> baseComments = new ArrayList<>();
+		List<ItineraryComment> replies = new ArrayList<>();
+		List<ItineraryComment> allComments = itineraryCommentDao.findCommentsById(itineraryId);
+		for (ItineraryComment comment : allComments) {
+			if (comment.getReply() == null) {
+				baseComments.add(comment);
+			} else {
+				replies.add(comment);
+			}
+		}
+		model.addAttribute("comments", baseComments);
+		model.addAttribute("replies", replies);
 		model.addAttribute("itinerary", showItinerary);
 		model.addAttribute("itineraryDays", items);
 		model.addAttribute("bookmarked", bookmarked);
@@ -72,8 +84,18 @@ public class ItineraryController {
 		}
 		Itinerary showItinerary = itineraryDao.findItinerary(id);
 		List<ItineraryItem> items= itineraryItemDao.findOrderedItineraryItemByItinerary(showItinerary);
-		List<ItineraryComment> comments = itineraryCommentDao.findCommentsById(id);
-		model.addAttribute("comments", comments);
+		List<ItineraryComment> baseComments = new ArrayList<>();
+		List<ItineraryComment> replies = new ArrayList<>();
+		List<ItineraryComment> allComments = itineraryCommentDao.findCommentsById(id);
+		for (ItineraryComment comment : allComments) {
+			if (comment.getReply() == null) {
+				baseComments.add(comment);
+			} else {
+				replies.add(comment);
+			}
+		}
+		model.addAttribute("comments", baseComments);
+		model.addAttribute("replies", replies);
 		model.addAttribute("itinerary", showItinerary);
 		model.addAttribute("itineraryDays", items);
 		model.addAttribute("bookmarked", bookmarked);
