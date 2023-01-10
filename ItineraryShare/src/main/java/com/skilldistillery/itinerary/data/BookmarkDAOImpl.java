@@ -9,6 +9,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.itinerary.entities.Bookmark;
+import com.skilldistillery.itinerary.entities.BookmarkKey;
 import com.skilldistillery.itinerary.entities.Itinerary;
 import com.skilldistillery.itinerary.entities.User;
 
@@ -29,8 +30,12 @@ public class BookmarkDAOImpl implements BookmarkDAO {
 	
 	@Override
 	public Bookmark findBookmarkByUserIdAndItineraryId(int userId, int itineraryId) {
+		Bookmark output = null;
 		String query =  "SELECT b FROM Bookmark b WHERE b.user.id = :userId AND b.itinerary.id = :itineraryId";
-		Bookmark output = em.createQuery(query, Bookmark.class).setParameter("userId", userId).setParameter("itineraryId", itineraryId).getSingleResult();
+		List<Bookmark> outputList = em.createQuery(query, Bookmark.class).setParameter("userId", userId).setParameter("itineraryId", itineraryId).getResultList();
+		if (outputList.size() > 0) {
+			output = outputList.get(0);
+		}
 		return output;
 	}
 
@@ -38,7 +43,8 @@ public class BookmarkDAOImpl implements BookmarkDAO {
 	public Bookmark createBookmark(int userId, int itineraryId) {
 		User user = em.find(User.class, userId);
 		Itinerary itinerary = em.find(Itinerary.class, itineraryId);
-		Bookmark output = new Bookmark(user, itinerary);
+		BookmarkKey key = new BookmarkKey(itineraryId, userId);
+		Bookmark output = new Bookmark(key, user, itinerary);
 		em.persist(output);
 		user.addBookmarks(output);
 		itinerary.addBookmark(output);

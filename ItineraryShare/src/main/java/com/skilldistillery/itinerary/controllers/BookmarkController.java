@@ -1,5 +1,6 @@
 package com.skilldistillery.itinerary.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import com.skilldistillery.itinerary.data.BookmarkDAO;
 import com.skilldistillery.itinerary.data.ItineraryDAO;
 import com.skilldistillery.itinerary.data.UserDAO;
 import com.skilldistillery.itinerary.entities.Bookmark;
+import com.skilldistillery.itinerary.entities.Itinerary;
 import com.skilldistillery.itinerary.entities.User;
 
 @Controller
@@ -36,16 +38,16 @@ public class BookmarkController {
 	@PostMapping(path = "addBookmark.do")
 	public String createBookmark(@ModelAttribute("loggedInUser") User user, int itineraryId, RedirectAttributes redir) {
 		bookmarkDao.createBookmark(user.getId(), itineraryId);
-		redir.addFlashAttribute("id", itineraryId);
-		return "redirect:viewItinerary";
+		redir.addFlashAttribute("itineraryId", itineraryId);
+		return "redirect:viewItinerary.do";
 	}
 	
-	@PostMapping(path = "removeBookmark.do")
+	@PostMapping(path = "deleteBookmark.do")
 	public String deleteBookmark(@ModelAttribute("loggedInUser") User user, int itineraryId, RedirectAttributes redir) {
 		Bookmark deleteMe = bookmarkDao.findBookmarkByUserIdAndItineraryId(user.getId(), itineraryId);
 		bookmarkDao.deleteBookmark(deleteMe);
-		redir.addFlashAttribute("id", itineraryId);
-		return "viewItinerary";
+		redir.addFlashAttribute("itineraryId", itineraryId);
+		return "redirect:viewItinerary.do";
 	}
 	
 	@GetMapping(path="viewBookmarks.do")
@@ -55,7 +57,11 @@ public class BookmarkController {
 			view = "loginScreen";
 		} else {
 		List<Bookmark> bookmarks = bookmarkDao.findBookmarksByUserId(user.getId());
-		model.addAttribute("bookmarks", bookmarks);
+		List<Itinerary> itineraries = new ArrayList<>();
+		for (Bookmark bm : bookmarks) {
+			itineraries.add(bm.getItinerary());
+		}
+		model.addAttribute("bookmarks", itineraries);
 		}
 		return view;
 	}

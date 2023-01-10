@@ -45,7 +45,7 @@
 				<div class="panel">
 					<div class="panel-body">
 						<form action="createItineraryCommentReply.do" method="post">
-							<input type="hidden" value="${itineraryId}" name="itineraryId">
+							<input type="hidden" value="${itinerary.id}" name="itineraryId">
 							<input type="hidden" value="${commentId}"
 								name="itineraryCommentId">
 							<textarea class="form-control" rows="2"
