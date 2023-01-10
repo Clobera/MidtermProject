@@ -16,8 +16,10 @@
 					aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
-				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<form class="d-flex" role="search" action="searchItinerary.do" method="get">
+				<div class="collapse d-flex justify-content-start"
+					id="navbarSupportedContent">
+					<form class="d-flex" role="search" action="searchItinerary.do"
+						method="get">
 						<input class="form-control me-2" name="search" type="search"
 							placeholder="Search" aria-label="Search">
 						<button class="btn btn-outline-success" type="submit">Search</button>
@@ -44,7 +46,8 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<form class="d-flex" action="goCreateDestination.do" method="post">
-						<button class="btn btn-link" id="destinationButton" type="submit">Add Destination</button>
+						<button class="btn btn-link" id="destinationButton" type="submit">Add
+							Destination</button>
 					</form>
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 						<li class="nav-item"><a class="nav-link active"
@@ -54,7 +57,13 @@
 						<li class="nav-item"><a class="nav-link active"
 							aria-current="page" href="#">View All Users</a></li>
 					</ul>
-					<form class="d-flex" role="search" action="searchItinerary.do" method="get">
+
+				</div>
+				<div class="collapse d-flex justify-content-start"
+					id="navbarSupportedContent">
+
+					<form class="d-flex" role="search" action="searchItinerary.do"
+						method="get">
 						<input class="form-control me-2" type="search"
 							placeholder="Search" aria-label="Search" name="search">
 						<button class="btn btn-outline-success" type="submit">Search</button>
@@ -67,14 +76,14 @@
 							<ul class="dropdown-menu">
 								<li><a class="dropdown-item" href="profilePage.do">PROFILE
 										INFO</a></li>
-								<li><a class="dropdown-item" href="viewBookmarks.do">VIEW BOOKMARKS</a></li>
+								<li><a class="dropdown-item" href="viewBookmarks.do">VIEW
+										BOOKMARKS</a></li>
 								<li><hr class="dropdown-divider"></li>
 								<li>
-									<form class="d-flex dropdown-item" role="search" action="logout.do"
-										method="POST">
-										<button class="btn btn-outline-success dropdown-item" type="submit">
-										LogOut
-										</button>
+									<form class="d-flex dropdown-item" role="search"
+										action="logout.do" method="POST">
+										<button class="btn btn-outline-success dropdown-item"
+											type="submit">LogOut</button>
 									</form>
 								</li>
 							</ul></li>
@@ -99,20 +108,24 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<form class="d-flex" action="goCreateDestination.do" method="post">
-						<button class="btn btn-link" id="destinationButton" type="submit">Add Destination</button>
+						<button class="btn btn-link" id="destinationButton" type="submit">Add
+							Destination</button>
 					</form>
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 						<li class="nav-item"><a class="nav-link active"
 							aria-current="page" href="goCreateItinerary.do">Add Itinerary</a></li>
 					</ul>
-					
-					
-					<form class="d-flex" role="search" action="searchItinerary.do" method="get">
+
+				</div>
+				<div class="collapse d-flex justify-content-start"
+					id="navbarSupportedContent">
+					<form class="d-flex" role="search" action="searchItinerary.do"
+						method="get">
 						<input class="form-control me-2" type="search"
 							placeholder="Search" aria-label="Search" name="search">
 						<button class="btn btn-outline-success" type="submit">Search</button>
 					</form>
-					
+
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 						<li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle" href="#" role="button"
@@ -121,14 +134,14 @@
 							<ul class="dropdown-menu">
 								<li><a class="dropdown-item" href="profilePage.do">PROFILE
 										INFO</a></li>
-								<li><a class="dropdown-item" href="viewBookmarks.do">VIEW BOOKMARKS</a></li>
+								<li><a class="dropdown-item" href="viewBookmarks.do">VIEW
+										BOOKMARKS</a></li>
 								<li><hr class="dropdown-divider"></li>
 								<li>
-									<form class="d-flex dropdown-item" role="search" action="logout.do"
-										method="POST">
-										<button class="btn btn-outline-success dropdown-item" type="submit">
-										LogOut
-										</button>
+									<form class="d-flex dropdown-item" role="search"
+										action="logout.do" method="POST">
+										<button class="btn btn-outline-success dropdown-item"
+											type="submit">LogOut</button>
 									</form>
 								</li>
 							</ul></li>
