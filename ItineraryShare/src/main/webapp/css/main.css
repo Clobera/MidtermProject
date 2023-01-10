@@ -117,9 +117,9 @@ img.img-circle.img-sm {
 }
 
 body{
-    margin-top:20px;
+    margin-top:0px;
     background:#ebeef0;
-    padding-left: 15px;
+    padding-left: 0px;
 }
 
 .img-sm {
@@ -217,4 +217,12 @@ body{
 
 .mar-top {
     margin-top: 15px;
+}
+
+.col-lg-4.addBorder.sepLine.itinerary__info {
+	padding-left: 25px;
+}
+
+.row {
+	margin-right: 0px;
 }
