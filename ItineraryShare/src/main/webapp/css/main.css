@@ -120,10 +120,10 @@ img.img-circle.img-sm {
 	border-radius: 500px;
 }
 
-body {
-	margin-top: 20px;
-	background: #ebeef0;
-	padding-left: 15px;
+body{
+    margin-top:0px;
+    background:#ebeef0;
+    padding-left: 0px;
 }
 
 .img-sm {
@@ -220,7 +220,15 @@ body {
 }
 
 .mar-top {
-	margin-top: 15px;
+    margin-top: 15px;
+}
+
+.col-lg-4.addBorder.sepLine.itinerary__info {
+	padding-left: 25px;
+}
+
+.row {
+	margin-right: 0px;
 }
 
 .deleteButton:hover {

@@ -68,9 +68,6 @@ public class ItineraryController {
 		model.addAttribute("itinerary", showItinerary);
 		model.addAttribute("itineraryDays", items);
 		model.addAttribute("bookmarked", bookmarked);
-		System.out.println(user.getId());
-		System.out.println("******************************************************************************************");
-		System.out.println(showItinerary.getUserId().getId());
 		return "itinerary";
 	}
 
