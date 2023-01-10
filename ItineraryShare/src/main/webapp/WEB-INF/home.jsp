@@ -15,8 +15,6 @@
 	<h3 class="text-center">WELCOME TO ITINERARY SHARE!</h3>
 	</div>
 	
-	
-	<a href="goCreateDestination.do">create destination</a>
 	<c:choose>
 		<c:when test="${ ! empty itineraries }">
 			<div class="cards">
