@@ -12,7 +12,7 @@
 	<div class="p-2 ">
 	<h1 class="text-center">Itinerary Share</h1>
 	<br>
-	<h3 class="text-center">BookMarks</h3>
+	<h3 class="text-center">Bookmarks</h3>
 	</div>
 	
 	<c:choose>

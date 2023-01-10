@@ -7,5 +7,6 @@ import com.skilldistillery.itinerary.entities.Bookmark;
 public interface BookmarkDAO {
 	public List<Bookmark> findBookmarksByUserId (int userId);
 	public Bookmark createBookmark (int userId, int itineraryId);
-	public Bookmark deleteBookmark (int bookmarkId);
+	public Bookmark deleteBookmark (Bookmark bookmark);
+	Bookmark findBookmarkByUserIdAndItineraryId(int userId, int itineraryId);
 }
