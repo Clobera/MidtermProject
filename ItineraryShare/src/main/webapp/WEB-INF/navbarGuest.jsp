@@ -73,7 +73,7 @@
 							class="nav-link dropdown-toggle" href="#" role="button"
 							data-bs-toggle="dropdown" aria-expanded="false">
 								${sessionScope.loggedInUser.username} </a>
-							<ul class="dropdown-menu">
+							<ul class="dropdown-menu dropdown-menu-end">
 								<li><a class="dropdown-item" href="profilePage.do">PROFILE
 										INFO</a></li>
 								<li><a class="dropdown-item" href="viewBookmarks.do">VIEW
@@ -127,11 +127,12 @@
 					</form>
 
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						
 						<li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle" href="#" role="button"
 							data-bs-toggle="dropdown" aria-expanded="false">
 								${sessionScope.loggedInUser.username} </a>
-							<ul class="dropdown-menu">
+							<ul class="dropdown-menu dropdown-menu-end">
 								<li><a class="dropdown-item" href="profilePage.do">PROFILE
 										INFO</a></li>
 								<li><a class="dropdown-item" href="viewBookmarks.do">VIEW
