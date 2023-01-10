@@ -25,6 +25,12 @@ public class Bookmark {
 	
 	public Bookmark () {}
 
+	public Bookmark(User user, Itinerary itinerary) {
+		super();
+		this.user = user;
+		this.itinerary = itinerary;
+	}
+
 	public BookmarkKey getId() {
 		return id;
 	}

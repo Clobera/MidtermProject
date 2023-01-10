@@ -10,7 +10,9 @@
 <body>
 	<%@include file="navbarGuest.jsp"%>
 	<h1>Itinerary Share</h1>
-	<a href="goCreateDestination.do">create destination</a>
+	<form action="goCreateDestination.do" method="post">
+	<button type="submit" value="1" name="itineraryId">Create Destination</button>
+	</form>
 	<c:choose>
 		<c:when test="${ ! empty itineraries }">
 			<div class="cards">
