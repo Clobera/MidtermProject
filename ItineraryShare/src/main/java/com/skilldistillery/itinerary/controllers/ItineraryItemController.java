@@ -49,7 +49,7 @@ public class ItineraryItemController {
 		List<Destination> destinations = destinationDao.findAllDestinations();
 		Itinerary itinerary = itineraryDao.findItinerary(id);
 		List<Integer> days = new ArrayList<>();
-		for (int i = 1; i <= Period.between(itinerary.getStartDate(), itinerary.getEndDate()).getDays(); i++) {
+		for (int i = 1; i <= Period.between(itinerary.getStartDate(), itinerary.getEndDate()).getDays() + 1; i++) {
 			days.add(i);
 		}
 		model.addAttribute("destinations", destinations);
