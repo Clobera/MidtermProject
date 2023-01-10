@@ -19,7 +19,8 @@
 				type="text" class="form-control" placeholder="Name"
 				aria-label="Username" aria-describedby="basic-addon1" name="name">
 		</div>
-
+<br/>
+Destination: 
 		<div class="input-group mb-3">
 				<select name="destinationId">
 			<c:forEach var="destination" items="${destinations}">
@@ -27,8 +28,10 @@
 			</c:forEach>
 				</select>
 		</div>
-
-
+		
+		<button class="btn btn-primary" type="submit" form="goCreateDestination">Create a New Destination</button>
+	<br/>
+	Day of Trip: 
 				<div class="input-group mb-3">
 			<select name="tripDay">
 			<c:forEach var="day" items="${days}">
@@ -49,6 +52,7 @@
 		<button type="submit" class="btn btn-primary">Create
 			Itinerary Item</button>
 	</form>
+	<form action="goCreateDestination.do" method="post" id="goCreateDestination"></form>
 	<%@include file="bootstrapFooter.jsp"%>
 </body>
 </html>

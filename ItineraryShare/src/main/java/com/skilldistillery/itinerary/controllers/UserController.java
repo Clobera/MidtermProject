@@ -68,9 +68,13 @@ public class UserController {
 	}
 	
 	@GetMapping(path="viewAccount.do", params= {"userId"})
-	public String viewSomeonesProfile (int userId, Model model) {
+	public String viewSomeonesProfile (int userId, Model model, @ModelAttribute("loggedInUser") User user) {
 		User userPageToView = userDao.findById(userId);
+		List<Itinerary> userItineraries = itineraryDao.findUserItineraries(userPageToView);
+		model.addAttribute("itineraries", userItineraries);
+		if (user.getId() != userId) {
 		model.addAttribute("userId", userPageToView);
+		}
 		return "profilePage";
 	}
 	

@@ -21,6 +21,20 @@
 
 				<div class="flex">
 					<h4>Itinerary Info</h4>
+					<br/>
+					Author: 
+					<div class="media-block">
+						<a class="media-left" href="viewAccount.do?userId=${itinerary.userId.id}"><img
+							class="mx-auto rounded-circle img-fluid img-sm"
+							alt="Profile Picture" src="${itinerary.userId.profilePicture}"
+							onerror="this.onerror=null; this.src='https://t4.ftcdn.net/jpg/03/46/93/61/360_F_346936114_RaxE6OQogebgAWTalE1myseY1Hbb5qPM.jpg'"></a>
+						<div class="media-body">
+							<div class="mar-btm">
+								<a href="viewAccount.do?userId=${itinerary.userId.id}"
+									class="btn-link text-semibold media-heading box-inline">${itinerary.userId.username}</a>
+							</div>
+						</div>
+					</div>
 					<br> Name: ${itinerary.name} <br>Budget: $
 					${itinerary.budget} <br>Start Date: ${itinerary.startDate} <br>End
 					Date: ${itinerary.endDate}
@@ -149,8 +163,8 @@
 
 								<a class="media-left"
 									href="viewAccount.do?userId=${comment.user.id}"><img
-									class="mx-auto rounded-circle img-fluid img-sm" alt="Profile Picture"
-									src="${comment.user.profilePicture}"
+									class="mx-auto rounded-circle img-fluid img-sm"
+									alt="Profile Picture" src="${comment.user.profilePicture}"
 									onerror="this.onerror=null; this.src='https://t4.ftcdn.net/jpg/03/46/93/61/360_F_346936114_RaxE6OQogebgAWTalE1myseY1Hbb5qPM.jpg'"></a>
 								<div class="media-body">
 									<div class="mar-btm">

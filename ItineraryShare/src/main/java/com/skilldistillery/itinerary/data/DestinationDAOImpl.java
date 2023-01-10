@@ -33,7 +33,7 @@ public class DestinationDAOImpl implements DestinationDAO {
 
 	@Override
 	public List<Destination> findAllDestinations() {
-		String query = "Select d from Destination d";
+		String query = "Select d from Destination d ORDER BY d.name ASC";
 		List<Destination> destinations = em.createQuery(query, Destination.class).getResultList();
 		return destinations;
 	}
