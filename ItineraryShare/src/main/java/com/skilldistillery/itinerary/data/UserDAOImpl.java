@@ -64,4 +64,18 @@ public class UserDAOImpl implements UserDAO {
 		return toDelete;
 	}
 	
+	@Override
+	public List<User> findAllActiveUsers () {
+		String query = "SELECT u FROM User u WHERE u.enabled = true";
+		List<User> results = em.createQuery(query, User.class).getResultList();
+		return results;
+	}
+	
+	@Override
+	public List<User> findAllDisabledUsers () {
+		String query = "SELECT u FROM User u WHERE u.enabled = false";
+		List<User> results = em.createQuery(query, User.class).getResultList();
+		return results;
+	}
+	
 }
