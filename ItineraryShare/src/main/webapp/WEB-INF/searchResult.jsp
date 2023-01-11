@@ -23,7 +23,7 @@
 		
 		
 		<c:if test="${ ! empty itineraries }">
-		<h4>Itineraries that include " ${ search } "</h4>
+		<h4>Itineraries</h4>
 			<div class="cards">
 				<c:forEach var="itinerary" items="${ itineraries }">
 					<div class="card">
@@ -40,10 +40,10 @@
 			</div>
 			</c:if>
 
+<br/>
 
-
-		<c:if test="${ ! empty destination }">
-		<h4>Itineraries that have an Destination that includes " ${ search } "</h4>
+		<c:if test="${ ! empty destinations }">
+		<h4>Destinations</h4>
 		<div class="cards">
 				<c:forEach var="destination" items="${ destinations }">
 					<div class="card">
@@ -60,9 +60,9 @@
 			</div>
 			</c:if>
 
-
+<br/>
 			<c:if test="${ ! empty users }">
-				<h4>Users that include " ${ search } "</h4>
+				<h4>Users </h4>
 				<div class="cards">
 					<c:forEach var="user" items="${ users }">
 						<div class="card">
@@ -72,7 +72,7 @@
 							</a>
 							<div class="card__content">
 								<a href="viewAccount.do?userId=${ user.id }"
-									class="card__link"> ${user.userName } </a>
+									class="card__link"> ${user.username } </a>
 							</div>
 						</div>
 

@@ -100,7 +100,7 @@
 						Itinerary Item</a>
 				</c:if>
 				<br>
-
+<c:if test="${!empty itineraryDays }">
 				<table>
 					<thead>
 						<tr>
@@ -134,6 +134,7 @@
 						</c:forEach>
 					</tbody>
 				</table>
+				</c:if>
 			</div>
 		</div>
 		<div class="row">
