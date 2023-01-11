@@ -1,10 +1,12 @@
 package com.skilldistillery.itinerary.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -12,8 +14,12 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.itinerary.data.DestinationDAO;
 import com.skilldistillery.itinerary.data.ItineraryDAO;
+import com.skilldistillery.itinerary.entities.Bookmark;
 import com.skilldistillery.itinerary.entities.Destination;
+import com.skilldistillery.itinerary.entities.DestinationComment;
+import com.skilldistillery.itinerary.entities.DestinationRating;
 import com.skilldistillery.itinerary.entities.Itinerary;
+import com.skilldistillery.itinerary.entities.ItineraryItem;
 import com.skilldistillery.itinerary.entities.User;
 
 @Controller
@@ -25,6 +31,12 @@ public class DestinationController {
 	
 	@Autowired
 	private DestinationDAO destinationDao;
+	
+	@Autowired
+	private DestinationCommentDAO destinationCommentDao;
+	
+	@Autowired
+	private DestinationRatingDAO destinationRatingDao;
 
 	@ModelAttribute("loggedInUser")
 	public User initSessionState() {
@@ -65,5 +77,29 @@ public class DestinationController {
 		model.addAttribute("itineraries", itineraries);
 		return "home";
 	}
+	
+	@GetMapping(path = "viewDestination.do", params = {"destinationId"})
+	public String viewDestination(Model model, @ModelAttribute("loggedInUser") User user, Integer destinationId) {
+		Destination destination = destinationDao.findDestinationById(destinationId);
+		int userId = user.getId();
+		
+		List<DestinationRating> ratings = destinationRatingDao.findRatingByIds(userId, destinationId);
+		List<DestinationComment> baseComments = new ArrayList<>();
+		List<DestinationComment> replies = new ArrayList<>();
+		List<DestinationComment> allComments = destinationCommentDao.findCommentsById(destinationId);
+		for (DestinationComment comment : allComments) {
+			if (comment.getReply() == null) {
+				baseComments.add(comment);
+			} else {
+				replies.add(comment);
+			}
+		}
+		model.addAttribute("destination", destination);
+		model.addAttribute("comments", baseComments);
+		model.addAttribute("replies", replies);
+		model.addAttribute("ratings", ratings);
+		return "itinerary";
+	}
+	
 
 }
