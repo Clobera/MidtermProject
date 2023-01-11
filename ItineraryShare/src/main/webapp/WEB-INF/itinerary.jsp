@@ -48,7 +48,7 @@
 				<c:if
 					test="${(sessionScope.loggedInUser.id == itinerary.userId.id) or sessionScope.loggedInUser.username == 'admin' }">
 					<form action="deleteItinerary.do" method="post">
-						<button type="submit" class="btn btn-primary"
+						<button type="submit" class="btn btn-primary deleteButton"
 							value="${itinerary.id}" name="deleteId">Delete</button>
 					</form>
 					<br>
@@ -124,7 +124,7 @@
 											<input type="hidden" value="${itinerary.id }"
 												name="itineraryId"> <input type="hidden"
 												value="${days.id}" name="itineraryItemId">
-											<button type="submit" class="btn btn-primary">Delete</button>
+											<button type="submit" class="btn btn-primary deleteButton">Delete</button>
 										</form>
 									</td>
 								</c:if>
