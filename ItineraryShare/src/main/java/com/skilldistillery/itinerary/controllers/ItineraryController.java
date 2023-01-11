@@ -148,5 +148,15 @@ public class ItineraryController {
 		model.addAttribute("results", searchResults);
 		return "searchResult";
 	}
+	
+	@GetMapping(path= "adminViewAll.do")
+	public String adminViewAllItineraries(Model model, @ModelAttribute("loggedInUser") User user) {
+		List<Itinerary> activeItineraries = itineraryDao.findAllActiveItineraries();
+		List<Itinerary> disabledItineraries = itineraryDao.findAllInactiveItineraries();
+		model.addAttribute("active", activeItineraries);
+		model.addAttribute("disabled", disabledItineraries);
+		return "adminViewAll";
+	}
+	
 
 }
