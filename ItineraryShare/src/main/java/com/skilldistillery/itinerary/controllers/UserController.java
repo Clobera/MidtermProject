@@ -109,8 +109,10 @@ public class UserController {
 		return "home";
 	}
 	
-	@RequestMapping(path="goUpdateAccount.do")
-	public String goUpdateAccount() {
+	@PostMapping(path="goUpdateAccount.do")
+	public String goUpdateAccount(Model model, int updateId) {
+		User user = userDao.findById(updateId);
+		model.addAttribute("updateId", user);
 		return "updateAccount";
 	}
 	
