@@ -41,19 +41,19 @@ public class ItineraryItemController {
 	}
 	
 	@GetMapping(path = "goCreateItineraryItem.do")
-	public String goCreateItinerary(Model model, @ModelAttribute("loggedInUser") User user, Integer id) {
+	public String goCreateItinerary(Model model, @ModelAttribute("loggedInUser") User user, Integer itineraryId) {
 		String destination = "createItineraryItem";
 		if (user.getId() == 0) {
 			destination = "home";
 		}
 		List<Destination> destinations = destinationDao.findAllDestinations();
-		Itinerary itinerary = itineraryDao.findItinerary(id);
+		Itinerary itinerary = itineraryDao.findItinerary(itineraryId);
 		List<Integer> days = new ArrayList<>();
 		for (int i = 1; i <= Period.between(itinerary.getStartDate(), itinerary.getEndDate()).getDays() + 1; i++) {
 			days.add(i);
 		}
 		model.addAttribute("destinations", destinations);
-		model.addAttribute("itinerary", id);
+		model.addAttribute("itinerary", itinerary);
 		model.addAttribute("days", days);
 		return destination;
 	}

@@ -13,17 +13,17 @@
 	<%@include file="navbarGuest.jsp"%>
 
 	<form action="createItineraryItem.do" method="POST">
-		<input type="hidden" value="${itinerary}" name="itineraryId">
+		<input type="hidden" value="${itinerary.id}" name="itineraryId">
 		<div class="input-group mb-3">
 			<span class="input-group-text" id="basic-addon1">Name</span> <input
-				type="text" class="form-control" placeholder="Name"
+				type="text" class="form-control" placeholder="Ex. Sightseeing at the Grand Canyon"
 				aria-label="Username" aria-describedby="basic-addon1" name="name">
 		</div>
 
 		<div class="input-group mb-3">
 			<span class="input-group-text" id="basic-addon1">Description</span> <input
 				type="text" class="form-control"
-				placeholder="Write something about your trip!"
+				placeholder="Ex. Man that is a lot of red rock..."
 				aria-label="Description" aria-describedby="basic-addon1"
 				name="description">
 		</div>

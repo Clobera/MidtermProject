@@ -91,6 +91,12 @@ public class ItineraryController {
 				replies.add(comment);
 			}
 		}
+		
+		System.out.println("*************************************************************");
+		System.out.println(showItinerary.getUserId().getId());
+		System.out.println(user.getId());
+		System.out.println("*************************************************************");
+		
 		model.addAttribute("comments", baseComments);
 		model.addAttribute("replies", replies);
 		model.addAttribute("itinerary", showItinerary);

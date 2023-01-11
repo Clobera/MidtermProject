@@ -96,7 +96,7 @@
 				<c:if
 					test="${(sessionScope.loggedInUser.id == itinerary.userId.id) or sessionScope.loggedInUser.username == 'admin' }">
 					<br>
-					<a href="goCreateItineraryItem.do?id=${itinerary.id }">Create
+					<a href="goCreateItineraryItem.do?itineraryId=${itinerary.id }">Create
 						Itinerary Item</a>
 				</c:if>
 				<br>

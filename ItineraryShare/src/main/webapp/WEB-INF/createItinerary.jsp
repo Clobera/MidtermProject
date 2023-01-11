@@ -16,14 +16,14 @@
 		<input type="hidden" value="true" name="active">
 		<div class="input-group mb-3">
 			<span class="input-group-text" id="basic-addon1">Name</span> <input
-				type="text" class="form-control" placeholder="Name"
+				type="text" class="form-control" placeholder="Ex. My 2020 Summer Trip"
 				aria-label="Username" aria-describedby="basic-addon1" name="name">
 		</div>
 
 		<div class="input-group mb-3">
 			<span class="input-group-text" id="basic-addon1">Budget</span> <input
-				type="number" class="form-control" placeholder="Budget"
-				aria-label="Budget" aria-describedby="basic-addon1" name="budget">
+				type="number" class="form-control" placeholder="Ex. 0" value="0"
+				aria-label="Budget" aria-describedby="basic-addon1" name="budget" REQUIRED>
 		</div>
 
 		<div class="input-group mb-3">
@@ -41,14 +41,14 @@
 		<div class="input-group mb-3 bio">
 			<span class="input-group-text" id="basic-addon1">Description</span> <input
 				type="text" class="form-control"
-				placeholder="Write something about your trip!"
+				placeholder="Ex. Lots of hand-washing and mask-wearing..."
 				aria-label="Description" aria-describedby="basic-addon1"
 				name="description">
 		</div>
 
 		<div class="input-group mb-3">
 			<span class="input-group-text" id="basic-addon1">Image URL</span> <input
-				type="text" class="form-control" placeholder="ENTER URL"
+				type="text" class="form-control" placeholder="ENTER URL OF IMAGE"
 				aria-label="Image" aria-describedby="basic-addon1">
 		</div>
 
