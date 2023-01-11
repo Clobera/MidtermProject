@@ -255,3 +255,7 @@ body{
     background-color: white;
     border-radius: 15px;
 }
+
+.inline-text {
+	display: inline-block;
+}
