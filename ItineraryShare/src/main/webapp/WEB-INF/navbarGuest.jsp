@@ -60,7 +60,7 @@
 							</form>
 						</li>
 						<li class="nav-item"><a class="nav-link active"
-							aria-current="page" href="#">View All Users</a></li>
+							aria-current="page" href="adminViewAllUsers.do">View All Users</a></li>
 					</ul>
 
 				</div>
