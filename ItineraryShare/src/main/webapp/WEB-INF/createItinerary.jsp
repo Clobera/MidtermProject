@@ -12,7 +12,7 @@
 
 	<%@include file="navbarGuest.jsp"%>
 
-	<form action="createItinerary.do" method="POST">
+	<form class="create-account-form" action="createItinerary.do" method="POST">
 		<input type="hidden" value="true" name="active">
 		<div class="input-group mb-3">
 			<span class="input-group-text" id="basic-addon1">Name</span> <input
@@ -38,7 +38,7 @@
 				aria-describedby="basic-addon1" name="endDate" REQUIRED>
 		</div>
 
-		<div class="input-group mb-3">
+		<div class="input-group mb-3 bio">
 			<span class="input-group-text" id="basic-addon1">Description</span> <input
 				type="text" class="form-control"
 				placeholder="Write something about your trip!"

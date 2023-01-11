@@ -11,7 +11,7 @@
 <body>
 
 	<%@include file="navbarGuest.jsp"%>
-
+	<div class="create-account-form">
 	<form action="createAccount.do" method="POST" >
 	<input type= "hidden" name="enabled" value="true">
 		<div class="input-group mb-3">
@@ -38,9 +38,9 @@
 				aria-label="Username" aria-describedby="basic-addon1" name="password" REQUIRED>
 		</div>
 		
-		<div class="input-group mb-3">
+		<div class="input-group mb-3 bio">
 			<span class="input-group-text" id="basic-addon1">Biography</span> <input
-				type="text" class="form-control" placeholder="Write something about yourself!"
+				type="textarea" class="form-control" placeholder="Write something about yourself!"
 				aria-label="Username" aria-describedby="basic-addon1" name="biography">
 		</div>
 
@@ -53,7 +53,7 @@
 
 		<button type="submit" class="btn btn-primary">Create User</button>
 	</form>
-
+</div>
 
 
 </body>

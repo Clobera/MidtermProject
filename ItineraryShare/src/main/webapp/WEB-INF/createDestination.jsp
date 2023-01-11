@@ -12,7 +12,7 @@
 
 	<%@include file="navbarGuest.jsp"%>
 
-	<form action="createDestination.do" method="POST" >
+	<form class= "create-account-form" action="createDestination.do" method="POST" >
 		<div class="input-group mb-3">
 			<span class="input-group-text" id="basic-addon1">Name</span> <input
 				type="text" class="form-control" placeholder="Name"
@@ -31,7 +31,7 @@
 				aria-label="City" aria-describedby="basic-addon1" name="city" REQUIRED>
 		</div>
 
-		<div class="input-group mb-3">
+		<div class="input-group mb-3 bio">
 			<span class="input-group-text" id="basic-addon1">Description</span> <input
 				type="text" class="form-control" placeholder="Write something about this destination!"
 				aria-label="Description" aria-describedby="basic-addon1" name="description">
