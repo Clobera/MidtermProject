@@ -13,13 +13,12 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.itinerary.data.DestinationDAO;
+import com.skilldistillery.itinerary.data.DestinationRatingDAO;
 import com.skilldistillery.itinerary.data.ItineraryDAO;
-import com.skilldistillery.itinerary.entities.Bookmark;
 import com.skilldistillery.itinerary.entities.Destination;
 import com.skilldistillery.itinerary.entities.DestinationComment;
 import com.skilldistillery.itinerary.entities.DestinationRating;
 import com.skilldistillery.itinerary.entities.Itinerary;
-import com.skilldistillery.itinerary.entities.ItineraryItem;
 import com.skilldistillery.itinerary.entities.User;
 
 @Controller
@@ -83,7 +82,7 @@ public class DestinationController {
 		Destination destination = destinationDao.findDestinationById(destinationId);
 		int userId = user.getId();
 		
-		List<DestinationRating> ratings = destinationRatingDao.findRatingByIds(userId, destinationId);
+		List<DestinationRating> ratings = destinationRatingDao.findDestinationRatingsById(destinationId);
 		List<DestinationComment> baseComments = new ArrayList<>();
 		List<DestinationComment> replies = new ArrayList<>();
 		List<DestinationComment> allComments = destinationCommentDao.findCommentsById(destinationId);
@@ -98,7 +97,7 @@ public class DestinationController {
 		model.addAttribute("comments", baseComments);
 		model.addAttribute("replies", replies);
 		model.addAttribute("ratings", ratings);
-		return "itinerary";
+		return "destination";
 	}
 	
 

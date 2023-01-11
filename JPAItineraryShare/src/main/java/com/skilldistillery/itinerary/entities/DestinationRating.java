@@ -34,6 +34,16 @@ public class DestinationRating {
 	
 	public DestinationRating () {}
 	
+	public DestinationRating(int rating, DestinationRatingKey id, User user, Destination destination) {
+		super();
+		this.rating = rating;
+		this.id = id;
+		this.user = user;
+		this.destination = destination;
+	}
+
+
+
 	public DestinationRatingKey getId() {
 		return id;
 	}

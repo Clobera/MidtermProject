@@ -63,14 +63,14 @@ public class ItineraryItemController {
 		Itinerary iteneraryCreated = itineraryDao.findItinerary(itineraryId);
 		Destination destinationCreated = destinationDao.findDestinationById(destinationId);
 		ItineraryItem newItineraryItem = itineraryItemDao.createItineraryItem(iteneraryCreated, destinationCreated, itineraryItem);
-		redir.addFlashAttribute("id", iteneraryCreated.getId());
+		redir.addFlashAttribute("itineraryId", iteneraryCreated.getId());
 		return "redirect:viewItinerary.do";
 	}
 	
 	@PostMapping(path = "deleteItineraryItem.do")
 	public String deleteItineraryItem(Integer itineraryId, Integer itineraryItemId, RedirectAttributes redir) {
 		itineraryItemDao.removeItineraryItem(itineraryItemId);
-		redir.addFlashAttribute("id", itineraryId);
+		redir.addFlashAttribute("itineraryId", itineraryId);
 		return "redirect:viewItinerary.do";
 	}
 	
