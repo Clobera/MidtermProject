@@ -81,9 +81,18 @@ public class DestinationController {
 	@GetMapping(path = "viewDestination.do", params = {"destinationId"})
 	public String viewDestination(Model model, @ModelAttribute("loggedInUser") User user, Integer destinationId) {
 		Destination destination = destinationDao.findDestinationById(destinationId);
-		int userId = user.getId();
 		
+		//Ratings
 		List<DestinationRating> ratings = destinationRatingDao.findDestinationRatingsById(destinationId);
+		int average = 0;
+		int count = 0;
+		for (DestinationRating rating : ratings) {
+			average += rating.getRating();
+			count++;
+		}
+		average = average / count;
+		
+		//Comments
 		List<DestinationComment> baseComments = new ArrayList<>();
 		List<DestinationComment> replies = new ArrayList<>();
 		List<DestinationComment> allComments = destinationCommentDao.findCommentsById(destinationId);
@@ -94,10 +103,14 @@ public class DestinationController {
 				replies.add(comment);
 			}
 		}
+		
+		//Model additions
 		model.addAttribute("destination", destination);
 		model.addAttribute("comments", baseComments);
 		model.addAttribute("replies", replies);
-		model.addAttribute("ratings", ratings);
+		model.addAttribute("rating", average);
+		
+		//Return
 		return "destination";
 	}
 	
