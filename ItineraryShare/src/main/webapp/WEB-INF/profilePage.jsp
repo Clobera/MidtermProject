@@ -107,10 +107,10 @@
 		</div>
 		<!-- Itineraries END -->
 	</div>
-	</c:when>
 	<!-- NEED ADMIN CONDITIONAL FOR HAVING DELETE/UPDATE BUTTONS -->
-	
 	<!-- END ADMIN SECTION -->
+	</c:when>
+	
 	<c:otherwise>
 		<div class="row profile__content">
 	<!-- User Profile START -->
@@ -154,7 +154,7 @@
 						<div class="cards">
 							<c:forEach var="itinerary" items="${ itineraries }">
 								<div class="card">
-									<a href="viewItinerary.do?id=${ itinerary.id }"> <img
+									<a href="viewItinerary.do?itineraryId=${ itinerary.id }"> <img
 										alt="" src="${ itinerary.image}"
 										onerror="this.onerror=null; this.src='https://media.istockphoto.com/photos/couple-relax-on-the-beach-enjoy-beautiful-sea-on-the-tropical-island-picture-id1160947136?b=1&k=20&m=1160947136&s=612x612&w=0&h=AsFmKSBYTtacl0DvI-RanCnAXFU0cmuW8NAo0g-tGzA="
 										class="card__image">
