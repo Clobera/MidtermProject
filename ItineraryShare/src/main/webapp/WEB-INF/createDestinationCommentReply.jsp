@@ -42,7 +42,7 @@
 				<c:if test="${sessionScope.loggedInUser.id != 0}">
 					<div class="panel">
 						<div class="panel-body">
-							<form action="createItineraryCommentReply.do" method="post">
+							<form action="createDestinationCommentReply.do" method="post">
 								<input type="hidden" value="${destination.id}" name="destinationId">
 								<input type="hidden" value="${commentId}"
 									name="destinationCommentId">
@@ -58,8 +58,6 @@
 					</div>
 					<br />
 				</c:if>
-					</div>
-					<div class="col-12">
 				<div class="panel">
 					<div class="panel-body">
 							<!-- Newsfeed Content -->

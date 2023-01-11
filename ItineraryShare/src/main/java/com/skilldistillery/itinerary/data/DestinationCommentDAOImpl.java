@@ -10,8 +10,6 @@ import org.springframework.stereotype.Service;
 
 import com.skilldistillery.itinerary.entities.Destination;
 import com.skilldistillery.itinerary.entities.DestinationComment;
-import com.skilldistillery.itinerary.entities.Itinerary;
-import com.skilldistillery.itinerary.entities.ItineraryComment;
 import com.skilldistillery.itinerary.entities.User;
 
 @Service
