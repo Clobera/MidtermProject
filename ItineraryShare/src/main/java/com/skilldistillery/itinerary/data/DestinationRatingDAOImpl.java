@@ -39,9 +39,44 @@ public class DestinationRatingDAOImpl implements DestinationRatingDAO {
 	}
 	
 	@Override
-	public DestinationRating updateDestinationRating(int rating, int ratingId) {
-		String query = "SELECT dr FROM DestinationRating dr WHERE dr.id = :id";
-		List<DestinationRating> results = em.createQuery(query, DestinationRating.class).setParameter("id", ratingId).getResultList();
+	public DestinationRating createDestinationRating(int rating, int userId, int destinationId, String reviewComment) {
+		User user = em.find(User.class, userId);
+		Destination destination = em.find(Destination.class, destinationId);
+		DestinationRatingKey key = new DestinationRatingKey(destinationId, userId);
+		DestinationRating output = new DestinationRating(rating, key, reviewComment, user, destination);
+		em.persist(output);
+		return output;
+	}
+	
+	@Override
+	public DestinationRating updateDestinationRating(int rating, int userId, int destinationId) {
+		String query = "SELECT dr FROM DestinationRating dr WHERE dr.user.id = :userid AND dr.destination.id = :destinationId";
+		List<DestinationRating> results = em.createQuery(query, DestinationRating.class).setParameter("userId", userId).setParameter("destinationId",  destinationId).getResultList();
+		DestinationRating output = null;
+		if (results.size() > 0) {
+			output = results.get(0);
+			output.setRating(rating);
+		}
+		return output;
+	}
+	
+	@Override
+	public DestinationRating updateDestinationRating(int rating, int userId, int destinationId, String reviewComment) {
+		String query = "SELECT dr FROM DestinationRating dr WHERE dr.user.id = :userId AND dr.destination.id = :destinationId";
+		List<DestinationRating> results = em.createQuery(query, DestinationRating.class).setParameter("userId", userId).setParameter("destinationId",  destinationId).getResultList();
+		DestinationRating output = null;
+		if (results.size() > 0) {
+			output = results.get(0);
+			output.setRating(rating);
+			output.setRatingComment(reviewComment);
+		}
+		return output;
+	}
+
+	@Override
+	public DestinationRating findDestinationRatingByUserAndDestination(int userId, int destinationId) {
+		String query = "SELECT dr FROM DestinationRating dr WHERE dr.user.id = :userId AND dr.destination.id = :destinationId";
+		List<DestinationRating> results = em.createQuery(query, DestinationRating.class).setParameter("userId", userId).setParameter("destinationId",  destinationId).getResultList();
 		DestinationRating output = null;
 		if (results.size() > 0) {
 			output = results.get(0);

@@ -42,7 +42,15 @@ public class DestinationRating {
 		this.destination = destination;
 	}
 
-
+	public DestinationRating(int rating, DestinationRatingKey id, String ratingComment, User user,
+			Destination destination) {
+		super();
+		this.rating = rating;
+		this.id = id;
+		this.ratingComment = ratingComment;
+		this.user = user;
+		this.destination = destination;
+	}
 
 	public DestinationRatingKey getId() {
 		return id;

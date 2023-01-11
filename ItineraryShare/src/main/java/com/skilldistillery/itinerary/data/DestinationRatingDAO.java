@@ -10,6 +10,12 @@ public interface DestinationRatingDAO {
 
 	List<DestinationRating> findDestinationRatingsById(int destinationId);
 
-	DestinationRating updateDestinationRating(int rating, int ratingId);
+	DestinationRating createDestinationRating(int rating, int userId, int destinationId, String reviewComment);
+
+	DestinationRating findDestinationRatingByUserAndDestination(int userId, int destinationId);
+
+	DestinationRating updateDestinationRating(int rating, int userId, int destinationId);
+
+	DestinationRating updateDestinationRating(int rating, int userId, int destinationId, String reviewComment);
 
 }

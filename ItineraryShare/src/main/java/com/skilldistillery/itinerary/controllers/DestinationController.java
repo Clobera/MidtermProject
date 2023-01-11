@@ -104,12 +104,18 @@ public class DestinationController {
 				replies.add(comment);
 			}
 		}
+		
+		// Ratings
+				List<DestinationRating> reviews = destinationRatingDao.findDestinationRatingsById(destinationId);
+				DestinationRating userReview = destinationRatingDao.findDestinationRatingByUserAndDestination(user.getId(), destinationId);
 
 		// Model additions
 		model.addAttribute("destination", destination);
 		model.addAttribute("comments", baseComments);
 		model.addAttribute("replies", replies);
 		model.addAttribute("rating", average);
+		model.addAttribute("reviews", reviews);
+		model.addAttribute("userReview", userReview);
 
 		// Return
 		return "destination";
@@ -142,11 +148,17 @@ public class DestinationController {
 			}
 		}
 
+		// Ratings
+		List<DestinationRating> reviews = destinationRatingDao.findDestinationRatingsById(destinationId);
+		DestinationRating userReview = destinationRatingDao.findDestinationRatingByUserAndDestination(user.getId(), destinationId);
+
 		// Model additions
 		model.addAttribute("destination", destination);
 		model.addAttribute("comments", baseComments);
 		model.addAttribute("replies", replies);
 		model.addAttribute("rating", average);
+		model.addAttribute("reviews", reviews);
+		model.addAttribute("userReview", userReview);
 
 		// Return
 		return "destination";
@@ -181,6 +193,32 @@ public class DestinationController {
 		// Model
 		redir.addFlashAttribute("destinationId", destinationId);
 
+		return "redirect:viewDestination.do";
+	}
+
+	@PostMapping(path = "createDestinationReview.do")
+	public String createDestinationReview(int destinationId, int ratingValue, String destinationReviewComment,
+			@ModelAttribute("loggedInUser") User user, RedirectAttributes redir) {
+		
+		DestinationRating dbCheck = destinationRatingDao.findDestinationRatingByUserAndDestination(user.getId(),
+				destinationId);
+		if (dbCheck != null) {
+			if (destinationReviewComment.equals("")) {
+				destinationRatingDao.updateDestinationRating(ratingValue, user.getId(), destinationId);
+			} else {
+				destinationRatingDao.updateDestinationRating(ratingValue, user.getId(), destinationId,
+						destinationReviewComment);
+			}
+		} else {
+			if (destinationReviewComment.equals("")) {
+				destinationRatingDao.createDestinationRating(ratingValue, user.getId(), destinationId);
+			} else {
+				destinationRatingDao.createDestinationRating(ratingValue, user.getId(), destinationId,
+						destinationReviewComment);
+			}
+		}
+
+		redir.addFlashAttribute("destinationId", destinationId);
 		return "redirect:viewDestination.do";
 	}
 
