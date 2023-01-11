@@ -13,6 +13,9 @@ public class DestinationRatingKey implements Serializable{
 	private int destination;
 	@Column(name="user_id")
 	private int user;
+	
+	public DestinationRatingKey () {}
+	
 	public DestinationRatingKey(int destination, int user) {
 		super();
 		this.destination = destination;

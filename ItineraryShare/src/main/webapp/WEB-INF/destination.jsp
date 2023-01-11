@@ -16,28 +16,34 @@
 			<div class="col-lg-4 addBorder sepLine itinerary__info"
 				data-spy="affix">
 				<!--   fixed position -->
-					<h4>Destination Info</h4>
-					<br/>
-					Author: 
-								<a href="viewAccount.do?userId=${destination.userId}"
-									class="btn-link text-semibold media-heading box-inline">${destination.userId.username}</a>
-							</div>
-						</div>
-					</div>
-				<br>
+				<img class="destinationPicture" src="${destination.image}" onerror="this.onerror=null; this.src='https://media.istockphoto.com/photos/couple-relax-on-the-beach-enjoy-beautiful-sea-on-the-tropical-island-picture-id1160947136?b=1&k=20&m=1160947136&s=612x612&w=0&h=AsFmKSBYTtacl0DvI-RanCnAXFU0cmuW8NAo0g-tGzA='">
+				<h4>Destination Info</h4>
+				<br />
+				
 				<div class="flex">
-					<h4>Description</h4>
+					<h4>Name</h4>
+					<p>${destination.name}</p>
 					<br />
+					<h4>Location</h4>
+					<p>${destination.city}, ${destination.country}</p>
+					<br />
+					<h4>Rating</h4>
+					<p>${rating} / 5</p>
+					<br />
+					<h4>Description</h4>
 					<p>${destination.description}</p>
+					<br />
+
 				</div>
-				<c:if
-					test="${(sessionScope.loggedInUser.id == destination.id.userId.) or sessionScope.loggedInUser.username == 'admin' }">
+				<c:if test="${sessionScope.loggedInUser.username == 'admin'}">
 					<form action="goUpdateDestination.do" method="post">
 						<button type="submit" class="btn btn-primary"
 							value="${destination.id}" name="destinationId">Update</button>
 					</form>
 					<br>
 				</c:if>
+			</div>
+		</div>
 		<div class="row">
 			<div class="col-lg-12 comments">
 				<!-- Comments Section Start -->
@@ -45,9 +51,11 @@
 					<div class="panel">
 						<div class="panel-body">
 							<form action="createDestinationComment.do" method="post">
-								<input type="hidden" value="${destination.id}" name="destinationId">
+								<input type="hidden" value="${destination.id}"
+									name="destinationId">
 								<textarea class="container" rows="3"
-									placeholder="Comment on this destination!" name="destinationComment"></textarea>
+									placeholder="Comment on this destination!"
+									name="destinationComment"></textarea>
 								<div class="mar-top clearfix">
 									<button class="btn btn-sm btn-primary pull-right" type="submit">
 										<i class="fa fa-pencil fa-fw"></i>Comment
@@ -64,22 +72,23 @@
 							<!--===================================================-->
 							<div class="media-block">
 								<a class="media-left"
-									href="viewAccount.do?userId=${destinationcomment.user.id}"><img
+									href="viewAccount.do?userId=${comment.user.id}"><img
 									class="mx-auto rounded-circle img-fluid img-sm"
-									alt="Profile Picture" src="${destinationComment.user.profilePicture}"
+									alt="Profile Picture" src="${comment.user.profilePicture}"
 									onerror="this.onerror=null; this.src='https://t4.ftcdn.net/jpg/03/46/93/61/360_F_346936114_RaxE6OQogebgAWTalE1myseY1Hbb5qPM.jpg'"></a>
 								<div class="media-body">
 									<div class="mar-btm">
-										<a href="viewAccount.do?userId=${destinationComment.user.id}"
-											class="btn-link text-semibold media-heading box-inline">${destinationComment.user.username}</a>
+										<a href="viewAccount.do?userId=${comment.user.id}"
+											class="btn-link text-semibold media-heading box-inline">${comment.user.username}</a>
 									</div>
 									<p>${comment.post }</p>
 									<c:if test="${sessionScope.loggedInUser.id != 0}">
 										<div class="pad-ver">
-											<form action="goCreateDestinationCommentReply.do" method="post">
+											<form action="goCreateDestinationCommentReply.do"
+												method="post">
 												<input type="hidden" value="${destination.id}"
 													name="destinationId"> <input type="hidden"
-													value="${destinationComment.id}" name="destinationCommentId">
+													value="${comment.id}" name="destinationCommentId">
 												<button class="btn btn-sm btn-primary pull-right"
 													type="submit">
 													<i class="fa fa-pencil fa-fw"></i> Reply
@@ -93,7 +102,7 @@
 								<div
 									class="comment-reply col-md-11 offset-md-1 col-sm-10 offset-sm-2">
 									<c:forEach var="reply" items="${replies}">
-										<c:if test="${reply.reply.id == destinationComment.id}">
+										<c:if test="${reply.reply.id == comment.id}">
 											<div class="row">
 												<div
 													class="comment-avatar col-md-1 col-sm-2 text-center pr-1">
@@ -124,6 +133,7 @@
 			</div>
 		</div>
 		<!-- Itinerary Info END -->
+	</div>
 	<!-- ItineraryItems END -->
 	<%@include file="bootstrapFooter.jsp"%>
 </body>
