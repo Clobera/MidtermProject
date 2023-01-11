@@ -3,7 +3,6 @@ package com.skilldistillery.itinerary.data;
 import java.util.List;
 
 import com.skilldistillery.itinerary.entities.DestinationComment;
-import com.skilldistillery.itinerary.entities.ItineraryComment;
 
 public interface DestinationCommentDAO {
 	DestinationComment addComment(int destinationId, int userId, String body);
@@ -19,6 +18,9 @@ public interface DestinationCommentDAO {
 	List<DestinationComment> findCommentsByReplyId(int id);
 
 	List<DestinationComment> findCommentsById(int destinationId);
-	
-	
+
+	boolean deleteDestinationComment(int commentId);
+
+	DestinationComment updateDestinationComment(DestinationComment input, int commentId);
+
 }

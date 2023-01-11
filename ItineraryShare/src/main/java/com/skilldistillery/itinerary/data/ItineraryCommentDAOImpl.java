@@ -79,4 +79,23 @@ public class ItineraryCommentDAOImpl implements ItineraryCommentDAO {
 		output = em.createQuery(query, ItineraryComment.class).setParameter("id", itineraryId).getResultList();
 		return output;
 	}
+	
+	@Override
+	public boolean deleteItineraryComment(int commentId) {
+		boolean deletedItinerary = false;
+		ItineraryComment itineraryComment = em.find(ItineraryComment.class, commentId);
+		if (itineraryComment != null ) {
+			em.remove(itineraryComment);
+			deletedItinerary= true;
+		}
+		return deletedItinerary;
+	}
+	
+	@Override
+	public ItineraryComment updateItineraryComment (ItineraryComment input, int commentId) {
+		ItineraryComment output = em.find(ItineraryComment.class, commentId);
+		output.setPost(input.getPost());
+		
+		return output;
+	}
 }

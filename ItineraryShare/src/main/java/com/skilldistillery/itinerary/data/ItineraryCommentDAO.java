@@ -20,6 +20,10 @@ public interface ItineraryCommentDAO {
 	List<ItineraryComment> findCommentsByReplyId(int id);
 
 	List<ItineraryComment> findCommentsById(int itineraryId);
+
+	boolean deleteItineraryComment(int commentId);
+
+	ItineraryComment updateItineraryComment(ItineraryComment input, int commentId);
 	
 	
 }

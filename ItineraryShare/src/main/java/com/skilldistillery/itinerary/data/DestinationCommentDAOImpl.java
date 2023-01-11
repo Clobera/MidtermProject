@@ -81,4 +81,23 @@ public class DestinationCommentDAOImpl implements DestinationCommentDAO {
 		output = em.createQuery(query, DestinationComment.class).setParameter("id", destinationId).getResultList();
 		return output;
 	}
+	
+	@Override
+	public boolean deleteDestinationComment(int commentId) {
+		boolean deletedItinerary = false;
+		DestinationComment destinationComment = em.find(DestinationComment.class, commentId);
+		if (destinationComment != null ) {
+			em.remove(destinationComment);
+			deletedItinerary= true;
+		}
+		return deletedItinerary;
+	}
+	
+	@Override
+	public DestinationComment updateDestinationComment (DestinationComment input, int commentId) {
+		DestinationComment output = em.find(DestinationComment.class, commentId);
+		output.setPost(input.getPost());
+		
+		return output;
+	}
 }
