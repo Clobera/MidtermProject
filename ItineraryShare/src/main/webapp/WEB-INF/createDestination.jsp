@@ -16,13 +16,13 @@
 		<div class="input-group mb-3">
 			<span class="input-group-text" id="basic-addon1">Name</span> <input
 				type="text" class="form-control" placeholder="Name"
-				aria-label="Name" aria-describedby="basic-addon1" name="name">
+				aria-label="Name" aria-describedby="basic-addon1" name="name" REQUIRED>
 		</div>
 
 		<div class="input-group mb-3">
 			<span class="input-group-text" id="basic-addon1">Country</span> <input
 				type="text" class="form-control" placeholder="Country"
-				aria-label="Country" aria-describedby="basic-addon1" name="country">
+				aria-label="Country" aria-describedby="basic-addon1" name="country" REQUIRED>
 		</div>
 
 		<div class="input-group mb-3">

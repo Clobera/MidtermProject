@@ -38,4 +38,18 @@ public class DestinationDAOImpl implements DestinationDAO {
 		return destinations;
 	}
 
+	@Override
+	public Destination updateDestination(int destinationId, Destination updateMe) {
+		Destination output = em.find(Destination.class, destinationId);
+		if (output != null) {
+			output.setCity(updateMe.getCity());
+			output.setCountry(updateMe.getCountry());
+			output.setName(updateMe.getName());
+			output.setImage(updateMe.getImage());
+			output.setDescription(updateMe.getDescription());
+		}
+		
+		return output;
+	}
+
 }
