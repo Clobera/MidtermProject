@@ -17,13 +17,13 @@
 		<div class="input-group mb-3">
 			<span class="input-group-text" id="basic-addon1">First Name</span> <input
 				type="text" class="form-control" placeholder="First Name"
-				aria-label="Username" aria-describedby="basic-addon1" name="firstName">
+				aria-label="Username" aria-describedby="basic-addon1" name="firstName" REQUIRED>
 		</div>
 
 		<div class="input-group mb-3">
 			<span class="input-group-text" id="basic-addon1">Last Name</span> <input
 				type="text" class="form-control" placeholder="Last Name"
-				aria-label="Username" aria-describedby="basic-addon1" name="lastName">
+				aria-label="Username" aria-describedby="basic-addon1" name="lastName" REQUIRED>
 		</div>
 
 		<div class="input-group mb-3">
