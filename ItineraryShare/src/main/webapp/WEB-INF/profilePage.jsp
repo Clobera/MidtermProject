@@ -108,6 +108,9 @@
 		<!-- Itineraries END -->
 	</div>
 	</c:when>
+	<!-- NEED ADMIN CONDITIONAL FOR HAVING DELETE/UPDATE BUTTONS -->
+	
+	<!-- END ADMIN SECTION -->
 	<c:otherwise>
 		<div class="row profile__content">
 	<!-- User Profile START -->

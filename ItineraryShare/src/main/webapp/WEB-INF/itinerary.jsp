@@ -106,6 +106,7 @@
 						<tr>
 							<th>Day</th>
 							<th>Description</th>
+							<th>Destination</th>
 							<c:if
 								test="${(sessionScope.loggedInUser.id == itinerary.userId.id) or sessionScope.loggedInUser.username == 'admin' }">
 								<th>Delete</th>
@@ -117,8 +118,9 @@
 							<tr>
 								<td>${days.tripDay}</td>
 								<td>${days.description }</td>
+								<td><a href="viewDestination.do?destinationId=${days.destination.id}">${days.destination.name}</a>
 								<c:if
-									test="${(sessionScope.loggedInUser.id == itinerary.userId.id) or sessionScope.loggedInUser.username == 'admin' }">
+									test="${(sessionScope.loggedInUser.id == itinerary.userId.id) or (sessionScope.loggedInUser.username == 'admin' )}">
 									<td>
 										<form action="deleteItineraryItem.do" method="post">
 											<input type="hidden" value="${itinerary.id }"
