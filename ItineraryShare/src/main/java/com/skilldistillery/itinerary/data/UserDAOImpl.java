@@ -81,7 +81,7 @@ public class UserDAOImpl implements UserDAO {
 	
 	@Override
 	public List<User> findUsersByKeyword(String search) {
-		String query = "SELECT DISTINCT u FROM User u WHERE u.username LIKE :search OR u.firstName LIKE :search OR u.lastName LIKE :search";
+		String query = "SELECT DISTINCT u FROM User u WHERE u.enabled = true AND (u.username LIKE :search OR u.firstName LIKE :search OR u.lastName LIKE :search)";
 		List<User> resultList = em.createQuery(query, User.class).setParameter("search", "%" + search + "%").getResultList();
 		
 		return resultList;
