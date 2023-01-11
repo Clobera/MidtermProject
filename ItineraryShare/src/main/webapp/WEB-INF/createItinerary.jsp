@@ -17,7 +17,7 @@
 		<div class="input-group mb-3">
 			<span class="input-group-text" id="basic-addon1">Name</span> <input
 				type="text" class="form-control" placeholder="Ex. My 2020 Summer Trip"
-				aria-label="Username" aria-describedby="basic-addon1" name="name">
+				aria-label="Username" aria-describedby="basic-addon1" name="name" REQUIRED>
 		</div>
 
 		<div class="input-group mb-3">
