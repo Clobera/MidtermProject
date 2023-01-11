@@ -138,8 +138,8 @@ public class UserController {
 	
 	@GetMapping(path= "adminViewAllUsers.do")
 	public String adminViewAllItineraries(Model model) {
-		List<Itinerary> activeUsers = userDao.findAllActiveUsers();
-		List<Itinerary> disabledUsers = userDao.findAllInactiveUsers();
+		List<User> activeUsers = userDao.findAllActiveUsers();
+		List<User> disabledUsers = userDao.findAllDisabledUsers();
 		model.addAttribute("active", activeUsers);
 		model.addAttribute("disabled", disabledUsers);
 		return "adminViewAllUsers";
