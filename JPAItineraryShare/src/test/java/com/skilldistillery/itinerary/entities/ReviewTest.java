@@ -58,9 +58,8 @@ class ReviewTest {
 	@Test
 	void test_Review_to_ItineraryItem_ManyToOne() {
 		assertNotNull(review);
-		assertNotNull(review.getItineraryItem());
-		assertEquals("salt lakes utah",review.getItineraryItem().getDescription());
-		assertEquals(1 ,review.getItineraryItem().getDestination().getId());
+		assertNotNull(review.getDestination());
+		assertEquals(1 ,review.getDestination().getId());
 	}
 
 }
