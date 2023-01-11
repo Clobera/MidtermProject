@@ -51,5 +51,13 @@ public class DestinationDAOImpl implements DestinationDAO {
 		
 		return output;
 	}
+	
+	@Override
+	public List<Destination> findDestinationsByKeyword(String search) {
+		String query = "SELECT DISTINCT d FROM Destination d WHERE d.city LIKE :search OR d.country LIKE :search OR d.name LIKE :search";
+		List<Destination> resultList = em.createQuery(query, Destination.class).setParameter("search", "%" + search + "%").getResultList();
+		
+		return resultList;
+	}
 
 }

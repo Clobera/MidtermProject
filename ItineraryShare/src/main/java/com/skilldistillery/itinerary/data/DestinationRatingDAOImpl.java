@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.skilldistillery.itinerary.entities.Destination;
 import com.skilldistillery.itinerary.entities.DestinationRating;
 import com.skilldistillery.itinerary.entities.DestinationRatingKey;
+import com.skilldistillery.itinerary.entities.Itinerary;
 import com.skilldistillery.itinerary.entities.User;
 
 @Service
@@ -83,5 +84,5 @@ public class DestinationRatingDAOImpl implements DestinationRatingDAO {
 		}
 		return output;
 	}
-
+	
 }

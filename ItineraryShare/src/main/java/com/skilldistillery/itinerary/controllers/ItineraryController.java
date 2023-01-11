@@ -13,10 +13,13 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.itinerary.data.BookmarkDAO;
+import com.skilldistillery.itinerary.data.DestinationDAO;
 import com.skilldistillery.itinerary.data.ItineraryCommentDAO;
 import com.skilldistillery.itinerary.data.ItineraryDAO;
 import com.skilldistillery.itinerary.data.ItineraryItemDAO;
+import com.skilldistillery.itinerary.data.UserDAO;
 import com.skilldistillery.itinerary.entities.Bookmark;
+import com.skilldistillery.itinerary.entities.Destination;
 import com.skilldistillery.itinerary.entities.Itinerary;
 import com.skilldistillery.itinerary.entities.ItineraryComment;
 import com.skilldistillery.itinerary.entities.ItineraryItem;
@@ -37,6 +40,12 @@ public class ItineraryController {
 	
 	@Autowired
 	private BookmarkDAO bookmarkDao;
+	
+	@Autowired
+	private UserDAO userDao;
+	
+	@Autowired
+	private DestinationDAO destinationDao;
 	
 	@ModelAttribute("loggedInUser")
 	public User initSessionState() {
@@ -92,11 +101,7 @@ public class ItineraryController {
 			}
 		}
 		
-		System.out.println("*************************************************************");
-		System.out.println(showItinerary.getUserId().getId());
-		System.out.println(user.getId());
-		System.out.println("*************************************************************");
-		
+	
 		model.addAttribute("comments", baseComments);
 		model.addAttribute("replies", replies);
 		model.addAttribute("itinerary", showItinerary);
@@ -149,9 +154,13 @@ public class ItineraryController {
 	
 	@GetMapping(path = "searchItinerary.do")
 	public String searchItinerary(Model model, String search) {
-		List<Itinerary> searchResults = itineraryDao.findItinerariesByKeyword(search);
+		List<Itinerary> itineraries = itineraryDao.findItinerariesByKeyword(search);
+		List<User> users = userDao.findUsersByKeyword(search);
+		List<Destination> destinations = destinationDao.findDestinationsByKeyword(search);
 		model.addAttribute("search", search);
-		model.addAttribute("results", searchResults);
+		model.addAttribute("itineraries", itineraries);
+		model.addAttribute("users", users);
+		model.addAttribute("destinations", destinations);
 		return "searchResult";
 	}
 	
