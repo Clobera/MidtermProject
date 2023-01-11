@@ -129,7 +129,7 @@ public class ItineraryController {
 	@PostMapping(path = "updateItinerary.do")
 	public String updateItinerary(Itinerary update, int itineraryId, RedirectAttributes redir) {
 		Itinerary itineraryToUpdate = itineraryDao.updateItinerary(update, itineraryId);
-		redir.addFlashAttribute("id", itineraryToUpdate.getId());
+		redir.addFlashAttribute("itineraryId", itineraryToUpdate.getId());
 		return "redirect:viewItinerary.do";
 	}
 	

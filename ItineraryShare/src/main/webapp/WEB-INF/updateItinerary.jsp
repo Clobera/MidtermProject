@@ -41,7 +41,7 @@
 			<!-- Itineraries START -->
 			<div class="col-lg-8 addBorder" style="background: white;">
 				<div class="container">
-					<form action="goUpdateItinerary.do?updateId=${itinerary.id }" method="POST">
+					<form action="updateItinerary.do" method="POST">
 						<input type="hidden" value="true" name="active"> <input
 							type="hidden" value="${itinerary.id }" name="itineraryId">
 						<div class="input-group mb-3">
