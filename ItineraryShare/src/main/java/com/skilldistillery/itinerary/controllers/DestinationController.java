@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.skilldistillery.itinerary.data.DestinationCommentDAO;
 import com.skilldistillery.itinerary.data.DestinationDAO;
 import com.skilldistillery.itinerary.data.DestinationRatingDAO;
 import com.skilldistillery.itinerary.data.ItineraryDAO;
