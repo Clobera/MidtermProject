@@ -20,8 +20,8 @@ public class Review {
 	@JoinColumn(name="user_id")
 	private User user;
 	@ManyToOne
-	@JoinColumn(name="itinerary_item_id")
-	private ItineraryItem itineraryItem;
+	@JoinColumn(name="destination_id")
+	private Destination destination;
 	
 	public Review () {}
 
@@ -57,12 +57,12 @@ public class Review {
 		this.user = user;
 	}
 
-	public ItineraryItem getItineraryItem() {
-		return itineraryItem;
+	public Destination getDestination() {
+		return destination;
 	}
 
-	public void setItineraryItem(ItineraryItem itineraryItem) {
-		this.itineraryItem = itineraryItem;
+	public void setDestination(Destination destination) {
+		this.destination = destination;
 	}
 
 	@Override
