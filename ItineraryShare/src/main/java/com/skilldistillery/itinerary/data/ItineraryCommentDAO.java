@@ -2,9 +2,7 @@ package com.skilldistillery.itinerary.data;
 
 import java.util.List;
 
-import com.skilldistillery.itinerary.entities.Itinerary;
 import com.skilldistillery.itinerary.entities.ItineraryComment;
-import com.skilldistillery.itinerary.entities.User;
 
 public interface ItineraryCommentDAO {
 	ItineraryComment addComment(int itineraryId, int userId, String body);

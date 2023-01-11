@@ -154,18 +154,18 @@ CREATE TABLE IF NOT EXISTS `review` (
   `comment` TEXT NULL DEFAULT NULL,
   `rating` INT(1) UNSIGNED NOT NULL DEFAULT '0',
   `user_id` INT(11) NOT NULL,
-  `itinerary_item_id` INT(11) NOT NULL,
+  `destination_id` INT NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_review_user1_idx` (`user_id` ASC),
-  INDEX `fk_review_destination1_idx` (`itinerary_item_id` ASC),
+  INDEX `fk_review_destination2_idx` (`destination_id` ASC),
   CONSTRAINT `fk_review_destination1`
-    FOREIGN KEY (`itinerary_item_id`)
-    REFERENCES `itinerary_item` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_review_user1`
     FOREIGN KEY (`user_id`)
     REFERENCES `user` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_review_destination2`
+    FOREIGN KEY (`destination_id`)
+    REFERENCES `destination` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -402,7 +402,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `itinerarysharedb`;
-INSERT INTO `review` (`id`, `comment`, `rating`, `user_id`, `itinerary_item_id`) VALUES (1, 'so salty my eyes burned', 1, 1, 1);
+INSERT INTO `review` (`id`, `comment`, `rating`, `user_id`, `destination_id`) VALUES (1, 'so salty my eyes burned', 1, 1, 1);
 
 COMMIT;
 
