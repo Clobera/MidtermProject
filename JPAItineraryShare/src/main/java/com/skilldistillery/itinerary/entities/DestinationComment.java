@@ -17,22 +17,38 @@ public class DestinationComment {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User user;
 
 	private String post;
-	
+
 	@ManyToOne
-	@JoinColumn(name="reply")
+	@JoinColumn(name = "reply")
 	private DestinationComment reply;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "destination_id")
 	private Destination destination;
-	
-	public DestinationComment () {}
+
+	public DestinationComment() {
+	}
+
+	public DestinationComment(User user, String post, Destination destination) {
+		super();
+		this.user = user;
+		this.post = post;
+		this.destination = destination;
+	}
+
+	public DestinationComment(User user, String post, DestinationComment reply, Destination destination) {
+		super();
+		this.user = user;
+		this.post = post;
+		this.reply = reply;
+		this.destination = destination;
+	}
 
 	public int getId() {
 		return id;
@@ -57,10 +73,6 @@ public class DestinationComment {
 	public void setPost(String post) {
 		this.post = post;
 	}
-
-
-
-	
 
 	public DestinationComment getReply() {
 		return reply;
