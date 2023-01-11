@@ -2,6 +2,7 @@ package com.skilldistillery.itinerary.data;
 
 import java.util.List;
 
+import com.skilldistillery.itinerary.entities.Destination;
 import com.skilldistillery.itinerary.entities.DestinationRating;
 
 public interface DestinationRatingDAO {

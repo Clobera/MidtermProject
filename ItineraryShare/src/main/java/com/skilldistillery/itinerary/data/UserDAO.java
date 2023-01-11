@@ -13,4 +13,5 @@ public interface UserDAO {
 		User deleteAccount(int id);
 		List<User> findAllActiveUsers();
 		List<User> findAllDisabledUsers();
+		List<User> findUsersByKeyword(String search);
 }

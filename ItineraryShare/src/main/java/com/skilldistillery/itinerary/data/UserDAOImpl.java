@@ -8,6 +8,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.itinerary.entities.Destination;
 import com.skilldistillery.itinerary.entities.User;
 
 @Service
@@ -78,4 +79,11 @@ public class UserDAOImpl implements UserDAO {
 		return results;
 	}
 	
+	@Override
+	public List<User> findUsersByKeyword(String search) {
+		String query = "SELECT DISTINCT u FROM User u WHERE u.username LIKE :search OR u.firstName LIKE :search OR u.lastName LIKE :search";
+		List<User> resultList = em.createQuery(query, User.class).setParameter("search", "%" + search + "%").getResultList();
+		
+		return resultList;
+	}
 }

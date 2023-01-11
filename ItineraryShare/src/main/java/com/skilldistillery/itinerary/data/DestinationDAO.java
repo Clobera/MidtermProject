@@ -9,4 +9,5 @@ public interface DestinationDAO {
 	public Destination findDestinationById (int id);
 	public List<Destination> findAllDestinations ();
 	public Destination updateDestination(int destinationId, Destination updateMe);
+	List<Destination> findDestinationsByKeyword(String search);
 }
