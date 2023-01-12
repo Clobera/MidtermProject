@@ -72,7 +72,7 @@
 						<span class="input-group-text" id="basic-addon1">Image URL</span>
 						<input type="text" class="form-control" placeholder="${destination.image}"
 							value="${destination.image}" aria-label="Image"
-							aria-describedby="basic-addon1">
+							aria-describedby="basic-addon1" name="image">
 					</div>
 
 					<button type="submit" class="btn btn-primary">Update
