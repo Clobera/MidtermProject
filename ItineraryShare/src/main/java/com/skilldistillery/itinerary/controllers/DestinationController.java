@@ -135,11 +135,14 @@ public class DestinationController {
 		List<DestinationRating> ratings = destinationRatingDao.findDestinationRatingsById(destinationId);
 		int average = 0;
 		int count = 0;
-		for (DestinationRating rating : ratings) {
-			average += rating.getRating();
-			count++;
+		if (ratings.size() > 0) {
+
+			for (DestinationRating rating : ratings) {
+				average += rating.getRating();
+				count++;
+			}
+			average = average / count;
 		}
-		average = average / count;
 
 		// Comments
 		List<DestinationComment> baseComments = new ArrayList<>();
@@ -178,11 +181,14 @@ public class DestinationController {
 		List<DestinationRating> ratings = destinationRatingDao.findDestinationRatingsById(destinationId);
 		int average = 0;
 		int count = 0;
-		for (DestinationRating rating : ratings) {
-			average += rating.getRating();
-			count++;
+		if (ratings.size() > 0) {
+
+			for (DestinationRating rating : ratings) {
+				average += rating.getRating();
+				count++;
+			}
+			average = average / count;
 		}
-		average = average / count;
 
 		// Model
 		model.addAttribute("destination", destination);
