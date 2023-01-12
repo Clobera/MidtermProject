@@ -17,14 +17,15 @@
 				data-spy="affix">
 
 				<!--   fixed position -->
-				<img class="itineraryPicture" src="${itinerary.image}" onerror="this.onerror=null; this.src='https://media.istockphoto.com/photos/couple-relax-on-the-beach-enjoy-beautiful-sea-on-the-tropical-island-picture-id1160947136?b=1&k=20&m=1160947136&s=612x612&w=0&h=AsFmKSBYTtacl0DvI-RanCnAXFU0cmuW8NAo0g-tGzA=">
+				<img class="itineraryPicture" src="${itinerary.image}"
+					onerror="this.onerror=null; this.src='https://media.istockphoto.com/photos/couple-relax-on-the-beach-enjoy-beautiful-sea-on-the-tropical-island-picture-id1160947136?b=1&k=20&m=1160947136&s=612x612&w=0&h=AsFmKSBYTtacl0DvI-RanCnAXFU0cmuW8NAo0g-tGzA=">
 
 				<div class="flex">
 					<h4>Itinerary Info</h4>
-					<br/>
-					Author: 
+					<br /> Author:
 					<div class="media-block">
-						<a class="media-left" href="viewAccount.do?userId=${itinerary.userId.id}"><img
+						<a class="media-left"
+							href="viewAccount.do?userId=${itinerary.userId.id}"><img
 							class="mx-auto rounded-circle img-fluid img-sm"
 							alt="Profile Picture" src="${itinerary.userId.profilePicture}"
 							onerror="this.onerror=null; this.src='https://t4.ftcdn.net/jpg/03/46/93/61/360_F_346936114_RaxE6OQogebgAWTalE1myseY1Hbb5qPM.jpg'"></a>
@@ -100,40 +101,54 @@
 						Itinerary Item</a>
 				</c:if>
 				<br>
-<c:if test="${!empty itineraryDays }">
-				<table>
-					<thead>
-						<tr>
-							<th>Day</th>
-							<th>Description</th>
-							<th>Destination</th>
-							<c:if
-								test="${(sessionScope.loggedInUser.id == itinerary.userId.id) or sessionScope.loggedInUser.username == 'admin' }">
-								<th>Delete</th>
-							</c:if>
-						</tr>
-					</thead>
-					<tbody>
-						<c:forEach var="days" items="${itineraryDays}">
+				<c:if test="${!empty itineraryDays }">
+					<table>
+						<thead>
 							<tr>
-								<td>${days.tripDay}</td>
-								<td>${days.description }</td>
-								<td><a href="viewDestination.do?destinationId=${days.destination.id}">${days.destination.name}</a>
+								<th>Day</th>
+								<th>Description</th>
+								<th>Destination</th>
+								<th colspan="2">Pictures</th>
 								<c:if
-									test="${(sessionScope.loggedInUser.id == itinerary.userId.id) or (sessionScope.loggedInUser.username == 'admin' )}">
-									<td>
-										<form action="deleteItineraryItem.do" method="post">
-											<input type="hidden" value="${itinerary.id }"
-												name="itineraryId"> <input type="hidden"
-												value="${days.id}" name="itineraryItemId">
-											<button type="submit" class="btn btn-primary deleteButton">Delete</button>
-										</form>
-									</td>
+									test="${(sessionScope.loggedInUser.id == itinerary.userId.id) or sessionScope.loggedInUser.username == 'admin' }">
+									<th>Delete</th>
 								</c:if>
 							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
+						</thead>
+						<tbody>
+							<c:forEach var="days" items="${itineraryDays}">
+								<tr>
+									<td>${days.tripDay}</td>
+									<td>${days.description }</td>
+									<td><a
+										href="viewDestination.do?destinationId=${days.destination.id}">${days.destination.name}</a></td>
+									<td><form action="viewTripPictures.do" method="post">
+											<button value="${days.id }" type="submit"
+												class="btn btn-primary deleteButton">View</button>
+										</form></td>
+									<td><c:if test="${(sessionScope.loggedInUser.id != 0)}">
+											<form action="createTripPicture.do" method="post">
+												<input type="text"
+													placeholder="Enter a URL to add a picture" name="imageUrl">
+												<input type="hidden" value="${days.id }">
+												<button type="submit" class="btn btn-primary deleteButton">Submit</button>
+											</form>
+										</c:if></td>
+									<c:if
+										test="${(sessionScope.loggedInUser.id == itinerary.userId.id) or (sessionScope.loggedInUser.username == 'admin' )}">
+										<td>
+											<form action="deleteItineraryItem.do" method="post">
+												<input type="hidden" value="${itinerary.id }"
+													name="itineraryId"> <input type="hidden"
+													value="${days.id}" name="itineraryItemId">
+												<button type="submit" class="btn btn-primary deleteButton">Delete</button>
+											</form>
+										</td>
+									</c:if>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
 				</c:if>
 			</div>
 		</div>
