@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -38,7 +39,7 @@ public class DestinationPictureController {
 		return "viewDestinationPictures";
 	}
 	
-	@PostMapping(path="viewDestinationPictures.do")
+	@GetMapping(path="viewDestinationPictures.do")
 	public String viewDestinationPictures(Model model) {
 		Integer destinationId = (Integer) model.getAttribute("destinationId");
 		List<DestinationPicture> pictures = destinationPictureDao.findDestinationPicturesByItemId(destinationId);
