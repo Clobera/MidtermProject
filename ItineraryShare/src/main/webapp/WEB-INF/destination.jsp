@@ -50,10 +50,10 @@
 				</c:if>
 			</div>
 			<div class="col-8">
-				<c:if test="${sessionScope.loggedInUser.id != 0}">
 					<div class="panel">
 						<div class="panel-body">
 							<h4>Rating</h4>
+				<c:if test="${sessionScope.loggedInUser.id != 0}">
 							<form action="createDestinationReview.do" method="post">
 								<input type="hidden" value="${destination.id}"
 									name="destinationId"> <input type="radio" value="1"
@@ -74,6 +74,7 @@
 									</button>
 								</div>
 							</form>
+							</c:if>
 							<c:forEach var="review" items="${reviews}">
 								<!-- Reviews -->
 								<div class="media-block">
@@ -94,7 +95,6 @@
 							</c:forEach>
 						</div>
 					</div>
-				</c:if>
 			</div>
 		</div>
 		<div class="row">
