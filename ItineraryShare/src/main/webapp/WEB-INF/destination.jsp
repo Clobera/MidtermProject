@@ -22,7 +22,7 @@
 					<button value="${destination.id }" type="submit"
 						class="btn btn-primary deleteButton" name="destinationId">View Destination Pictures</button>
 				</form>
-				<c:if test="${sessionScope.loggedInUser.id != 0 }}">
+				<c:if test="${sessionScope.loggedInUser.id != 0 }">
 											<form action="createDestinationPicture.do" method="post">
 												<input type="text"
 													placeholder="Enter a URL to add a picture" name="imageUrl">
