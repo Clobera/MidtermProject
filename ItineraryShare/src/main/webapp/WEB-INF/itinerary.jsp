@@ -97,8 +97,10 @@
 				<c:if
 					test="${(sessionScope.loggedInUser.id == itinerary.userId.id) or sessionScope.loggedInUser.username == 'admin' }">
 					<br>
-					<a href="goCreateItineraryItem.do?itineraryId=${itinerary.id }">Create
-						Itinerary Item</a>
+					<form action="goCreateItineraryItem.do?itineraryId=${itinerary.id }" method="GET">
+					<button type="submit" class="btn btn-primary">Create Itinerary Item</button>
+					</form>
+					<br/>
 				</c:if>
 				<br>
 				<c:if test="${!empty itineraryDays }">

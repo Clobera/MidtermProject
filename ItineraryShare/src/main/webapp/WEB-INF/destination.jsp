@@ -18,6 +18,7 @@
 				<!--   fixed position -->
 				<img class="destinationPicture" src="${destination.image}"
 					onerror="this.onerror=null; this.src='https://media.istockphoto.com/photos/couple-relax-on-the-beach-enjoy-beautiful-sea-on-the-tropical-island-picture-id1160947136?b=1&k=20&m=1160947136&s=612x612&w=0&h=AsFmKSBYTtacl0DvI-RanCnAXFU0cmuW8NAo0g-tGzA='">
+				<br/>
 				<form action="viewDestinationPictures.do" method="post">
 					<button value="${destination.id }" type="submit"
 						class="btn btn-primary deleteButton" name="destinationId">View Destination Pictures</button>
@@ -62,9 +63,13 @@
 						<div class="panel-body">
 							<h4>Rating</h4>
 				<c:if test="${sessionScope.loggedInUser.id != 0}">
+				
+				
 							<form action="createDestinationReview.do" method="post">
-								<input type="hidden" value="${destination.id}"
-									name="destinationId"> <input type="radio" value="1"
+							<input type="hidden" value="${destination.id}"
+									name="destinationId">
+									<div class="rating">
+								 <input type="radio" value="1"
 									id="rate1" name="ratingValue" checked="checked"> <label
 									for="rate1">1</label> <input type="radio" value="2" id="rate2"
 									name="ratingValue"> <label for="rate2">2</label> <input
@@ -73,6 +78,7 @@
 									name="ratingValue"> <label for="rate4">4</label> <input
 									type="radio" value="5" id="rate5" name="ratingValue"> <label
 									for="rate5">5</label> <br />
+									</div>
 								<textarea class="container" rows="3"
 									placeholder="Comment on this destination!"
 									name="destinationReviewComment">${userReview.ratingComment}</textarea>
