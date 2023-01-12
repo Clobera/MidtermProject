@@ -124,13 +124,13 @@
 										href="viewDestination.do?destinationId=${days.destination.id}">${days.destination.name}</a></td>
 									<td><form action="viewTripPictures.do" method="post">
 											<button value="${days.id }" type="submit"
-												class="btn btn-primary deleteButton">View</button>
+												class="btn btn-primary deleteButton" name="itineraryItemId">View</button>
 										</form></td>
 									<td><c:if test="${(sessionScope.loggedInUser.id != 0)}">
 											<form action="createTripPicture.do" method="post">
 												<input type="text"
 													placeholder="Enter a URL to add a picture" name="imageUrl">
-												<input type="hidden" value="${days.id }">
+												<input type="hidden" value="${days.id }" name="itineraryItemId">
 												<button type="submit" class="btn btn-primary deleteButton">Submit</button>
 											</form>
 										</c:if></td>

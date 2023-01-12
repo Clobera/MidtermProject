@@ -32,14 +32,14 @@ public class TripPictureController {
 		return new User();
 	}
 	
-	@GetMapping(path="viewTripPictures.do", params={"itineraryItemId"})
+	@PostMapping(path="viewTripPictures.do", params={"itineraryItemId"})
 	public String viewTripPictures(Model model, int itineraryItemId) {
 		List<TripPicture> pictures = tripPictureDao.findTripPicturesByItemId(itineraryItemId);
 		model.addAttribute("pictures", pictures);
 		return "viewTripPictures";
 	}
 	
-	@GetMapping(path="viewTripPictures.do")
+	@PostMapping(path="viewTripPictures.do")
 	public String viewTripPictures(Model model) {
 		Integer itineraryItemId = (Integer) model.getAttribute("itineraryItemId");
 		List<TripPicture> pictures = tripPictureDao.findTripPicturesByItemId(itineraryItemId);

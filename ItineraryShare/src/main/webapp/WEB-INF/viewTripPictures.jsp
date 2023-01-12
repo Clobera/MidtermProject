@@ -14,7 +14,6 @@
 	</div>
 	<c:choose>
 		<c:when test="${ ! empty pictures }">
-			<h4>Trip Pictures</h4>
 			<div class="cards">
 				<c:forEach var="tripPicture" items="${ pictures }">
 					<div class="card">
