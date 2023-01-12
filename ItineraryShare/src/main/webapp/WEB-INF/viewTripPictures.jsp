@@ -20,6 +20,15 @@
 						<img alt="" src="${ tripPicture.imageUrl}"
 							onerror="this.onerror=null; this.src='https://t4.ftcdn.net/jpg/03/46/93/61/360_F_346936114_RaxE6OQogebgAWTalE1myseY1Hbb5qPM.jpg'"
 							class="card__image">
+							<c:if test="${sessionScope.loggedInUser.username == 'admin' or sessScop.loggedInUser.id == tripPicture.itineraryItem.itinerary.userId.id}">
+							<div class="card__content">
+								<form action="deleteTripPicture.do" method="post">
+									<input type="hidden" value="${tripPicture.id}"
+										name="pictureId">
+									<button type="submit" class="btn btn-primary deleteButto centerMe">Delete</button>
+								</form>
+							</div>
+						</c:if>
 					</div>
 				</c:forEach>
 			</div>

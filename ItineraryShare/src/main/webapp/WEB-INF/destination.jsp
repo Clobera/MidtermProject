@@ -22,6 +22,14 @@
 					<button value="${destination.id }" type="submit"
 						class="btn btn-primary deleteButton" name="destinationId">View Destination Pictures</button>
 				</form>
+				<c:if test="${sessionScope.loggedInUser.id != 0 }">
+											<form action="createDestinationPicture.do" method="post">
+												<input type="text"
+													placeholder="Enter a URL to add a picture" name="imageUrl">
+												<input type="hidden" value="${destination.id }" name="destinationId">
+												<button type="submit" class="btn btn-primary deleteButton">Submit</button>
+											</form>
+										</c:if>
 				<br>
 				<h4>Destination Info</h4>
 				<br />
@@ -50,10 +58,10 @@
 				</c:if>
 			</div>
 			<div class="col-8">
-				<c:if test="${sessionScope.loggedInUser.id != 0}">
 					<div class="panel">
 						<div class="panel-body">
 							<h4>Rating</h4>
+				<c:if test="${sessionScope.loggedInUser.id != 0}">
 							<form action="createDestinationReview.do" method="post">
 								<input type="hidden" value="${destination.id}"
 									name="destinationId"> <input type="radio" value="1"
@@ -74,6 +82,7 @@
 									</button>
 								</div>
 							</form>
+							</c:if>
 							<c:forEach var="review" items="${reviews}">
 								<!-- Reviews -->
 								<div class="media-block">
@@ -94,7 +103,6 @@
 							</c:forEach>
 						</div>
 					</div>
-				</c:if>
 			</div>
 		</div>
 		<div class="row">

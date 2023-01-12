@@ -293,3 +293,8 @@ body{
     min-width: 0;
     max-width: 838px;
 }
+
+.centerMe {
+	text-align: center;
+	margin: auto;
+}
