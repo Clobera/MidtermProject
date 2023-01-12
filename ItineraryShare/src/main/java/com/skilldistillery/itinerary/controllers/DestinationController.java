@@ -87,11 +87,15 @@ public class DestinationController {
 		List<DestinationRating> ratings = destinationRatingDao.findDestinationRatingsById(destinationId);
 		int average = 0;
 		int count = 0;
-		for (DestinationRating rating : ratings) {
-			average += rating.getRating();
-			count++;
+
+		if (ratings.size() > 0) {
+
+			for (DestinationRating rating : ratings) {
+				average += rating.getRating();
+				count++;
+			}
+			average = average / count;
 		}
-		average = average / count;
 
 		// Comments
 		List<DestinationComment> baseComments = new ArrayList<>();
@@ -104,10 +108,11 @@ public class DestinationController {
 				replies.add(comment);
 			}
 		}
-		
+
 		// Ratings
-				List<DestinationRating> reviews = destinationRatingDao.findDestinationRatingsById(destinationId);
-				DestinationRating userReview = destinationRatingDao.findDestinationRatingByUserAndDestination(user.getId(), destinationId);
+		List<DestinationRating> reviews = destinationRatingDao.findDestinationRatingsById(destinationId);
+		DestinationRating userReview = destinationRatingDao.findDestinationRatingByUserAndDestination(user.getId(),
+				destinationId);
 
 		// Model additions
 		model.addAttribute("destination", destination);
@@ -150,7 +155,8 @@ public class DestinationController {
 
 		// Ratings
 		List<DestinationRating> reviews = destinationRatingDao.findDestinationRatingsById(destinationId);
-		DestinationRating userReview = destinationRatingDao.findDestinationRatingByUserAndDestination(user.getId(), destinationId);
+		DestinationRating userReview = destinationRatingDao.findDestinationRatingByUserAndDestination(user.getId(),
+				destinationId);
 
 		// Model additions
 		model.addAttribute("destination", destination);
@@ -199,7 +205,7 @@ public class DestinationController {
 	@PostMapping(path = "createDestinationReview.do")
 	public String createDestinationReview(int destinationId, int ratingValue, String destinationReviewComment,
 			@ModelAttribute("loggedInUser") User user, RedirectAttributes redir) {
-		
+
 		DestinationRating dbCheck = destinationRatingDao.findDestinationRatingByUserAndDestination(user.getId(),
 				destinationId);
 		if (dbCheck != null) {
