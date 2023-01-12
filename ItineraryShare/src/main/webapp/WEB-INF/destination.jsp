@@ -13,15 +13,16 @@
 	<div class="itinerary__content">
 		<div class="row">
 			<!-- Itinerary Info START -->
-			<div class="col-lg-4 addBorder sepLine itinerary__info"
+			<div class="col-lg-4 addBorder sepLine itinerary__info itinerary-col"
 				data-spy="affix">
 				<!--   fixed position -->
-				<img class="destinationPicture" src="${destination.image}"
+				<img class="destinationPicture itinerary-image" src="${destination.image}"
 					onerror="this.onerror=null; this.src='https://media.istockphoto.com/photos/couple-relax-on-the-beach-enjoy-beautiful-sea-on-the-tropical-island-picture-id1160947136?b=1&k=20&m=1160947136&s=612x612&w=0&h=AsFmKSBYTtacl0DvI-RanCnAXFU0cmuW8NAo0g-tGzA='">
 				<br/>
+				<div class="centerMe">
 				<form action="viewDestinationPictures.do" method="post">
 					<button value="${destination.id }" type="submit"
-						class="btn btn-primary deleteButton" name="destinationId">View Destination Pictures</button>
+						class="btn btn-primary deleteButton" name="destinationId" style="margin-top:5px;margin-bottom:5px;">View Destination Pictures</button>
 				</form>
 				<c:if test="${sessionScope.loggedInUser.id != 0 }">
 											<form action="createDestinationPicture.do" method="post">
@@ -31,24 +32,17 @@
 												<button type="submit" class="btn btn-primary deleteButton">Submit</button>
 											</form>
 										</c:if>
-				<br>
-				<h4>Destination Info</h4>
 				<br />
 
 				<div class="flex">
 					<h4>Name</h4>
 					<p>${destination.name}</p>
-					<br />
 					<h4>Location</h4>
 					<p>${destination.city},${destination.country}</p>
-					<br />
 					<h4>Rating</h4>
 					<p>${rating}/ 5</p>
-					<br />
 					<h4>Description</h4>
 					<p>${destination.description}</p>
-					<br />
-
 				</div>
 				<c:if test="${sessionScope.loggedInUser.username == 'admin'}">
 					<form action="goUpdateDestination.do" method="post">
@@ -57,18 +51,21 @@
 					</form>
 					<br>
 				</c:if>
+				</div>
 			</div>
-			<div class="col-8">
-					<div class="panel">
+			<div class="col-8" style="padding-left:0px;padding-right:0px;">
+					<div class="panel comment-row">
 						<div class="panel-body">
-							<h4>Rating</h4>
+						<div class="centerMe">
+							<h4>User Reviews</h4>
+						</div>
 				<c:if test="${sessionScope.loggedInUser.id != 0}">
 				
 				
 							<form action="createDestinationReview.do" method="post">
 							<input type="hidden" value="${destination.id}"
 									name="destinationId">
-									<div class="rating">
+									<div class="rating centerMe">
 								 <input type="radio" value="1"
 									id="rate1" name="ratingValue" checked="checked"> <label
 									for="rate1">1</label> <input type="radio" value="2" id="rate2"
@@ -84,7 +81,7 @@
 									name="destinationReviewComment">${userReview.ratingComment}</textarea>
 								<div class="mar-top clearfix">
 									<button class="btn btn-sm btn-primary pull-right" type="submit">
-										<i class="fa fa-pencil fa-fw"></i>Review
+										<i class="fa fa-pencil fa-fw"></i>Submit Review
 									</button>
 								</div>
 							</form>
@@ -111,12 +108,15 @@
 					</div>
 			</div>
 		</div>
-		<div class="row">
+		<div class="row comment-row">
 			<div class="col-lg-12 comments">
 				<!-- Comments Section Start -->
 				<c:if test="${sessionScope.loggedInUser.id != 0}">
 					<div class="panel">
 						<div class="panel-body">
+						<div class="centerMe">
+							<h5>Create a Comment</h5>
+						</div>
 							<form action="createDestinationComment.do" method="post">
 								<input type="hidden" value="${destination.id}"
 									name="destinationId">
@@ -134,6 +134,9 @@
 				</c:if>
 				<div class="panel">
 					<div class="panel-body">
+					<div class="centerMe">
+							<h5>User Comments</h5>
+						</div>
 						<c:forEach var="comment" items="${comments}">
 							<!-- Newsfeed Content -->
 							<!--===================================================-->

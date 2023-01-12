@@ -20,27 +20,20 @@
 					<div class="affix">
 						<div class="container">
 							<!--   fixed position -->
-							<img class="img-fluid"
+							<img class="img-fluid img-circle"
 								onerror="this.onerror=null; this.src='https://t4.ftcdn.net/jpg/03/46/93/61/360_F_346936114_RaxE6OQogebgAWTalE1myseY1Hbb5qPM.jpg'"
 								src="${sessionScope.loggedInUser.profilePicture}">
 						</div>
 						<div class="container">
-							<div class="row">
-								<h5 class="col profile__heading">User Info</h5>
+							<div class="row centerMe">
+								<h5 >User Info</h5>
 
-								<div class="col profile__info">
-									Name: ${sessionScope.loggedInUser.firstName}
-									${sessionScope.loggedInUser.lastName} <br> Active:
-									${sessionScope.loggedInUser.enabled}
-								</div>
-							</div>
-						</div>
-
-						<div class="container">
-							<div class="row">
-								<h5 class="col profile__heading">Biography</h5>
-								<div class="col profile__info">
-									${sessionScope.loggedInUser.biography}</div>
+									<strong>Name:</strong> ${sessionScope.loggedInUser.firstName}
+									${sessionScope.loggedInUser.lastName} <br> <strong>Active:</strong>
+									${sessionScope.loggedInUser.enabled}<br/>
+								<h5>Biography</h5>
+									${sessionScope.loggedInUser.biography}
+									<br/>
 							</div>
 						</div>
 						<div class="container">
@@ -76,7 +69,7 @@
 								src="https://media.istockphoto.com/photos/couple-relax-on-the-beach-enjoy-beautiful-sea-on-the-tropical-island-picture-id1160947136?b=1&k=20&m=1160947136&s=612x612&w=0&h=AsFmKSBYTtacl0DvI-RanCnAXFU0cmuW8NAo0g-tGzA="
 								class="card__image">
 							</a>
-							<div class="card__content">
+							<div class="card__content centerMe">
 								<a href="goCreateItinerary.do" class="card__link"> Create An
 									Itinerary! </a>
 							</div>
@@ -92,7 +85,7 @@
 												onerror="this.onerror=null; this.src='https://media.istockphoto.com/photos/couple-relax-on-the-beach-enjoy-beautiful-sea-on-the-tropical-island-picture-id1160947136?b=1&k=20&m=1160947136&s=612x612&w=0&h=AsFmKSBYTtacl0DvI-RanCnAXFU0cmuW8NAo0g-tGzA="
 												class="card__image">
 											</a>
-											<div class="card__content">
+											<div class="card__content centerMe">
 												<a href="viewItinerary.do?itineraryId=${ itinerary.id }"
 													class="card__link"> ${itinerary.name } </a>
 											</div>
@@ -116,26 +109,22 @@
 					<div class="affix">
 						<div class="container">
 							<!--   fixed position -->
-							<img class="img-fluid"
+							<img class="img-fluid img-circle"
 								onerror="this.onerror=null; this.src='https://t4.ftcdn.net/jpg/03/46/93/61/360_F_346936114_RaxE6OQogebgAWTalE1myseY1Hbb5qPM.jpg'"
 								src="${userId.profilePicture}">
 						</div>
 						<div class="container">
-							<div class="row">
-								<h5 class="col profile__heading">User Info</h5>
+							<div class="row centerMe">
+								<h5>User Info</h5>
 
-								<div class="col profile__info">
-									Name: ${userId.firstName} ${userId.lastName} <br> Active:
-									${userId.enabled}
-								</div>
+									<strong>Name:</strong> ${userId.firstName} ${userId.lastName} <br> <strong>Active: </strong>
+									${userId.enabled}<br/>
+								<h5>Biography</h5>
+								${userId.biography}
+								<br/>
 							</div>
 						</div>
-						<div class="container">
-							<div class="row">
-								<h5 class="col profile__heading">Biography</h5>
-								<div class="col profile__info">${userId.biography}</div>
-							</div>
-						</div>
+						<c:if test="${userId.enabled == true}">
 						<div class="container">
 							<div class="profile__buttons">
 								<div class="update__button">
@@ -154,13 +143,17 @@
 								</div>
 							</div>
 						</div>
+						</c:if>
 					</div>
 				</div>
 				<!-- User Profile END -->
 
 				<!-- Itineraries START -->
 				<div class="col-lg-9">
+				<div class="centerMe">
+				<br/>
 					<h4>${userId.username}'s Itineraries</h4>
+				</div>
 
 					<div class="cards">
 						<!-- User Itineraries START -->
@@ -174,7 +167,7 @@
 												onerror="this.onerror=null; this.src='https://media.istockphoto.com/photos/couple-relax-on-the-beach-enjoy-beautiful-sea-on-the-tropical-island-picture-id1160947136?b=1&k=20&m=1160947136&s=612x612&w=0&h=AsFmKSBYTtacl0DvI-RanCnAXFU0cmuW8NAo0g-tGzA="
 												class="card__image">
 											</a>
-											<div class="card__content">
+											<div class="card__content centerMe">
 												<a href="viewItinerary.do?itineraryId=${ itinerary.id }"
 													class="card__link"> ${itinerary.name } </a>
 											</div>
@@ -200,24 +193,17 @@
 					<div class="affix">
 						<div class="container">
 							<!--   fixed position -->
-							<img class="img-fluid"
+							<img class="img-fluid img-circle"
 								onerror="this.onerror=null; this.src='https://t4.ftcdn.net/jpg/03/46/93/61/360_F_346936114_RaxE6OQogebgAWTalE1myseY1Hbb5qPM.jpg'"
 								src="${userId.profilePicture}">
 						</div>
 						<div class="container">
-							<div class="row">
-								<h5 class="col profile__heading">User Info</h5>
-
-								<div class="col profile__info">
-									Name: ${userId.firstName} ${userId.lastName} <br> Active:
-									${userId.enabled}
-								</div>
-							</div>
-						</div>
-						<div class="container">
-							<div class="row">
-								<h5 class="col profile__heading">Biography</h5>
-								<div class="col profile__info">${userId.biography}</div>
+							<div class="row centerMe">
+								<h5>User Info</h5>
+									<strong>Name:</strong> ${userId.firstName} ${userId.lastName} <br> <strong>Active:</strong>
+									${userId.enabled}<br/>
+								<h5>Biography</h5>
+								${userId.biography}
 							</div>
 						</div>
 					</div>
@@ -240,7 +226,7 @@
 												onerror="this.onerror=null; this.src='https://media.istockphoto.com/photos/couple-relax-on-the-beach-enjoy-beautiful-sea-on-the-tropical-island-picture-id1160947136?b=1&k=20&m=1160947136&s=612x612&w=0&h=AsFmKSBYTtacl0DvI-RanCnAXFU0cmuW8NAo0g-tGzA="
 												class="card__image">
 											</a>
-											<div class="card__content">
+											<div class="card__content centerMe">
 												<a href="viewItinerary.do?itineraryId=${ itinerary.id }"
 													class="card__link"> ${itinerary.name } </a>
 											</div>

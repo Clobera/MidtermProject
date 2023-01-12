@@ -221,6 +221,9 @@ body{
 
 .btn {
 	--bs-btn-border-width: 1.5px;
+}
+
+.search__button {
 	background-color: #9c0dfd78;
 }
 
@@ -251,6 +254,10 @@ body{
 
 .row {
 	margin-right: 0px;
+}
+
+.comment-row {
+	background: white;
 }
 
 .deleteButton:hover {
@@ -294,10 +301,17 @@ body{
 .create-account-form {
     padding-top: 10px;
     padding-right: 156px;
-    padding-left: 156px;
+    padding-left: 175px;
     align-self: center;
-   
 }
+
+.create-account-input {
+	max-width: 300px;
+	padding-top: 10px;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
 .input-group.mb-3.bio {
     height: 83px;
     text-align: inherit;
@@ -318,5 +332,19 @@ body{
 	align-items: center;
   justify-items: center;
   vertical-align: middle;
-	
+}
+
+.itinerary-image {
+	padding: 10px;
+    border-radius: 65px;
+    margin-top: 10px;
+    background: black;
+}
+
+.itinerary-col {
+	background: #6c757d1a;
+}
+
+.comment-row {
+	background: #ffffffb5;
 }

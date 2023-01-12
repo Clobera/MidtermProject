@@ -11,7 +11,7 @@
 <body>
 
 	<%@include file="navbarGuest.jsp"%>
-	<div class="create-account-form">
+	<div class="create-account-form centerMe">
 	<form action="createAccount.do" method="POST" >
 	<input type= "hidden" name="enabled" value="true">
 		<div class="input-group mb-3">
@@ -55,6 +55,7 @@
 	</form>
 </div>
 
+<%@include file="bootstrapFooter.jsp"%>
 
 </body>
 </html>

@@ -98,7 +98,12 @@ public class UserController {
 	
 	@PostMapping(path="createAccount.do")
 	public String createAccount(Model model,@ModelAttribute("loggedInUser") User user) {
-		User createdUser = userDao.addUser(user);
+		User createdUser = null;
+		if (userDao.findByUsername(user.getUsername()) == null) {
+			createdUser = userDao.addUser(user);
+		} else {
+			model.addAttribute("loggedInUser", new User());
+		}
 		Boolean success = false;
 		if (createdUser != null) {
 			success = true;

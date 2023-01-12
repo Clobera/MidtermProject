@@ -13,11 +13,11 @@
 	<div class="itinerary__content">
 		<div class="row">
 			<!-- Itinerary Info START -->
-			<div class="col-lg-4 addBorder sepLine itinerary__info"
+			<div class="col-lg-4 addBorder sepLine itinerary__info itinerary-col"
 				data-spy="affix">
 
 				<!--   fixed position -->
-				<img class="itineraryPicture" src="${itinerary.image}"
+				<img class="itineraryPicture itinerary-image" src="${itinerary.image}"
 					onerror="this.onerror=null; this.src='https://media.istockphoto.com/photos/couple-relax-on-the-beach-enjoy-beautiful-sea-on-the-tropical-island-picture-id1160947136?b=1&k=20&m=1160947136&s=612x612&w=0&h=AsFmKSBYTtacl0DvI-RanCnAXFU0cmuW8NAo0g-tGzA=">
 
 				<div class="flex">
@@ -92,7 +92,9 @@
 				</c:choose>
 			</div>
 			<!-- Itineraries START -->
-			<div class="col-8">
+			<div class="col-8" style="padding-left:0px;padding-right:0px;">
+			<div class="centerMe">
+			<br/>
 				<h4>Itinerary Days</h4>
 				<c:if
 					test="${(sessionScope.loggedInUser.id == itinerary.userId.id) or sessionScope.loggedInUser.username == 'admin' }">
@@ -102,18 +104,19 @@
 					</form>
 					<br/>
 				</c:if>
+			</div>
 				<br>
 				<c:if test="${!empty itineraryDays }">
 					<table class="table table-primary table-striped">
 						<thead>
 							<tr>
-								<th>Day</th>
-								<th>Description</th>
-								<th>Destination</th>
-								<th colspan="2">Pictures</th>
+								<th class="centerMe">Day</th>
+								<th class="centerMe">Description</th>
+								<th class="centerMe">Destination</th>
+								<th  class="centerMe" colspan="2">Pictures</th>
 								<c:if
 									test="${(sessionScope.loggedInUser.id == itinerary.userId.id) or sessionScope.loggedInUser.username == 'admin' }">
-									<th>Delete</th>
+									<th class="centerMe">Delete</th>
 								</c:if>
 							</tr>
 						</thead>
@@ -155,7 +158,7 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-lg-12 comments">
+			<div class="col-lg-12 comments comment-row">
 				<!-- Comments Section Start -->
 				<c:if test="${sessionScope.loggedInUser.id != 0}">
 					<div class="panel">

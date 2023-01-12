@@ -35,6 +35,17 @@ public class UserDAOImpl implements UserDAO {
 	}
 	
 	@Override
+	public User findByUsername(String username) {
+		User isLoggedIn = null;
+		String query = "SELECT u FROM User u WHERE u.username = :un";
+		List<User> userQuery = em.createQuery(query, User.class).setParameter("un", username).getResultList();
+		if (userQuery.size() > 0) {
+			isLoggedIn = userQuery.get(0);
+		}
+		return isLoggedIn;
+	}
+	
+	@Override
 	public User addUser(User input) {
 		em.persist(input);
 		User output = findByUsernameAndPassword(input.getUsername(), input.getPassword());

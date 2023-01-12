@@ -14,4 +14,5 @@ public interface UserDAO {
 		List<User> findAllActiveUsers();
 		List<User> findAllDisabledUsers();
 		List<User> findUsersByKeyword(String search);
+		User findByUsername(String username);
 }

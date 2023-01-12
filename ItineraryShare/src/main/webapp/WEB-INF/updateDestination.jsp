@@ -13,32 +13,30 @@
 	<div class="itinerary__content">
 		<div class="row">
 			<!-- Itinerary Info START -->
-			<div class="col-lg-4 addBorder sepLine itinerary__info"
+			<div class="col-lg-4 addBorder sepLine itinerary__info itinerary-col"
 				data-spy="affix">
 				<!--   fixed position -->
-				<img class="destinationPicture" src="${destination.image}"
+				<img class="destinationPicture itinerary-image" src="${destination.image}"
 					onerror="this.onerror=null; this.src='https://media.istockphoto.com/photos/couple-relax-on-the-beach-enjoy-beautiful-sea-on-the-tropical-island-picture-id1160947136?b=1&k=20&m=1160947136&s=612x612&w=0&h=AsFmKSBYTtacl0DvI-RanCnAXFU0cmuW8NAo0g-tGzA=">
+				<div class="centerMe">
 				<h4>Destination Info</h4>
 				<br />
 
 				<div class="flex">
 					<h4>Name</h4>
 					<p>${destination.name}</p>
-					<br />
 					<h4>Location</h4>
 					<p>${destination.city}, ${destination.country}</p>
-					<br />
 					<h4>Rating</h4>
 					<p>${rating} / 5</p>
-					<br />
 					<h4>Description</h4>
 					<p>${destination.description}</p>
-					<br />
 
+				</div>
 				</div>
 			</div>
 			<div class="col-lg-8">
-				<form class="create-account-form" action="updateDestination.do"
+				<form class="create-account-form" action="updateDestination.do" style="margin-top:10px;"
 					method="POST">
 					<input type="hidden" value="${destination.id }" name="destinationId">
 					<div class="input-group mb-3">
