@@ -11,8 +11,9 @@
 <body>
 
 	<%@include file="navbarGuest.jsp"%>
-
-	<form action="createItineraryItem.do" method="POST">
+<div class="centerMe">
+<br/>
+	<form action="createItineraryItem.do" method="POST" class="create-account-form">
 		<input type="hidden" value="${itinerary.id}" name="itineraryId">
 		<div class="input-group mb-3">
 			<span class="input-group-text" id="basic-addon1">Name</span> <input
@@ -27,20 +28,17 @@
 				aria-label="Description" aria-describedby="basic-addon1"
 				name="description">
 		</div>
-		<div class="inline-text">
-			Day of Trip: <select name="tripDay" REQUIRED>
+		<div class="input-group">
+			<span class="input-group-text" id="basic-addon1">Day of Trip:</span> <select name="tripDay" style="min-width:106px;" REQUIRED>
 				<c:forEach var="day" items="${days}">
 					<option value="${day}">${day}</option>
 				</c:forEach>
 			</select>
-		</div>
-		<br/>
-		<div class="inline-text">
-			Destination: <select name="destinationId" REQUIRED>
+			<span class="input-group-text" id="basic-addon1">Destination:</span> <select name="destinationId"  REQUIRED>
 				<c:forEach var="destination" items="${destinations}">
 					<option value="${destination.id}">${destination.name} - ${destination.city }, ${ destination.country }</option>
 				</c:forEach>
-			</select> OR
+			</select></div> OR <div>
 			<button class="btn btn-light" type="submit"
 				form="goCreateDestination">Create a New Destination</button>
 		</div>
@@ -51,6 +49,7 @@
 	</form>
 	<form action="goCreateDestination.do" method="post"
 		id="goCreateDestination"></form>
+</div>
 	<%@include file="bootstrapFooter.jsp"%>
 </body>
 </html>

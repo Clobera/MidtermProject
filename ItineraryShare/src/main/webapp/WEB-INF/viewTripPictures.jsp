@@ -17,23 +17,31 @@
 			<div class="cards">
 				<c:forEach var="tripPicture" items="${ pictures }">
 					<div class="card">
+					<c:choose>
+					<c:when test="${sessionScope.loggedInUser.username == 'admin' or sessionScope.loggedInUser.id == tripPicture.itineraryItem.itinerary.userId.id}">
 						<img alt="" src="${ tripPicture.imageUrl}"
 							onerror="this.onerror=null; this.src='https://t4.ftcdn.net/jpg/03/46/93/61/360_F_346936114_RaxE6OQogebgAWTalE1myseY1Hbb5qPM.jpg'"
 							class="card__image">
-							<c:if test="${sessionScope.loggedInUser.username == 'admin' or sessScop.loggedInUser.id == tripPicture.itineraryItem.itinerary.userId.id}">
-							<div class="card__content">
+							<div class="card__content centerMe">
 								<form action="deleteTripPicture.do" method="post">
 									<input type="hidden" value="${tripPicture.id}"
 										name="pictureId">
-									<button type="submit" class="btn btn-primary deleteButto centerMe">Delete</button>
+									<button type="submit" class="btn btn-primary deleteButton centerMe">Delete</button>
 								</form>
 							</div>
-						</c:if>
+							</c:when>
+							<c:otherwise>
+							<img alt="" src="${ tripPicture.imageUrl}"
+							onerror="this.onerror=null; this.src='https://t4.ftcdn.net/jpg/03/46/93/61/360_F_346936114_RaxE6OQogebgAWTalE1myseY1Hbb5qPM.jpg'"
+							class="card__image" style="	border-bottom-right-radius:25px;
+	border-bottom-left-radius:25px;">
+							</c:otherwise>
+							</c:choose>
 					</div>
 				</c:forEach>
 			</div>
 		</c:when>
-		<c:otherwise>No Pictures Found</c:otherwise>
+		<c:otherwise><br/><div class="centerMe"><h4>No Pictures Found</h4></div></c:otherwise>
 	</c:choose>
 	<%@include file="bootstrapFooter.jsp"%>
 </body>

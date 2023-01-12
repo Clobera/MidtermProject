@@ -11,8 +11,8 @@
 <body>
 
 	<%@include file="navbarGuest.jsp"%>
-
-	<form class= "create-account-form" action="createDestination.do" method="POST" >
+<br/>
+	<form class= "create-account-form centerMe" action="createDestination.do" method="POST" style="padding-left: 205px;">
 		<div class="input-group mb-3">
 			<span class="input-group-text" id="basic-addon1">Name</span> <input
 				type="text" class="form-control" placeholder="Ex. Grand Canyon National Park"

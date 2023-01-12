@@ -11,8 +11,8 @@
 <body>
 
 	<%@include file="navbarGuest.jsp"%>
-
-	<form class="create-account-form" action="createItinerary.do" method="POST">
+<br/>
+	<form class="create-account-form" action="createItinerary.do" method="POST" style="padding-left: 215px;">
 		<input type="hidden" value="true" name="active">
 		<div class="input-group mb-3">
 			<span class="input-group-text" id="basic-addon1">Name</span> <input
@@ -52,8 +52,10 @@
 				aria-label="Image" aria-describedby="basic-addon1" name="image">
 		</div>
 
+<div class="centerMe">
 		<button type="submit" class="btn btn-primary">Create
 			Itinerary</button>
+</div>
 	</form>
 	<%@include file="bootstrapFooter.jsp"%>
 </body>

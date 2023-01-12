@@ -40,7 +40,7 @@
 					<h4>Location</h4>
 					<p>${destination.city},${destination.country}</p>
 					<h4>Rating</h4>
-					<p>${rating}/ 5</p>
+					<p>${rating} / 5</p>
 					<h4>Description</h4>
 					<p>${destination.description}</p>
 				</div>
