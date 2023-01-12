@@ -49,7 +49,7 @@
 		<div class="input-group mb-3">
 			<span class="input-group-text" id="basic-addon1">Image URL</span> <input
 				type="text" class="form-control" placeholder="ENTER URL OF IMAGE"
-				aria-label="Image" aria-describedby="basic-addon1">
+				aria-label="Image" aria-describedby="basic-addon1" name="image">
 		</div>
 
 		<button type="submit" class="btn btn-primary">Create
