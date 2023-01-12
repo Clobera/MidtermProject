@@ -38,7 +38,7 @@
 		<div class="inline-text">
 			Destination: <select name="destinationId" REQUIRED>
 				<c:forEach var="destination" items="${destinations}">
-					<option value="${destination.id}">${destination.name}</option>
+					<option value="${destination.id}">${destination.name} - ${destination.city }, ${ destination.country }</option>
 				</c:forEach>
 			</select> OR
 			<button class="btn btn-light" type="submit"
