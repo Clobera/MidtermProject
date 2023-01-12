@@ -7,7 +7,7 @@
 		test="${sessionScope.loggedInUser.username == null or loginSuccess == false}">
 
 		<nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top"
-			style="background: #ebeef0;">
+			style="background: #72b9e7;">
 			<div class="container-fluid">
 				<a class="navbar-brand" href="home.do">iS</a>
 				<button class="navbar-toggler" type="button"
