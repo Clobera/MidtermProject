@@ -22,7 +22,7 @@
 							class="card__image">
 						<c:if test="${sessionScope.loggedInUser.username == 'admin' }">
 							<div class="card__content">
-								<form action="deleteItineraryItem.do" method="post">
+								<form action="deleteDestinationPicture.do" method="post">
 									<input type="hidden" value="${destinationPicture.id}"
 										name="pictureId">
 									<button type="submit" class="btn btn-primary deleteButto centerMe">Delete</button>
