@@ -48,7 +48,7 @@
 			<span class="input-group-text" id="basic-addon1">Profile
 				Picture</span> <input type="text" class="form-control"
 				placeholder="ENTER URL" aria-label="Username"
-				aria-describedby="basic-addon1">
+				aria-describedby="basic-addon1" name="profilePicture">
 		</div>
 
 		<button type="submit" class="btn btn-primary">Create User</button>
