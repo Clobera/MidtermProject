@@ -126,7 +126,7 @@
 											<button value="${days.id }" type="submit"
 												class="btn btn-primary deleteButton" name="itineraryItemId">View</button>
 										</form></td>
-									<td><c:if test="${(sessionScope.loggedInUser.id != 0)}">
+									<td><c:if test="${sessionScope.loggedInUser.id == itinerary.userId.id}">
 											<form action="createTripPicture.do" method="post">
 												<input type="text"
 													placeholder="Enter a URL to add a picture" name="imageUrl">
