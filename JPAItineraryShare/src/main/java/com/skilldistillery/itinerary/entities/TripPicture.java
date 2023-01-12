@@ -26,6 +26,12 @@ public class TripPicture {
 	
 	public TripPicture () {}
 	
+	public TripPicture(String imageUrl, ItineraryItem itineraryItem) {
+		super();
+		this.imageUrl = imageUrl;
+		this.itineraryItem = itineraryItem;
+	}
+
 	public int getId() {
 		return id;
 	}

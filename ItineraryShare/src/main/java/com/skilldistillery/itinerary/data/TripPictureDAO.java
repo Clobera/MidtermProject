@@ -1,14 +1,18 @@
 package com.skilldistillery.itinerary.data;
 
+import java.util.List;
+
 import com.skilldistillery.itinerary.entities.TripPicture;
 
 public interface TripPictureDAO {
 
 	TripPicture findTripPictureById(int id);
 
-	TripPicture AddTripPicture(TripPicture tripPicture);
+	TripPicture addTripPicture(TripPicture tripPicture);
 
-	boolean DeleteTripPicture(int tripPictureId);
+	TripPicture deleteTripPicture(int tripPictureId);
+
+	List<TripPicture> findTripPicturesByItemId(int itemId);
 	
 	
 }
