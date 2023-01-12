@@ -12,18 +12,25 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="trip_picture")
+@Table(name = "trip_picture")
 public class DestinationPicture {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	@Column(name="image_url")
+	@Column(name = "image_url")
 	private String imageUrl;
 	@ManyToOne
-	@JoinColumn(name="destination_id")
+	@JoinColumn(name = "destination_id")
 	private Destination destination;
-	
-	public DestinationPicture () {}
+
+	public DestinationPicture() {
+	}
+
+	public DestinationPicture(String imageUrl, Destination destination) {
+		super();
+		this.imageUrl = imageUrl;
+		this.destination = destination;
+	}
 
 	public int getId() {
 		return id;
@@ -70,6 +77,5 @@ public class DestinationPicture {
 	public String toString() {
 		return "DestinationPicture [id=" + id + ", imageUrl=" + imageUrl + ", destination=" + destination + "]";
 	}
-	
-	
+
 }
