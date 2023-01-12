@@ -16,19 +16,25 @@
 			<div class="col-lg-4 addBorder sepLine itinerary__info"
 				data-spy="affix">
 				<!--   fixed position -->
-				<img class="destinationPicture" src="${destination.image}" onerror="this.onerror=null; this.src='https://media.istockphoto.com/photos/couple-relax-on-the-beach-enjoy-beautiful-sea-on-the-tropical-island-picture-id1160947136?b=1&k=20&m=1160947136&s=612x612&w=0&h=AsFmKSBYTtacl0DvI-RanCnAXFU0cmuW8NAo0g-tGzA='">
+				<img class="destinationPicture" src="${destination.image}"
+					onerror="this.onerror=null; this.src='https://media.istockphoto.com/photos/couple-relax-on-the-beach-enjoy-beautiful-sea-on-the-tropical-island-picture-id1160947136?b=1&k=20&m=1160947136&s=612x612&w=0&h=AsFmKSBYTtacl0DvI-RanCnAXFU0cmuW8NAo0g-tGzA='">
+				<form action="viewDestinationPictures.do" method="post">
+					<button value="${destination.id }" type="submit"
+						class="btn btn-primary deleteButton" name="destinationId">View Destination Pictures</button>
+				</form>
+				<br>
 				<h4>Destination Info</h4>
 				<br />
-				
+
 				<div class="flex">
 					<h4>Name</h4>
 					<p>${destination.name}</p>
 					<br />
 					<h4>Location</h4>
-					<p>${destination.city}, ${destination.country}</p>
+					<p>${destination.city},${destination.country}</p>
 					<br />
 					<h4>Rating</h4>
-					<p>${rating} / 5</p>
+					<p>${rating}/ 5</p>
 					<br />
 					<h4>Description</h4>
 					<p>${destination.description}</p>
@@ -44,24 +50,21 @@
 				</c:if>
 			</div>
 			<div class="col-8">
-			<c:if test="${sessionScope.loggedInUser.id != 0}">
+				<c:if test="${sessionScope.loggedInUser.id != 0}">
 					<div class="panel">
 						<div class="panel-body">
-						<h4>Rating</h4>
+							<h4>Rating</h4>
 							<form action="createDestinationReview.do" method="post">
 								<input type="hidden" value="${destination.id}"
-									name="destinationId">
-									<input type="radio" value="1" id="rate1" name="ratingValue" checked="checked">
-									<label for="rate1">1</label>
-									<input type="radio" value="2" id="rate2" name="ratingValue">
-									<label for="rate2">2</label>
-									<input type="radio" value="3" id="rate3" name="ratingValue">
-									<label for="rate3">3</label>
-									<input type="radio" value="4" id="rate4" name="ratingValue">
-									<label for="rate4">4</label>
-									<input type="radio" value="5" id="rate5" name="ratingValue">
-									<label for="rate5">5</label>
-									<br/>
+									name="destinationId"> <input type="radio" value="1"
+									id="rate1" name="ratingValue" checked="checked"> <label
+									for="rate1">1</label> <input type="radio" value="2" id="rate2"
+									name="ratingValue"> <label for="rate2">2</label> <input
+									type="radio" value="3" id="rate3" name="ratingValue"> <label
+									for="rate3">3</label> <input type="radio" value="4" id="rate4"
+									name="ratingValue"> <label for="rate4">4</label> <input
+									type="radio" value="5" id="rate5" name="ratingValue"> <label
+									for="rate5">5</label> <br />
 								<textarea class="container" rows="3"
 									placeholder="Comment on this destination!"
 									name="destinationReviewComment">${userReview.ratingComment}</textarea>
@@ -72,27 +75,27 @@
 								</div>
 							</form>
 							<c:forEach var="review" items="${reviews}">
-							<!-- Reviews -->
-							<div class="media-block">
-								<a class="media-left"
-									href="viewAccount.do?userId=${review.user.id}"><img
-									class="mx-auto rounded-circle img-fluid img-sm"
-									alt="Profile Picture" src="${review.user.profilePicture}"
-									onerror="this.onerror=null; this.src='https://t4.ftcdn.net/jpg/03/46/93/61/360_F_346936114_RaxE6OQogebgAWTalE1myseY1Hbb5qPM.jpg'"></a>
-								<div class="media-body">
-									<div class="mar-btm">
-										<a href="viewAccount.do?userId=${review.user.id}"
-											class="btn-link text-semibold media-heading box-inline">${review.user.username}</a>
-											<p>${review.rating} / 5</p>
+								<!-- Reviews -->
+								<div class="media-block">
+									<a class="media-left"
+										href="viewAccount.do?userId=${review.user.id}"><img
+										class="mx-auto rounded-circle img-fluid img-sm"
+										alt="Profile Picture" src="${review.user.profilePicture}"
+										onerror="this.onerror=null; this.src='https://t4.ftcdn.net/jpg/03/46/93/61/360_F_346936114_RaxE6OQogebgAWTalE1myseY1Hbb5qPM.jpg'"></a>
+									<div class="media-body">
+										<div class="mar-btm">
+											<a href="viewAccount.do?userId=${review.user.id}"
+												class="btn-link text-semibold media-heading box-inline">${review.user.username}</a>
+											<p>${review.rating}/ 5</p>
+										</div>
+										<p>${review.ratingComment }</p>
 									</div>
-									<p>${review.ratingComment }</p>
-									</div>
-									</div>
-									</c:forEach>
+								</div>
+							</c:forEach>
 						</div>
 					</div>
 				</c:if>
-				</div>
+			</div>
 		</div>
 		<div class="row">
 			<div class="col-lg-12 comments">
