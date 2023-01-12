@@ -145,34 +145,6 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `review`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `review` ;
-
-CREATE TABLE IF NOT EXISTS `review` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `comment` TEXT NULL DEFAULT NULL,
-  `rating` INT(1) UNSIGNED NOT NULL DEFAULT '0',
-  `user_id` INT(11) NOT NULL,
-  `destination_id` INT NOT NULL,
-  PRIMARY KEY (`id`),
-  INDEX `fk_review_user1_idx` (`user_id` ASC),
-  INDEX `fk_review_destination2_idx` (`destination_id` ASC),
-  CONSTRAINT `fk_review_destination1`
-    FOREIGN KEY (`user_id`)
-    REFERENCES `user` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_review_destination2`
-    FOREIGN KEY (`destination_id`)
-    REFERENCES `destination` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
-
-
--- -----------------------------------------------------
 -- Table `user_has_bookmarked_itinerary`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `user_has_bookmarked_itinerary` ;
@@ -195,44 +167,6 @@ CREATE TABLE IF NOT EXISTS `user_has_bookmarked_itinerary` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
-
-
--- -----------------------------------------------------
--- Table `travel_detail_type`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `travel_detail_type` ;
-
-CREATE TABLE IF NOT EXISTS `travel_detail_type` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(100) NOT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `travel_detail`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `travel_detail` ;
-
-CREATE TABLE IF NOT EXISTS `travel_detail` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `description` TEXT NOT NULL,
-  `itinerary_item_id` INT(11) NOT NULL,
-  `travel_detail_type_id` INT NOT NULL,
-  PRIMARY KEY (`id`),
-  INDEX `fk_travel_detail_itinerary_item1_idx` (`itinerary_item_id` ASC),
-  INDEX `fk_travel_detail_travel_detail_type1_idx` (`travel_detail_type_id` ASC),
-  CONSTRAINT `fk_travel_detail_itinerary_item1`
-    FOREIGN KEY (`itinerary_item_id`)
-    REFERENCES `itinerary_item` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_travel_detail_travel_detail_type1`
-    FOREIGN KEY (`travel_detail_type_id`)
-    REFERENCES `travel_detail_type` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
@@ -398,45 +332,11 @@ COMMIT;
 
 
 -- -----------------------------------------------------
--- Data for table `review`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `itinerarysharedb`;
-INSERT INTO `review` (`id`, `comment`, `rating`, `user_id`, `destination_id`) VALUES (1, 'so salty my eyes burned', 1, 1, 1);
-
-COMMIT;
-
-
--- -----------------------------------------------------
 -- Data for table `user_has_bookmarked_itinerary`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `itinerarysharedb`;
 INSERT INTO `user_has_bookmarked_itinerary` (`user_id`, `itinerary_id`) VALUES (1, 1);
-
-COMMIT;
-
-
--- -----------------------------------------------------
--- Data for table `travel_detail_type`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `itinerarysharedb`;
-INSERT INTO `travel_detail_type` (`id`, `name`) VALUES (1, 'flight');
-INSERT INTO `travel_detail_type` (`id`, `name`) VALUES (2, 'train');
-INSERT INTO `travel_detail_type` (`id`, `name`) VALUES (3, 'rental car');
-INSERT INTO `travel_detail_type` (`id`, `name`) VALUES (4, 'accommodation');
-INSERT INTO `travel_detail_type` (`id`, `name`) VALUES (5, 'dining');
-
-COMMIT;
-
-
--- -----------------------------------------------------
--- Data for table `travel_detail`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `itinerarysharedb`;
-INSERT INTO `travel_detail` (`id`, `description`, `itinerary_item_id`, `travel_detail_type_id`) VALUES (1, 'flying to utah', 1, 1);
 
 COMMIT;
 
