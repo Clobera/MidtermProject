@@ -21,8 +21,8 @@
 					onerror="this.onerror=null; this.src='https://media.istockphoto.com/photos/couple-relax-on-the-beach-enjoy-beautiful-sea-on-the-tropical-island-picture-id1160947136?b=1&k=20&m=1160947136&s=612x612&w=0&h=AsFmKSBYTtacl0DvI-RanCnAXFU0cmuW8NAo0g-tGzA=">
 
 				<div class="flex">
-					<h4>Itinerary Info</h4>
-					<br /> Author:
+					<h4 class="centerMe">Itinerary Info</h4>
+					<br /> <strong>Author:</strong>
 					<div class="media-block">
 						<a class="media-left"
 							href="viewAccount.do?userId=${itinerary.userId.id}"><img
@@ -36,13 +36,13 @@
 							</div>
 						</div>
 					</div>
-					<br> Name: ${itinerary.name} <br>Budget: $
-					${itinerary.budget} <br>Start Date: ${itinerary.startDate} <br>End
-					Date: ${itinerary.endDate}
+					<br> <strong>Name:</strong> ${itinerary.name} <br><strong>Budget:</strong> $
+					${itinerary.budget} <br><strong>Start Date:</strong> ${itinerary.startDate} <br><strong>End
+					Date:</strong> ${itinerary.endDate}
 				</div>
 				<br>
 				<div class="flex">
-					<h4>Description</h4>
+					<h5>Description</h5>
 					<br />
 					<p>${itinerary.description}</p>
 				</div>
@@ -97,14 +97,14 @@
 				<c:if
 					test="${(sessionScope.loggedInUser.id == itinerary.userId.id) or sessionScope.loggedInUser.username == 'admin' }">
 					<br>
-					<form action="goCreateItineraryItem.do?itineraryId=${itinerary.id }" method="GET">
-					<button type="submit" class="btn btn-primary">Create Itinerary Item</button>
+					<form action="goCreateItineraryItem.do" method="GET">
+					<button type="submit" class="btn btn-primary" name="itineraryId" value="${itinerary.id }">Create Itinerary Item</button>
 					</form>
 					<br/>
 				</c:if>
 				<br>
 				<c:if test="${!empty itineraryDays }">
-					<table>
+					<table class="table table-primary table-striped">
 						<thead>
 							<tr>
 								<th>Day</th>
@@ -120,15 +120,15 @@
 						<tbody>
 							<c:forEach var="days" items="${itineraryDays}">
 								<tr>
-									<td>${days.tripDay}</td>
-									<td>${days.description }</td>
-									<td><a
+									<td class="centerMe">${days.tripDay}</td>
+									<td class="centerMe">${days.description }</td>
+									<td class="centerMe"><a
 										href="viewDestination.do?destinationId=${days.destination.id}">${days.destination.name}</a></td>
-									<td><form action="viewTripPictures.do" method="post">
+									<td class="centerMe"><form action="viewTripPictures.do" method="post">
 											<button value="${days.id }" type="submit"
 												class="btn btn-primary deleteButton" name="itineraryItemId">View</button>
 										</form></td>
-									<td><c:if test="${(sessionScope.loggedInUser.id == itinerary.userId.id) or (sessionScope.loggedInUser.username == 'admin' )}">
+									<td class="centerMe"><c:if test="${(sessionScope.loggedInUser.id == itinerary.userId.id) or (sessionScope.loggedInUser.username == 'admin' )}">
 											<form action="createTripPicture.do" method="post">
 												<input type="text"
 													placeholder="Enter a URL to add a picture" name="imageUrl">
@@ -138,7 +138,7 @@
 										</c:if></td>
 									<c:if
 										test="${(sessionScope.loggedInUser.id == itinerary.userId.id) or (sessionScope.loggedInUser.username == 'admin' )}">
-										<td>
+										<td class="centerMe">
 											<form action="deleteItineraryItem.do" method="post">
 												<input type="hidden" value="${itinerary.id }"
 													name="itineraryId"> <input type="hidden"
