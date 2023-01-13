@@ -31,8 +31,8 @@ Username: admin
 Password: chaotic_slime
 ## Implementation
 
-itineraryshareimg.png
 
+![ERD](itineraryshareimg.png)
 ## Technologies and Methodologies Used
 
 Languages: Java, SQL
