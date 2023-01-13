@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.skilldistillery.itinerary.entities.Destination;
 import com.skilldistillery.itinerary.entities.Itinerary;
 import com.skilldistillery.itinerary.entities.ItineraryItem;
+import com.skilldistillery.itinerary.entities.TripPicture;
 
 @Service
 @Transactional
@@ -65,6 +66,13 @@ public class ItineraryItemDAOImpl implements ItineraryItemDAO {
 	@Override
 	public ItineraryItem removeItineraryItem (int itemId) {
 		ItineraryItem removal = em.find(ItineraryItem.class, itemId);
+		String query = "SELECT tp FROM TripPicture tp WHERE tp.itineraryItem.id = :id";
+		List<TripPicture> pictureList = em.createQuery(query, TripPicture.class).setParameter("id", itemId).getResultList();
+		if (pictureList.size() > 0) {
+			for (TripPicture picture : pictureList) {
+				em.remove(picture);
+			}
+		}
 		em.remove(removal);
 		return removal;
 	}
