@@ -21,26 +21,19 @@
 				<div class="container">
 					<!--   fixed position -->
 					<img class="img-fluid"
-						src="${sessionScope.loggedInUser.profilePicture}">
+						src="${sessionScope.loggedInUser.profilePicture}" onerror="this.onerror=null; this.src='https://t4.ftcdn.net/jpg/03/46/93/61/360_F_346936114_RaxE6OQogebgAWTalE1myseY1Hbb5qPM.jpg'"
+								>
 				</div>
 				<div class="container">
-					<div class="row">
-						<h5 class="col profile__heading">User Info</h5>
+					<div class="row centerMe">
+						<h5>User Info</h5>
 
-						<div class="col profile__info">
-							Name: ${sessionScope.loggedInUser.firstName}
-							${sessionScope.loggedInUser.lastName} <br> Active:
+							<strong>Name:</strong> ${sessionScope.loggedInUser.firstName}
+							${sessionScope.loggedInUser.lastName} <br> <strong>Active:</strong>
 							${sessionScope.loggedInUser.enabled}
-						</div>
-					</div>
+						<h5>Biography</h5>
+							${sessionScope.loggedInUser.biography}<br/>
 				</div>
-
-				<div class="container">
-					<div class="row">
-						<h5 class="col profile__heading">Biography</h5>
-						<div class="col profile__info">
-							${sessionScope.loggedInUser.biography}</div>
-					</div>
 				</div>
 				</div>
 				</div>
@@ -48,8 +41,9 @@
 		<!-- Itinerary Info END -->
 		<div class="col-1"></div>
 		<!-- Itineraries START -->
-		<div class="col-7" style="background: white;">
+		<div class="col-7 rounded-col" style="background: white;">
 			<div class="container">
+			<br/>
 				<form action="updateAccount.do" method="POST">
 					<input type="hidden" value="${sessionScope.loggedInUser.id}"
 						name="accountId"> <input type="hidden"
@@ -112,25 +106,18 @@
 				<div class="container">
 					<!--   fixed position -->
 					<img class="img-fluid"
-						src="${updateId.profilePicture}">
+						src="${updateId.profilePicture}" onerror="this.onerror=null; this.src='https://t4.ftcdn.net/jpg/03/46/93/61/360_F_346936114_RaxE6OQogebgAWTalE1myseY1Hbb5qPM.jpg'"
+								>
 				</div>
 				<div class="container">
-					<div class="row">
-						<h5 class="col profile__heading">User Info</h5>
+					<div class="row centerMe">
+						<h5>User Info</h5>
 
-						<div class="col profile__info">
-							Name: ${updateId.firstName}
-							${updateId.lastName} <br> Active:
+							<strong>Name:</strong> ${updateId.firstName}
+							${updateId.lastName} <br> <strong>Active:</strong>
 							${updateId.enabled}
-						</div>
-					</div>
-				</div>
-
-				<div class="container">
-					<div class="row">
-						<h5 class="col profile__heading">Biography</h5>
-						<div class="col profile__info">
-							${updateId.biography}</div>
+						<h5>Biography</h5>
+							${updateId.biography}<br/>
 					</div>
 				</div>
 				</div>
@@ -139,9 +126,10 @@
 		<!-- Itinerary Info END -->
 		<div class="col-1"></div>
 		<!-- Itineraries START -->
-		<div class="col-7" style="background: white;">
+		<div class="col-7 rounded-col" style="background: white;">
 			<div class="container">
-				<form action="updateAccount.do" method="POST">
+			<br/>
+				<form action="updateAccount.do" method="POST" class="roundedForm">
 					<input type="hidden" value="${updateId.id}"
 						name="accountId"> <input type="hidden"
 						value="${updateId.username}" name="username">

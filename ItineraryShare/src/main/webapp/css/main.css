@@ -351,3 +351,7 @@ body{
 .comment-row {
 	background: #ffffffb5;
 }
+
+.rounded-col {
+	border-radius: 15px;
+}

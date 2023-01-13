@@ -60,7 +60,9 @@
 
 				<!-- Itineraries START -->
 				<div class="col-lg-9">
+				<div class="centerMe">
 					<h4>Your Itineraries</h4>
+					</div>
 
 					<div class="cards">
 
@@ -152,7 +154,9 @@
 				<div class="col-lg-9">
 				<div class="centerMe">
 				<br/>
+				<div class="centerMe">
 					<h4>${userId.username}'s Itineraries</h4>
+					</div>
 				</div>
 
 					<div class="cards">
@@ -212,7 +216,9 @@
 
 				<!-- Itineraries START -->
 				<div class="col-lg-9">
+				<div class="centerMe">
 					<h4>${userId.username}'s Itineraries</h4>
+					</div>
 
 					<div class="cards">
 						<!-- User Itineraries START -->
