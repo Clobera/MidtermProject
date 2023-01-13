@@ -31,7 +31,7 @@ Username: admin
 Password: chaotic_slime
 ## Implementation
 
-./DB/itineraryshareimg.png
+itineraryshareimg.png
 
 ## Technologies and Methodologies Used
 
