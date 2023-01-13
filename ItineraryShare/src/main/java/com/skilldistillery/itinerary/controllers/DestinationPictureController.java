@@ -32,7 +32,7 @@ public class DestinationPictureController {
 		return new User();
 	}
 	
-	@PostMapping(path="viewDestinationPictures.do", params={"destinationId"})
+	@GetMapping(path="viewDestinationPictures.do", params={"destinationId"})
 	public String viewDestinationPictures(Model model, int destinationId) {
 		List<DestinationPicture> pictures = destinationPictureDao.findDestinationPicturesByItemId(destinationId);
 		model.addAttribute("pictures", pictures);
